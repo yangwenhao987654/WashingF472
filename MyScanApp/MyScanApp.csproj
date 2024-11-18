@@ -85,7 +85,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
+  <ItemGroup>
     <Content Include="ZCLogo_12.ico" />
   </ItemGroup>
   <ItemGroup>
