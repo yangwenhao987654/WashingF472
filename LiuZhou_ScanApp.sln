@@ -10,10 +10,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UtilUIYwh", "UtilUIYwh\Util
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationUtilYwh", "CommunicationUtilYwh\CommunicationUtilYwh.csproj", "{090B0E1F-85F5-451E-B546-FBE7C2AFBAB8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScadaBase.DAL", "ScadaBase.DAL\ScadaBase.DAL.csproj", "{BA60097F-FC17-449F-97CF-0CD410686B51}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScanApp", "ScanApp.Main\ScanApp.csproj", "{2D3F1380-CF47-4C82-902A-C54025E3E9FA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,22 +50,6 @@ Global
 		{090B0E1F-85F5-451E-B546-FBE7C2AFBAB8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{090B0E1F-85F5-451E-B546-FBE7C2AFBAB8}.Release|x64.ActiveCfg = Release|Any CPU
 		{090B0E1F-85F5-451E-B546-FBE7C2AFBAB8}.Release|x64.Build.0 = Release|Any CPU
-		{BA60097F-FC17-449F-97CF-0CD410686B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA60097F-FC17-449F-97CF-0CD410686B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA60097F-FC17-449F-97CF-0CD410686B51}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{BA60097F-FC17-449F-97CF-0CD410686B51}.Debug|x64.Build.0 = Debug|Any CPU
-		{BA60097F-FC17-449F-97CF-0CD410686B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA60097F-FC17-449F-97CF-0CD410686B51}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA60097F-FC17-449F-97CF-0CD410686B51}.Release|x64.ActiveCfg = Release|Any CPU
-		{BA60097F-FC17-449F-97CF-0CD410686B51}.Release|x64.Build.0 = Release|Any CPU
-		{2D3F1380-CF47-4C82-902A-C54025E3E9FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D3F1380-CF47-4C82-902A-C54025E3E9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D3F1380-CF47-4C82-902A-C54025E3E9FA}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{2D3F1380-CF47-4C82-902A-C54025E3E9FA}.Debug|x64.Build.0 = Debug|Any CPU
-		{2D3F1380-CF47-4C82-902A-C54025E3E9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D3F1380-CF47-4C82-902A-C54025E3E9FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D3F1380-CF47-4C82-902A-C54025E3E9FA}.Release|x64.ActiveCfg = Release|Any CPU
-		{2D3F1380-CF47-4C82-902A-C54025E3E9FA}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

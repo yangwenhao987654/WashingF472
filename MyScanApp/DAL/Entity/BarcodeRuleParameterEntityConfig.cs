@@ -1,0 +1,28 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ScanApp.DAL.Entity
+{
+    public class BarcodeRuleParameterEntityConfig : IEntityTypeConfiguration<BarcodeRuleParameter>
+    {
+        public void Configure(EntityTypeBuilder<BarcodeRuleParameter> builder)
+        {
+            builder.ToTable("tbRuleParameter");
+         /*   builder.Property(r => r.ErrInfo).HasDefaultValue("").HasMaxLength(100).IsRequired(false);
+            builder.Property(r => r.UseTime);
+
+            builder.Property(r => r.Barcode).HasMaxLength(100).IsRequired(false);
+
+
+            builder.Property(r => r.Result).HasDefaultValue(false).IsRequired(false);
+            builder.Property(r => r.UseDateStr).HasMaxLength(20).IsRequired(false);*/
+
+
+        }
+    }
+}
