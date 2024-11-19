@@ -1,9 +1,12 @@
-﻿using DWZ_Scada.Pages;
-using LogTool;
+﻿using LogTool;
 using Microsoft.Extensions.DependencyInjection;
+using ScanApp.DAL.DBContext;
+using ScanApp.DAL.Entity;
 using ScanApp.DAL.ExecuteSQL;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -26,46 +29,6 @@ namespace DWZ_Scada
 
                 bool canCreateNew;
                 string mutexName = System.Reflection.Assembly.GetEntryAssembly().FullName;
-                using (Mutex m = new Mutex(false, mutexName, out canCreateNew))
-                {
-                    //GC.RegisterForFullGCNotification(GarbageCollectionNotificationCallback,null));
-                        #region 处理全局异常,Task类中出现的异常无法在此捕获.
-                        Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
-                        //处理UI异常
-                        Application.ThreadException += Application_ThreadException;
-                        //处理非UI异常
-                        AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-                        Application.EnableVisualStyles();
-                        Application.SetCompatibleTextRenderingDefault(false);
-                        #endregion
-                        //TODO 先登录 登录成功后进入系统
-                        LogMgr.Instance.Init();
-                        SystemParams.Load();
-                        if (!canCreateNew)
-                        {
-                            MessageBox.Show(null, "有一个和本程序相同的应用程序已经在运行，请不要同时运行多个本程序。\n\n这个程序即将退出。", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            Environment.Exit(1);
-                            return;
-                        }
-
-
-                        //假如更新数据库 就屏蔽下面的东西
-#if !UPDATE_DB 
-                    var serviceCollection = new ServiceCollection();
-
-                    ConfigureServices(serviceCollection);
-                    Global.ServiceProvider = serviceCollection.BuildServiceProvider();
-                    ZCForm mainForm = ZCForm.Instance;
-                    //mainForm.WindowState = FormWindowState.Maximized;
-
-                    /* MyDbContext db = new MyDbContext();
-                     List<BarcodeRecordEntity> list = db.tbBarcode.ToList();*/
-                    Application.Run(mainForm);
-#else
-                    int a = 1;
-#endif
-
-                }
             }
             catch (Exception ex)
             {

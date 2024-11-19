@@ -5,10 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using ScanApp.DAL.Entity;
 using ScanApp.DAL.ExecuteSQL;
 using Sunny.UI;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DWZ_Scada.Pages
 {

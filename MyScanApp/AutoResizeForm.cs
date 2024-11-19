@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 namespace CSharpFormApplication
 {
-    class AutoResizeForm
+    public class AutoResizeForm
     {
         //(1).声明结构,只记录窗体和其控件的初始位置和大小。
         public struct controlRect

@@ -6,14 +6,6 @@
       "remoteDebugMachine": "DESKTOP-C6Q8UJ6:4026",
       "authenticationMode": "None",
       "nativeDebugging": true
-    },
-    "OP10远程调试": {
-      "commandName": "Project",
-      "workingDirectory": "\\\\DESKTOP-C6Q8UJ6\\ExeTest\\Debug\\net8.0-windows",
-      "remoteDebugEnabled": true,
-      "remoteDebugMachine": "DESKTOP-C6Q8UJ6:4026",
-      "authenticationMode": "None",
-      "nativeDebugging": true
     }
   }
 }
