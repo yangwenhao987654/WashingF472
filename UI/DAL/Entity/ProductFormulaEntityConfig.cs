@@ -17,6 +17,11 @@ namespace ScanApp.DAL.Entity
             builder.Property(r => r.ProductCode).HasMaxLength(50).IsRequired(false);
             builder.Property(r => r.ProductName).HasMaxLength(50).IsRequired(false);
             builder.Property(r => r.ProductType).HasMaxLength(50).IsRequired(false);
+
+
+            builder.Property(r => r.SupplierCode).HasMaxLength(50).IsRequired(false);
+
+            builder.Property(r => r.MatchRule).HasMaxLength(50).IsRequired(false);
         }
     }
 }

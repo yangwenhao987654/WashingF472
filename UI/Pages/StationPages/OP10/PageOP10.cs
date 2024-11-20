@@ -1,9 +1,9 @@
 ﻿using DWZ_Scada.ctrls.LogCtrl;
+using DWZ_Scada.Forms.ProductFormula;
 using DWZ_Scada.UIUtil;
 using LogTool;
 using Sunny.UI;
-using System;
-using System.Windows.Forms;
+using UI.Forms.BarcodeRules;
 
 namespace DWZ_Scada.Pages.StationPages.OP10
 {
@@ -43,13 +43,13 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             //LogMgr.Instance.SetCtrl(listViewEx_Log1);
             LogMgr.Instance.Debug("打开扫码对比软件");
 
-            OP10MainFunc.Instance.StartAsync();
+            //OP10MainFunc.Instance.StartAsync();
 
             myLogCtrl1.BindingControl = uiPanel1;
             Mylog.Instance.Init(myLogCtrl1);
         }
 
-     
+
         private void Instance_OnEntryStateChanged(string sn, int result, string msg = "")
         {
             MyUIControler.UpdateEntryStateCtrl(userCtrlEntry1, sn, result, msg);
@@ -73,9 +73,16 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             //调用 Close() 方法,先进入  FormClosing 事件 ，之后再调用Designer类的Dispose
         }
 
-        private void workOrderCtrl1_Load(object sender, EventArgs e)
-        {
 
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void uiButton2_Click(object sender, EventArgs e)
+        {
+            FormRulesQuery form = new FormRulesQuery();
+            form.ShowDialog();
         }
     }
 }

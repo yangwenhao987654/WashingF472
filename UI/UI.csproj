@@ -8,6 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" />
+
   <ItemGroup>
     <Compile Update="AAAForm1.cs">
       <SubType>Form</SubType>
@@ -33,7 +35,19 @@
     <Compile Update="ctrls\windingCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Forms\BarcodeRules\FormRulesSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\BarcodeRules\FormRulesAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\BarcodeRules\FormRulesUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\ProductFormula\FormProductFormulaAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\RuleParameters\FormRuleParamsSetting.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Pages\PageProperty.cs">
@@ -54,17 +68,40 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DAL\BLL\" />
     <Folder Include="Pages\PLCControl\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyScanApp\MyScanApp.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SunnyUI" Version="3.7.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommunicationUtilYwh\CommunicationUtilYwh.csproj" />
+    <ProjectReference Include="..\LogTool\LogTool.csproj" />
+    <ProjectReference Include="..\UtilUIYwh\UtilUIYwh.csproj" />
+    <ProjectReference Include="..\UtilYwh\UtilYwh.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Pages\ZCForm.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Config\Log4Net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

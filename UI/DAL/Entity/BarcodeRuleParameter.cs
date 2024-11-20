@@ -29,5 +29,8 @@ namespace ScanApp.DAL.Entity
         /// 进行长度校验
         /// </summary>
         public bool NeedCheckLength { get; set; } // 参数长度
+
+
+        public int Sequence { get; set; } // 顺序字段，用于区分规则中的参数位置
     }
 }

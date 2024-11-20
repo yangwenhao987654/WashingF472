@@ -1,12 +1,7 @@
 ﻿using LogTool;
 using Microsoft.Extensions.DependencyInjection;
-using ScanApp.DAL.DBContext;
-using ScanApp.DAL.Entity;
-using ScanApp.DAL.ExecuteSQL;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -44,8 +39,6 @@ namespace DWZ_Scada
         {
 
             #region 注册数据库访问接口
-
-            services.AddSingleton<IProductFormulaDAL, ProductFormulaDAL>();
 
             #endregion
 

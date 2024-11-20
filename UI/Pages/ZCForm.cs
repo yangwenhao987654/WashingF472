@@ -91,12 +91,14 @@ namespace DWZ_Scada.Pages
             Assembly assembly = Assembly.GetExecutingAssembly();
             Version version = assembly.GetName().Version;
             lbl_Version.Text = version.ToString();
+            SetAutoStart();
         }
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.F1:
+                    SetAutoStart();
                     break;
                 case Keys.F2:
                     //AddFormTopanel(PageAlarmTabMenu.Instance);
@@ -153,7 +155,7 @@ namespace DWZ_Scada.Pages
             form.Show();
             uiPanel1.Controls.Add(form);
             mainForm = form;
-            this.Text = "数据采集系统-" + mainForm.Text;
+            //this.Text = "数据采集系统-" + mainForm.Text;
         }
 
         private void TimerElapsed(object state)
@@ -228,7 +230,12 @@ namespace DWZ_Scada.Pages
 
         private void uiButton2_Click(object sender, EventArgs e)
         {
-            //SetAutoStart();
+            SetAutoStart();
+        }
+
+        private void SetAutoStart()
+        {
+            AddFormTopanel(PageOP10.Instance);
         }
 
         private void uiButton8_Click(object sender, EventArgs e)

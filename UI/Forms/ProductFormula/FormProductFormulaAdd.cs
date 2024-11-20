@@ -13,7 +13,7 @@ namespace DWZ_Scada.Forms.ProductFormula
         public FormProductFormulaAdd()
         {
             InitializeComponent();
-            productFormulaDAL = Global.ServiceProvider.GetRequiredService<IProductFormulaDAL>();
+
         }
 
         private IProductFormulaDAL productFormulaDAL;
@@ -60,6 +60,11 @@ namespace DWZ_Scada.Forms.ProductFormula
         private void uiButton2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormProductFormulaAdd_Load(object sender, EventArgs e)
+        {
+            productFormulaDAL = Global.ServiceProvider.GetRequiredService<IProductFormulaDAL>();
         }
     }
 }

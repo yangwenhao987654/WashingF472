@@ -19,6 +19,11 @@ namespace ScanApp.DAL.DBContext
 
         public DbSet<BarcodeRecordEntity> tbBarcode { get; set; }
 
+        public DbSet<BarcodeRuleParameter> tbRuleParameter{ get; set; }
+
+
+        public DbSet<BarcodeRule> tbBarcodeRule{ get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             try
