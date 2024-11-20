@@ -53,6 +53,9 @@
     <Compile Update="Forms\BarcodeRules\FormRulesUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\ProductFormula\FormProductFormulaSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\ProductFormula\FormProductFormulaAdd.cs">
       <SubType>Form</SubType>
     </Compile>

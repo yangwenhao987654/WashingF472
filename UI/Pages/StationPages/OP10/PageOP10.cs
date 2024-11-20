@@ -1,4 +1,6 @@
-﻿using DWZ_Scada.ctrls.LogCtrl;
+﻿using System.IO.Ports;
+using CommunicationUtilYwh.Device;
+using DWZ_Scada.ctrls.LogCtrl;
 using DWZ_Scada.Forms.ProductFormula;
 using DWZ_Scada.UIUtil;
 using LogTool;
@@ -15,6 +17,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
     {
 
         private readonly Action _clearAlarmDelegate;
+
+        private Scanner_RS232 scanner;
 
 
         private static PageOP10 _instance;
@@ -67,6 +71,15 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             });
             uiComboBox1.DataSource = list;
             uiComboBox1.DisplayMember = "ProductName";
+
+            SerialPort port = new SerialPort("COM1");
+            scanner = new Scanner_RS232(port);
+            bool isOpen = scanner.Open();
+            if (!isOpen)
+            {
+                UIMessageBox.ShowError("扫码枪串口打开失败");
+            }
+
         }
 
 
@@ -93,11 +106,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             //调用 Close() 方法,先进入  FormClosing 事件 ，之后再调用Designer类的Dispose
         }
 
-
-        private void uiButton1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void uiButton2_Click(object sender, EventArgs e)
         {
@@ -164,7 +172,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private void uiButton1_Click_1(object sender, EventArgs e)
         {
-            if (SelectProduct==null)
+            if (SelectProduct == null)
             {
                 UIMessageBox.ShowError("请先选择产品");
                 return;
@@ -189,7 +197,19 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             {
                 UIMessageBox.ShowError($"校验异常:{exception.Message}");
             }
-          
+        }
+
+        private async void uiButton3_Click(object sender, EventArgs e)
+        {
+            string result = await Task.Run(async () =>
+            {
+                scanner.Trigger();
+
+                string result = scanner.GetResult();
+                return result;
+            });
+
+            tbx_Input.Text = result;
         }
     }
 }

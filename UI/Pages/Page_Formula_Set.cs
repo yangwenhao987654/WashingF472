@@ -124,7 +124,7 @@ namespace DWZ_Scada.Pages
             try
             {
                 int id = (int)dgv.Rows[index].Cells[5].Value;
-                FormProductFormulaUpdate form = new FormProductFormulaUpdate(id);
+                FormProductFormulaSetting form = new FormProductFormulaSetting(id);
                 form.ShowDialog();
                 SelectAll();
             }

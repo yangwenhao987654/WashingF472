@@ -36,6 +36,12 @@ namespace CommunicationUtilYwh.Communication
             }
         }
 
+        public SerialCommunication(SerialPort serialPort )
+        {
+            this.serialPort = serialPort;
+            this.portName = serialPort.PortName;
+        }
+
         public SerialCommunication( string portName, int baudRate , Parity parity ,int dataBits ,StopBits stopBits)
         {
             serialPort = new SerialPort(portName,baudRate,parity,dataBits,stopBits);
@@ -295,40 +301,47 @@ namespace CommunicationUtilYwh.Communication
             }
             return result;
         }
-     /*   #region 读一行 循环读取三次
-        public ReadResult ReadLine()
+
+
+        public string ReadStr()
         {
-            ReadResult result = new ReadResult();
-            result.Code = ResultCode.Fail;
-            result.Msg = "没有数据";
+            string type = "ASCII";
             try
             {
-                for(int i = 0; i < 3; i++)
+                byte[] receivedData = new byte[serialPort.BytesToRead];//创建接收数据数组
+                serialPort.Read(receivedData, 0, receivedData.Length);//读取数据
+                var content = string.Empty;
+                //显示形式
+                switch (type)
                 {
-
-                    if(serialPort.BytesToRead > 0)
-                    {
-                        string receivedData = serialPort.ReadLine();
-                        if(receivedData != null)
+                    case "HEX":
+                        for (int i = 0; i < receivedData.Length; i++)
                         {
-                            MessageBox.Show(receivedData);
-                            SetSuccessResult(result, receivedData);
-                            serialPort.DiscardInBuffer();
-                            return result;
+                            //ToString("X2") 为C#中的字符串格式控制符
+                            //X为     十六进制
+                            //2为 每次都是两位数
+                            content += (receivedData[i].ToString("X2") + " ");
                         }
-                        // 处理接收到的数据，可以在这里进行相应的操作
-                    }
+                        break;
+                    case "ASCII":
+                        content = Encoding.GetEncoding("GB2312").GetString(receivedData);//防止乱码
+                        break;
                 }
-                Thread.Sleep(20);
+                //接收文本框
+      
+                //丢弃缓存区数据
+                serialPort.DiscardInBuffer();
+                return content;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                SetErrResult(result, $"读取失败：{ex.Message}", null);
-                return result;
+                //SetErrResult(out result, $"读取失败：{ex.Message}", null);
+                LogMgr.Instance.Error($"读取错误:{ex.Message}");
+                return "";
             }
-            return result;
-        }   
-        #endregion*/
+            return "";
+        }
+
         public SerialPort SerialPort { get {  return serialPort; } }
         public SerialPort GetSerialPort() {  return serialPort; }
 

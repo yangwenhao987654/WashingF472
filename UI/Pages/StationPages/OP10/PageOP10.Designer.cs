@@ -58,6 +58,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiButton2 = new UIButton();
             uiButton1 = new UIButton();
             tbx_Input = new UITextBox();
+            uiButton3 = new UIButton();
             uiPanel2.SuspendLayout();
             uiPanel1.SuspendLayout();
             SuspendLayout();
@@ -202,11 +203,11 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // 
             uiLabel7.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel7.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel7.Location = new Point(730, 16);
+            uiLabel7.Location = new Point(727, 16);
             uiLabel7.Name = "uiLabel7";
             uiLabel7.Size = new Size(68, 33);
             uiLabel7.TabIndex = 11;
-            uiLabel7.Text = "日期:";
+            uiLabel7.Text = "日  期:";
             uiLabel7.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // uiDatePicker1
@@ -414,10 +415,23 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             tbx_Input.TextAlignment = ContentAlignment.MiddleLeft;
             tbx_Input.Watermark = "";
             // 
+            // uiButton3
+            // 
+            uiButton3.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiButton3.Location = new Point(917, 318);
+            uiButton3.MinimumSize = new Size(1, 1);
+            uiButton3.Name = "uiButton3";
+            uiButton3.Size = new Size(100, 35);
+            uiButton3.TabIndex = 43;
+            uiButton3.Text = "触发扫码";
+            uiButton3.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiButton3.Click += uiButton3_Click;
+            // 
             // PageOP10
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1223, 1000);
+            Controls.Add(uiButton3);
             Controls.Add(tbx_Input);
             Controls.Add(uiButton1);
             Controls.Add(uiButton2);
@@ -466,5 +480,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         private UITextBox tbx_FixValue1;
         private UIButton uiButton1;
         private UITextBox tbx_Input;
+        private UIButton uiButton3;
     }
 }
