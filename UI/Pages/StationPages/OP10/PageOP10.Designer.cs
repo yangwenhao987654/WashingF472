@@ -36,10 +36,29 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             lbl_EntrySN = new UILabel();
             lbl_EntryResult = new UILabel();
             uiPanel2 = new UIPanel();
+            tbx_FixValue1 = new UITextBox();
+            uiLabel9 = new UILabel();
+            tbx_CodeType = new UITextBox();
+            uiLabel5 = new UILabel();
+            tbx_DateFormat = new UITextBox();
+            uiLabel8 = new UILabel();
+            uiLabel7 = new UILabel();
+            uiDatePicker1 = new UIDatePicker();
+            tbx_Part = new UITextBox();
+            uiLabel6 = new UILabel();
+            tbx_Spy = new UITextBox();
+            uiLabel4 = new UILabel();
+            tbx_Code = new UITextBox();
+            uiLabel3 = new UILabel();
+            uiLabel2 = new UILabel();
+            uiComboBox1 = new UIComboBox();
             uiPanel3 = new UIPanel();
             uiPanel1 = new UIPanel();
             myLogCtrl1 = new ctrls.MyLogCtrl();
             uiButton2 = new UIButton();
+            uiButton1 = new UIButton();
+            tbx_Input = new UITextBox();
+            uiPanel2.SuspendLayout();
             uiPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -76,6 +95,22 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // 
             // uiPanel2
             // 
+            uiPanel2.Controls.Add(tbx_FixValue1);
+            uiPanel2.Controls.Add(uiLabel9);
+            uiPanel2.Controls.Add(tbx_CodeType);
+            uiPanel2.Controls.Add(uiLabel5);
+            uiPanel2.Controls.Add(tbx_DateFormat);
+            uiPanel2.Controls.Add(uiLabel8);
+            uiPanel2.Controls.Add(uiLabel7);
+            uiPanel2.Controls.Add(uiDatePicker1);
+            uiPanel2.Controls.Add(tbx_Part);
+            uiPanel2.Controls.Add(uiLabel6);
+            uiPanel2.Controls.Add(tbx_Spy);
+            uiPanel2.Controls.Add(uiLabel4);
+            uiPanel2.Controls.Add(tbx_Code);
+            uiPanel2.Controls.Add(uiLabel3);
+            uiPanel2.Controls.Add(uiLabel2);
+            uiPanel2.Controls.Add(uiComboBox1);
             uiPanel2.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiPanel2.Location = new Point(13, 64);
             uiPanel2.Margin = new Padding(4, 5, 4, 5);
@@ -83,8 +118,223 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiPanel2.Name = "uiPanel2";
             uiPanel2.Size = new Size(1194, 141);
             uiPanel2.TabIndex = 36;
-            uiPanel2.Text = "产品配方";
+            uiPanel2.Text = null;
             uiPanel2.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // tbx_FixValue1
+            // 
+            tbx_FixValue1.Enabled = false;
+            tbx_FixValue1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            tbx_FixValue1.Location = new Point(485, 101);
+            tbx_FixValue1.Margin = new Padding(4, 5, 4, 5);
+            tbx_FixValue1.MinimumSize = new Size(1, 16);
+            tbx_FixValue1.Name = "tbx_FixValue1";
+            tbx_FixValue1.Padding = new Padding(5);
+            tbx_FixValue1.ShowText = false;
+            tbx_FixValue1.Size = new Size(150, 29);
+            tbx_FixValue1.TabIndex = 17;
+            tbx_FixValue1.TextAlignment = ContentAlignment.MiddleLeft;
+            tbx_FixValue1.Watermark = "";
+            // 
+            // uiLabel9
+            // 
+            uiLabel9.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel9.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel9.Location = new Point(393, 97);
+            uiLabel9.Name = "uiLabel9";
+            uiLabel9.Size = new Size(82, 33);
+            uiLabel9.TabIndex = 16;
+            uiLabel9.Text = "固定位:";
+            uiLabel9.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // tbx_CodeType
+            // 
+            tbx_CodeType.Enabled = false;
+            tbx_CodeType.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            tbx_CodeType.Location = new Point(142, 101);
+            tbx_CodeType.Margin = new Padding(4, 5, 4, 5);
+            tbx_CodeType.MinimumSize = new Size(1, 16);
+            tbx_CodeType.Name = "tbx_CodeType";
+            tbx_CodeType.Padding = new Padding(5);
+            tbx_CodeType.ShowText = false;
+            tbx_CodeType.Size = new Size(150, 29);
+            tbx_CodeType.TabIndex = 15;
+            tbx_CodeType.TextAlignment = ContentAlignment.MiddleLeft;
+            tbx_CodeType.Watermark = "";
+            // 
+            // uiLabel5
+            // 
+            uiLabel5.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel5.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel5.Location = new Point(22, 101);
+            uiLabel5.Name = "uiLabel5";
+            uiLabel5.Size = new Size(88, 23);
+            uiLabel5.TabIndex = 14;
+            uiLabel5.Text = "条码类型:";
+            // 
+            // tbx_DateFormat
+            // 
+            tbx_DateFormat.Enabled = false;
+            tbx_DateFormat.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            tbx_DateFormat.Location = new Point(819, 74);
+            tbx_DateFormat.Margin = new Padding(4, 5, 4, 5);
+            tbx_DateFormat.MinimumSize = new Size(1, 16);
+            tbx_DateFormat.Name = "tbx_DateFormat";
+            tbx_DateFormat.Padding = new Padding(5);
+            tbx_DateFormat.ShowText = false;
+            tbx_DateFormat.Size = new Size(150, 29);
+            tbx_DateFormat.TabIndex = 13;
+            tbx_DateFormat.TextAlignment = ContentAlignment.MiddleLeft;
+            tbx_DateFormat.Watermark = "";
+            // 
+            // uiLabel8
+            // 
+            uiLabel8.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel8.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel8.Location = new Point(714, 70);
+            uiLabel8.Name = "uiLabel8";
+            uiLabel8.Size = new Size(82, 33);
+            uiLabel8.TabIndex = 12;
+            uiLabel8.Text = "日期格式:";
+            uiLabel8.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel7
+            // 
+            uiLabel7.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel7.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel7.Location = new Point(730, 16);
+            uiLabel7.Name = "uiLabel7";
+            uiLabel7.Size = new Size(68, 33);
+            uiLabel7.TabIndex = 11;
+            uiLabel7.Text = "日期:";
+            uiLabel7.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // uiDatePicker1
+            // 
+            uiDatePicker1.FillColor = Color.White;
+            uiDatePicker1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiDatePicker1.Location = new Point(819, 16);
+            uiDatePicker1.Margin = new Padding(4, 5, 4, 5);
+            uiDatePicker1.MaxLength = 10;
+            uiDatePicker1.MinimumSize = new Size(63, 0);
+            uiDatePicker1.Name = "uiDatePicker1";
+            uiDatePicker1.Padding = new Padding(0, 0, 30, 2);
+            uiDatePicker1.Size = new Size(150, 29);
+            uiDatePicker1.SymbolDropDown = 61555;
+            uiDatePicker1.SymbolNormal = 61555;
+            uiDatePicker1.SymbolSize = 24;
+            uiDatePicker1.TabIndex = 10;
+            uiDatePicker1.Text = "2024-11-20";
+            uiDatePicker1.TextAlignment = ContentAlignment.MiddleLeft;
+            uiDatePicker1.Value = new DateTime(2024, 11, 20, 13, 20, 11, 817);
+            uiDatePicker1.Watermark = "";
+            // 
+            // tbx_Part
+            // 
+            tbx_Part.Enabled = false;
+            tbx_Part.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            tbx_Part.Location = new Point(485, 65);
+            tbx_Part.Margin = new Padding(4, 5, 4, 5);
+            tbx_Part.MinimumSize = new Size(1, 16);
+            tbx_Part.Name = "tbx_Part";
+            tbx_Part.Padding = new Padding(5);
+            tbx_Part.ShowText = false;
+            tbx_Part.Size = new Size(150, 29);
+            tbx_Part.TabIndex = 9;
+            tbx_Part.TextAlignment = ContentAlignment.MiddleLeft;
+            tbx_Part.Watermark = "";
+            // 
+            // uiLabel6
+            // 
+            uiLabel6.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel6.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel6.Location = new Point(393, 60);
+            uiLabel6.Name = "uiLabel6";
+            uiLabel6.Size = new Size(82, 33);
+            uiLabel6.TabIndex = 7;
+            uiLabel6.Text = "零件号:";
+            uiLabel6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // tbx_Spy
+            // 
+            tbx_Spy.Enabled = false;
+            tbx_Spy.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            tbx_Spy.Location = new Point(485, 20);
+            tbx_Spy.Margin = new Padding(4, 5, 4, 5);
+            tbx_Spy.MinimumSize = new Size(1, 16);
+            tbx_Spy.Name = "tbx_Spy";
+            tbx_Spy.Padding = new Padding(5);
+            tbx_Spy.ShowText = false;
+            tbx_Spy.Size = new Size(150, 29);
+            tbx_Spy.TabIndex = 5;
+            tbx_Spy.TextAlignment = ContentAlignment.MiddleLeft;
+            tbx_Spy.Watermark = "";
+            // 
+            // uiLabel4
+            // 
+            uiLabel4.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel4.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel4.Location = new Point(363, 16);
+            uiLabel4.Name = "uiLabel4";
+            uiLabel4.Size = new Size(99, 33);
+            uiLabel4.TabIndex = 4;
+            uiLabel4.Text = "供应商代码:";
+            uiLabel4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // tbx_Code
+            // 
+            tbx_Code.Enabled = false;
+            tbx_Code.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            tbx_Code.Location = new Point(142, 59);
+            tbx_Code.Margin = new Padding(4, 5, 4, 5);
+            tbx_Code.MinimumSize = new Size(1, 16);
+            tbx_Code.Name = "tbx_Code";
+            tbx_Code.Padding = new Padding(5);
+            tbx_Code.ShowText = false;
+            tbx_Code.Size = new Size(150, 29);
+            tbx_Code.TabIndex = 3;
+            tbx_Code.TextAlignment = ContentAlignment.MiddleLeft;
+            tbx_Code.Watermark = "";
+            // 
+            // uiLabel3
+            // 
+            uiLabel3.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel3.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel3.Location = new Point(22, 65);
+            uiLabel3.Name = "uiLabel3";
+            uiLabel3.Size = new Size(88, 23);
+            uiLabel3.TabIndex = 2;
+            uiLabel3.Text = "产品编号:";
+            // 
+            // uiLabel2
+            // 
+            uiLabel2.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel2.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel2.Location = new Point(22, 24);
+            uiLabel2.Name = "uiLabel2";
+            uiLabel2.Size = new Size(88, 23);
+            uiLabel2.TabIndex = 1;
+            uiLabel2.Text = "产品名称:";
+            // 
+            // uiComboBox1
+            // 
+            uiComboBox1.DataSource = null;
+            uiComboBox1.FillColor = Color.White;
+            uiComboBox1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiComboBox1.ItemHoverColor = Color.FromArgb(155, 200, 255);
+            uiComboBox1.ItemSelectForeColor = Color.FromArgb(235, 243, 255);
+            uiComboBox1.Location = new Point(142, 20);
+            uiComboBox1.Margin = new Padding(4, 5, 4, 5);
+            uiComboBox1.MinimumSize = new Size(63, 0);
+            uiComboBox1.Name = "uiComboBox1";
+            uiComboBox1.Padding = new Padding(0, 0, 30, 2);
+            uiComboBox1.Size = new Size(150, 29);
+            uiComboBox1.SymbolSize = 24;
+            uiComboBox1.TabIndex = 0;
+            uiComboBox1.Text = "uiComboBox1";
+            uiComboBox1.TextAlignment = ContentAlignment.MiddleLeft;
+            uiComboBox1.Watermark = "";
+            uiComboBox1.SelectedIndexChanged += uiComboBox1_SelectedIndexChanged;
             // 
             // uiPanel3
             // 
@@ -129,7 +379,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // uiButton2
             // 
             uiButton2.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiButton2.Location = new Point(573, 349);
+            uiButton2.Location = new Point(1056, 246);
             uiButton2.MinimumSize = new Size(1, 1);
             uiButton2.Name = "uiButton2";
             uiButton2.Size = new Size(151, 56);
@@ -138,10 +388,38 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiButton2.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiButton2.Click += uiButton2_Click;
             // 
+            // uiButton1
+            // 
+            uiButton1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiButton1.Location = new Point(917, 249);
+            uiButton1.MinimumSize = new Size(1, 1);
+            uiButton1.Name = "uiButton1";
+            uiButton1.Size = new Size(100, 35);
+            uiButton1.TabIndex = 41;
+            uiButton1.Text = "测试";
+            uiButton1.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiButton1.Click += uiButton1_Click_1;
+            // 
+            // tbx_Input
+            // 
+            tbx_Input.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            tbx_Input.Location = new Point(327, 246);
+            tbx_Input.Margin = new Padding(4, 5, 4, 5);
+            tbx_Input.MinimumSize = new Size(1, 16);
+            tbx_Input.Name = "tbx_Input";
+            tbx_Input.Padding = new Padding(5);
+            tbx_Input.ShowText = false;
+            tbx_Input.Size = new Size(569, 38);
+            tbx_Input.TabIndex = 42;
+            tbx_Input.TextAlignment = ContentAlignment.MiddleLeft;
+            tbx_Input.Watermark = "";
+            // 
             // PageOP10
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1223, 1000);
+            Controls.Add(tbx_Input);
+            Controls.Add(uiButton1);
             Controls.Add(uiButton2);
             Controls.Add(uiPanel1);
             Controls.Add(uiPanel3);
@@ -155,6 +433,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             TitleFillColor = Color.Transparent;
             FormClosing += PageOP10_FormClosing;
             Load += Page_Load;
+            uiPanel2.ResumeLayout(false);
             uiPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -169,5 +448,23 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         private UIPanel uiPanel3;
         private UIPanel uiPanel1;
         private UIButton uiButton2;
+        private UIComboBox uiComboBox1;
+        private UILabel uiLabel3;
+        private UITextBox tbx_Code;
+        private UILabel uiLabel4;
+        private UITextBox tbx_Spy;
+        private UILabel uiLabel6;
+        private UITextBox tbx_Part;
+        private UILabel uiLabel7;
+        private UIDatePicker uiDatePicker1;
+        private UITextBox tbx_DateFormat;
+        private UILabel uiLabel8;
+        private UILabel uiLabel2;
+        private UITextBox tbx_CodeType;
+        private UILabel uiLabel5;
+        private UILabel uiLabel9;
+        private UITextBox tbx_FixValue1;
+        private UIButton uiButton1;
+        private UITextBox tbx_Input;
     }
 }

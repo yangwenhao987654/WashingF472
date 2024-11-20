@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScanApp.DAL.DBContext;
 
@@ -10,9 +11,11 @@ using ScanApp.DAL.DBContext;
 namespace ScanApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241120054051_barcodeInfo")]
+    partial class barcodeInfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.11");
@@ -143,10 +146,6 @@ namespace ScanApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("MatchRule")
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PartCode")
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
