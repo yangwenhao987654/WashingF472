@@ -211,12 +211,18 @@ namespace DWZ_Scada.Forms.ProductFormula
             }
             try
             {
+                int id =(int) dgv.Rows[index].Cells[5].Value;
                 using (MyDbContext db = new MyDbContext())
                 {
                     BarcodeRule rule = db.tbBarcodeRule.Include(r => r.Parameters).FirstOrDefault(r => r.Id == RuleId);
                     if (rule != null)
                     {
-                        rule.Parameters.RemoveAt(index);
+                        BarcodeRuleParameter row = rule.Parameters.Where(r=>r.Id==id).FirstOrDefault();
+                        if (row==null)
+                        {
+                            return;
+                        }
+                        rule.Parameters.Remove(row);
                         ShowRuleTable(rule.Parameters);
                         rule.Parameters= UpdateSeq( rule.Parameters);
                         db.SaveChanges();
