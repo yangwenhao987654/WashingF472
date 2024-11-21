@@ -62,17 +62,20 @@ namespace DWZ_Scada.Pages
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(dgv);
-                row.Cells[0].Value = id++;
-                row.Cells[1].Value = item.ProductType;
-                row.Cells[2].Value = item.ProductName;
-                row.Cells[3].Value = item.ProductCode;
+                row.Cells[clmRowID.Index].Value =item.ID ;
+                row.Cells[clmOrderNum.Index].Value = id++;
+                row.Cells[clmName.Index].Value = item.ProductName;
+                row.Cells[clmCode.Index].Value = item.ProductCode;
 
-                //增加隐藏ID列
-                row.Cells[5].Value = item.ID;
+                row.Cells[clmBarcodeType.Index].Value = item.BarcodeType;
+                row.Cells[clmSupplierCode.Index].Value = item.SupplierCode;
+                row.Cells[clmPartNum.Index].Value = item.PartCode;
+                row.Cells[clmFixValue1.Index].Value = item.FixedValue1;
                 dgv.Rows.Add(row);
             }
             dgv.ResumeLayout();
             dgv.ClearSelection();
+            dgv.CurrentCell =null;
         }
 
         private void Page_Formula_Set_SizeChanged(object sender, EventArgs e)
@@ -123,7 +126,7 @@ namespace DWZ_Scada.Pages
             }
             try
             {
-                int id = (int)dgv.Rows[index].Cells[5].Value;
+                int id = (int)dgv.Rows[index].Cells[clmRowID.Index].Value;
                 FormProductFormulaSetting form = new FormProductFormulaSetting(id);
                 form.ShowDialog();
                 SelectAll();
@@ -152,7 +155,7 @@ namespace DWZ_Scada.Pages
                     return;
                 }
 
-                int id = (int)dgv.Rows[index].Cells[5].Value;
+                int id = (int)dgv.Rows[index].Cells[clmRowID.Index].Value;
                 bool flag = productFormulaDAL.RemoveById(id);
                 if (!flag)
                 {

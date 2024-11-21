@@ -12,6 +12,8 @@ namespace DWZ_Scada.Forms.ProductFormula
 {
     public partial class FormProductFormulaSetting : UIForm
     {
+        private ProductFormulaEntity entity;
+
         public FormProductFormulaSetting(int id)
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace DWZ_Scada.Forms.ProductFormula
 
         private void uiButton1_Click(object sender, EventArgs e)
         {
-            ProductFormulaEntity productFormula = new ProductFormulaEntity();
+            ProductFormulaEntity productFormula = entity;
 
             if (tbx_Code.Text.IsNullOrEmpty())
             {
@@ -37,19 +39,12 @@ namespace DWZ_Scada.Forms.ProductFormula
             productFormula.ProductCode = tbx_Code.Text;
             productFormula.ProductName = tbxName.Text;
 
-            List<ProductFormulaEntity> list = productFormulaDAL.SelectAllByProdCode(tbx_Code.Text);
-            if (list.Any())
-            {
-                UIMessageBox.Show($"产品编号配方已经存在,请勿重复添加:[{tbx_Code.Text}]");
-                return;
-            }
-
             if (!AddBarcodeInfo(productFormula))
             {
                 return;
             }
 
-            bool flag = productFormulaDAL.Insert(productFormula);
+            bool flag = productFormulaDAL.Update(productFormula);
             if (flag)
             {
                 UIMessageBox.Show("配方保存成功");
@@ -109,17 +104,69 @@ namespace DWZ_Scada.Forms.ProductFormula
         private void FormProductFormulaAdd_Load(object sender, EventArgs e)
         {
             productFormulaDAL = Global.ServiceProvider.GetRequiredService<IProductFormulaDAL>();
+            entity = productFormulaDAL.SelectById(ID);
+            if (entity == null)
+            {
+                UIMessageBox.ShowError("查询产品配方失败");
+                Close();
+                return;
+            }
+
+        
 
             uiComboBox1.Items.Add(CodeType.Code14);
             uiComboBox1.Items.Add(CodeType.Code31);
             uiComboBox1.Items.Add(CodeType.Code40);
             uiComboBox1.Items.Add(CodeType.Code43);
+            LoadEntity();
         }
 
-        private void uiButton3_Click(object sender, EventArgs e)
+        private void LoadEntity()
         {
+            tbxName.Text = entity.ProductName;
+            tbx_Code.Text = entity.ProductCode;
+            switch (entity.BarcodeType)
+            {
+                case CodeType.Code14:
+                    uiComboBox1.SelectedItem = CodeType.Code14;
+                    LoadCode14();
+                    break;
+                case CodeType.Code31:
+                    uiComboBox1.SelectedItem = CodeType.Code31;
+                    LoadCode31();
+                    break;
+                case CodeType.Code43:
+                    uiComboBox1.SelectedItem = CodeType.Code43;
+                    LoadCode43();
+                    break;
+                case CodeType.Code40:
+                    uiComboBox1.SelectedItem = CodeType.Code40;
+                    LoadCode40();
+                    break;
 
+            }
         }
+
+        private void LoadCode40()
+        {
+            ctrlCode40.Load(entity);
+        }
+
+        private void LoadCode43()
+        {
+            ctrlCode43.Load(entity);
+        }
+
+        private void LoadCode31()
+        {
+           ctrlCode31.Load(entity);
+        }
+
+        private void LoadCode14()
+        {
+            ctrlCode14.Load(entity);
+        }
+
 
         private void uiComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
