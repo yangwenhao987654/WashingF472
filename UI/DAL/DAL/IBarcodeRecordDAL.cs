@@ -22,6 +22,7 @@ namespace UI.DAL.DAL
 
         public List<BarcodeRecordEntity> SelectByScanTime(DateTime startTime, DateTime endTime);
 
+        List<BarcodeRecordEntity> SelectByResult(DateTime startTime, DateTime endTime, bool isGood);
     }
 
     public class BarcodeRecordDAL : IBarcodeRecordDAL
@@ -41,7 +42,7 @@ namespace UI.DAL.DAL
             {
                 using (MyDbContext db = new MyDbContext())
                 {
-                    //db.tbBarcode.Attach(dto);
+                    db.tbBarcode.Attach(dto);
                     db.tbBarcode.Add(dto);
                     db.SaveChanges();
                 }
@@ -98,7 +99,25 @@ namespace UI.DAL.DAL
             {
                 using (MyDbContext db = new MyDbContext())
                 {
-                    list = db.tbBarcode.AsNoTracking().Where(r => r.ScanTime >= startTime &&r.ScanTime<=endTime).ToList();
+                    list = db.tbBarcode.Where(r => r.ScanTime >= startTime &&r.ScanTime<=endTime).ToList();
+                }
+                return list;
+            }
+            catch (Exception e)
+            {
+                LogMgr.Instance.Error($"查询日期:[{startTime}]=>[{endTime}]记录错误:{e.Message}\n {e.StackTrace}");
+                return list;
+            }
+        }
+
+        public List<BarcodeRecordEntity> SelectByResult(DateTime startTime, DateTime endTime, bool isGood)
+        {
+            List<BarcodeRecordEntity> list = null;
+            try
+            {
+                using (MyDbContext db = new MyDbContext())
+                {
+                    list = db.tbBarcode.Where(r => r.ScanTime >= startTime && r.ScanTime <= endTime &&r.Result==isGood).ToList();
                 }
                 return list;
             }

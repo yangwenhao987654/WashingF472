@@ -50,9 +50,20 @@
             uiLabel2 = new Sunny.UI.UILabel();
             uiButton1 = new Sunny.UI.UIButton();
             uiPanel1 = new Sunny.UI.UIPanel();
+            uiPanel2 = new Sunny.UI.UIPanel();
+            lbl_NGCount = new Sunny.UI.UILabel();
+            lbl_OKCount = new Sunny.UI.UILabel();
+            uiLabel4 = new Sunny.UI.UILabel();
+            uiLabel3 = new Sunny.UI.UILabel();
+            uiGroupBox1 = new Sunny.UI.UIGroupBox();
+            rbtn_all = new Sunny.UI.UIRadioButton();
+            rbtb_NG = new Sunny.UI.UIRadioButton();
+            rbtn_OK = new Sunny.UI.UIRadioButton();
             uiTableLayoutPanel1 = new Sunny.UI.UITableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             uiPanel1.SuspendLayout();
+            uiPanel2.SuspendLayout();
+            uiGroupBox1.SuspendLayout();
             uiTableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -87,7 +98,7 @@
             uiButton4.ForeHoverColor = Color.Black;
             uiButton4.ForePressColor = Color.Black;
             uiButton4.ForeSelectedColor = Color.Black;
-            uiButton4.Location = new Point(407, 30);
+            uiButton4.Location = new Point(18, 100);
             uiButton4.Margin = new Padding(2);
             uiButton4.MinimumSize = new Size(1, 1);
             uiButton4.Name = "uiButton4";
@@ -135,7 +146,7 @@
             dgv.EnableHeadersVisualStyles = false;
             dgv.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
             dgv.GridColor = Color.DimGray;
-            dgv.Location = new Point(15, 394);
+            dgv.Location = new Point(15, 199);
             dgv.Margin = new Padding(15, 5, 15, 5);
             dgv.MultiSelect = false;
             dgv.Name = "dgv";
@@ -158,7 +169,7 @@
             dgv.RowTemplate.Height = 35;
             dgv.SelectedIndex = -1;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv.Size = new Size(1660, 379);
+            dgv.Size = new Size(1660, 574);
             dgv.StripeOddColor = Color.FromArgb(224, 224, 224);
             dgv.TabIndex = 58;
             // 
@@ -212,7 +223,7 @@
             // 
             dtStart.FillColor = Color.White;
             dtStart.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dtStart.Location = new Point(734, 27);
+            dtStart.Location = new Point(887, 27);
             dtStart.Margin = new Padding(4, 5, 4, 5);
             dtStart.MaxLength = 19;
             dtStart.MinimumSize = new Size(63, 0);
@@ -232,7 +243,7 @@
             // 
             dtEnd.FillColor = Color.White;
             dtEnd.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dtEnd.Location = new Point(734, 75);
+            dtEnd.Location = new Point(887, 75);
             dtEnd.Margin = new Padding(4, 5, 4, 5);
             dtEnd.MaxLength = 19;
             dtEnd.MinimumSize = new Size(63, 0);
@@ -252,7 +263,7 @@
             // 
             uiLabel1.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel1.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel1.Location = new Point(593, 29);
+            uiLabel1.Location = new Point(746, 29);
             uiLabel1.Name = "uiLabel1";
             uiLabel1.Size = new Size(133, 33);
             uiLabel1.TabIndex = 61;
@@ -262,7 +273,7 @@
             // 
             uiLabel2.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel2.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel2.Location = new Point(592, 74);
+            uiLabel2.Location = new Point(745, 74);
             uiLabel2.Name = "uiLabel2";
             uiLabel2.Size = new Size(133, 33);
             uiLabel2.TabIndex = 62;
@@ -281,7 +292,7 @@
             uiButton1.ForeHoverColor = Color.Black;
             uiButton1.ForePressColor = Color.Black;
             uiButton1.ForeSelectedColor = Color.Black;
-            uiButton1.Location = new Point(18, 102);
+            uiButton1.Location = new Point(775, 117);
             uiButton1.Margin = new Padding(2);
             uiButton1.MinimumSize = new Size(1, 1);
             uiButton1.Name = "uiButton1";
@@ -297,6 +308,8 @@
             // 
             // uiPanel1
             // 
+            uiPanel1.Controls.Add(uiPanel2);
+            uiPanel1.Controls.Add(uiGroupBox1);
             uiPanel1.Controls.Add(uiButton1);
             uiPanel1.Controls.Add(tbx_input);
             uiPanel1.Controls.Add(uiButton4);
@@ -310,24 +323,126 @@
             uiPanel1.Margin = new Padding(4, 5, 4, 5);
             uiPanel1.MinimumSize = new Size(1800, 200);
             uiPanel1.Name = "uiPanel1";
-            uiPanel1.Size = new Size(1800, 379);
+            uiPanel1.Size = new Size(1800, 200);
             uiPanel1.TabIndex = 64;
-            uiPanel1.Text = "上面版";
+            uiPanel1.Text = null;
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
             uiPanel1.Click += uiPanel1_Click;
+            // 
+            // uiPanel2
+            // 
+            uiPanel2.Controls.Add(lbl_NGCount);
+            uiPanel2.Controls.Add(lbl_OKCount);
+            uiPanel2.Controls.Add(uiLabel4);
+            uiPanel2.Controls.Add(uiLabel3);
+            uiPanel2.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiPanel2.Location = new Point(1187, 17);
+            uiPanel2.Margin = new Padding(4, 5, 4, 5);
+            uiPanel2.MinimumSize = new Size(1, 1);
+            uiPanel2.Name = "uiPanel2";
+            uiPanel2.Size = new Size(270, 158);
+            uiPanel2.TabIndex = 64;
+            uiPanel2.Text = null;
+            uiPanel2.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // lbl_NGCount
+            // 
+            lbl_NGCount.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            lbl_NGCount.ForeColor = Color.FromArgb(48, 48, 48);
+            lbl_NGCount.Location = new Point(96, 91);
+            lbl_NGCount.Name = "lbl_NGCount";
+            lbl_NGCount.Size = new Size(60, 23);
+            lbl_NGCount.TabIndex = 3;
+            lbl_NGCount.Text = "00";
+            // 
+            // lbl_OKCount
+            // 
+            lbl_OKCount.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            lbl_OKCount.ForeColor = Color.FromArgb(48, 48, 48);
+            lbl_OKCount.Location = new Point(96, 30);
+            lbl_OKCount.Name = "lbl_OKCount";
+            lbl_OKCount.Size = new Size(60, 23);
+            lbl_OKCount.TabIndex = 2;
+            lbl_OKCount.Text = "00";
+            // 
+            // uiLabel4
+            // 
+            uiLabel4.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel4.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel4.Location = new Point(15, 91);
+            uiLabel4.Name = "uiLabel4";
+            uiLabel4.Size = new Size(60, 40);
+            uiLabel4.TabIndex = 1;
+            uiLabel4.Text = "异常";
+            // 
+            // uiLabel3
+            // 
+            uiLabel3.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel3.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel3.Location = new Point(15, 31);
+            uiLabel3.Name = "uiLabel3";
+            uiLabel3.Size = new Size(60, 23);
+            uiLabel3.TabIndex = 0;
+            uiLabel3.Text = "良品";
+            // 
+            // uiGroupBox1
+            // 
+            uiGroupBox1.Controls.Add(rbtn_all);
+            uiGroupBox1.Controls.Add(rbtb_NG);
+            uiGroupBox1.Controls.Add(rbtn_OK);
+            uiGroupBox1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiGroupBox1.Location = new Point(550, 27);
+            uiGroupBox1.Margin = new Padding(4, 5, 4, 5);
+            uiGroupBox1.MinimumSize = new Size(1, 1);
+            uiGroupBox1.Name = "uiGroupBox1";
+            uiGroupBox1.Padding = new Padding(0, 32, 0, 0);
+            uiGroupBox1.Size = new Size(162, 151);
+            uiGroupBox1.TabIndex = 63;
+            uiGroupBox1.Text = "uiGroupBox1";
+            uiGroupBox1.TextAlignment = ContentAlignment.MiddleLeft;
+            // 
+            // rbtn_all
+            // 
+            rbtn_all.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            rbtn_all.Location = new Point(3, 98);
+            rbtn_all.MinimumSize = new Size(1, 1);
+            rbtn_all.Name = "rbtn_all";
+            rbtn_all.Size = new Size(77, 29);
+            rbtn_all.TabIndex = 2;
+            rbtn_all.Text = "全部";
+            // 
+            // rbtb_NG
+            // 
+            rbtb_NG.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            rbtb_NG.Location = new Point(3, 63);
+            rbtb_NG.MinimumSize = new Size(1, 1);
+            rbtb_NG.Name = "rbtb_NG";
+            rbtb_NG.Size = new Size(150, 29);
+            rbtb_NG.TabIndex = 1;
+            rbtb_NG.Text = "异常";
+            // 
+            // rbtn_OK
+            // 
+            rbtn_OK.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            rbtn_OK.Location = new Point(3, 35);
+            rbtn_OK.MinimumSize = new Size(1, 1);
+            rbtn_OK.Name = "rbtn_OK";
+            rbtn_OK.Size = new Size(150, 29);
+            rbtn_OK.TabIndex = 0;
+            rbtn_OK.Text = "正常";
             // 
             // uiTableLayoutPanel1
             // 
             uiTableLayoutPanel1.ColumnCount = 1;
-            uiTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             uiTableLayoutPanel1.Controls.Add(dgv, 0, 1);
             uiTableLayoutPanel1.Controls.Add(uiPanel1, 0, 0);
             uiTableLayoutPanel1.Dock = DockStyle.Fill;
             uiTableLayoutPanel1.Location = new Point(0, 0);
             uiTableLayoutPanel1.Name = "uiTableLayoutPanel1";
             uiTableLayoutPanel1.RowCount = 2;
-            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
             uiTableLayoutPanel1.Size = new Size(1690, 778);
             uiTableLayoutPanel1.TabIndex = 64;
             uiTableLayoutPanel1.TagString = null;
@@ -348,6 +463,8 @@
             SizeChanged += Page_Formula_Set_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             uiPanel1.ResumeLayout(false);
+            uiPanel2.ResumeLayout(false);
+            uiGroupBox1.ResumeLayout(false);
             uiTableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -371,5 +488,14 @@
         private DataGridViewTextBoxColumn clmMsg;
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel1;
+        private Sunny.UI.UIGroupBox uiGroupBox1;
+        private Sunny.UI.UIRadioButton rbtn_all;
+        private Sunny.UI.UIRadioButton rbtb_NG;
+        private Sunny.UI.UIRadioButton rbtn_OK;
+        private Sunny.UI.UIPanel uiPanel2;
+        private Sunny.UI.UILabel uiLabel4;
+        private Sunny.UI.UILabel uiLabel3;
+        private Sunny.UI.UILabel lbl_NGCount;
+        private Sunny.UI.UILabel lbl_OKCount;
     }
 }

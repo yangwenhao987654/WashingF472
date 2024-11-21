@@ -26,6 +26,10 @@ namespace UI.DAL.BLL
         public List<BarcodeRecordEntity> SelectByUseDate(string useDate);
 
         public List<BarcodeRecordEntity> SelectByScanTime(DateTime startTime, DateTime endTime);
+
+        public List<BarcodeRecordEntity> SelectOkList(DateTime startTime, DateTime endTime);
+
+        public List<BarcodeRecordEntity> SelectNgList(DateTime startTime, DateTime endTime);
     }
 
     public class BarcodeRecordBLL:IBarcodeRecordBLL
@@ -60,6 +64,16 @@ namespace UI.DAL.BLL
         public List<BarcodeRecordEntity> SelectByScanTime(DateTime startTime, DateTime endTime)
         {
             return _barcodeRecordDAL.SelectByScanTime(startTime, endTime);
+        }
+
+        public List<BarcodeRecordEntity> SelectOkList(DateTime startTime, DateTime endTime)
+        {
+            return _barcodeRecordDAL.SelectByResult(startTime, endTime,true);
+        }
+
+        public List<BarcodeRecordEntity> SelectNgList(DateTime startTime, DateTime endTime)
+        {
+            return _barcodeRecordDAL.SelectByResult(startTime, endTime, false);
         }
     }
 }
