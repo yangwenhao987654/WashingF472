@@ -183,14 +183,17 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 string input = tbx_Input.Text;
                 DateTime dt = uiDatePicker1.Value;
                 string dateStr = dt.ToString(tbx_DateFormat.Text);
-                bool b = BarcodeValidator.Validate(input, SelectProduct, dateStr, out var err);
-                if (b)
+                BarcodeValidateResult result = BarcodeValidator.Validate(input, SelectProduct, dateStr);
+                if (result.IsSuccess)
                 {
+                    //TODO 重码判定
+                    
+                    //TODO 插入数据
                     Mylog.Instance.Info($"[{input}]校验成功");
                 }
                 else
                 {
-                    Mylog.Instance.Error($"[{input}]校验失败,{err}");
+                    Mylog.Instance.Error($"[{input}]校验失败,{result.Err}");
                 }
             }
             catch (Exception exception)
