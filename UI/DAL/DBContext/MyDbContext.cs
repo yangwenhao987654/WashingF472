@@ -28,9 +28,6 @@ namespace ScanApp.DAL.DBContext
         {
             try
             {
-                var config = new ConfigurationBuilder()
-                    .AddJsonFile("appSettings.json")
-                    .Build();
                 base.OnConfiguring(optionsBuilder);
                 var path = Application.StartupPath;
                 DbPath = System.IO.Path.Join(path,"DB", "ScanData.db");
