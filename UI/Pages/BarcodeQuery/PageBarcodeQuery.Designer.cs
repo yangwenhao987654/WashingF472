@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             tbx_input = new Sunny.UI.UITextBox();
             uiButton4 = new Sunny.UI.UIButton();
             dgv = new Sunny.UI.UIDataGridView();
@@ -48,15 +48,12 @@
             dtEnd = new Sunny.UI.UIDatetimePicker();
             uiLabel1 = new Sunny.UI.UILabel();
             uiLabel2 = new Sunny.UI.UILabel();
-            uiGroupBox1 = new Sunny.UI.UIGroupBox();
             uiButton1 = new Sunny.UI.UIButton();
-            uiRadioButton3 = new Sunny.UI.UIRadioButton();
-            uiRadioButton2 = new Sunny.UI.UIRadioButton();
-            uiRadioButton1 = new Sunny.UI.UIRadioButton();
             uiPanel1 = new Sunny.UI.UIPanel();
+            uiTableLayoutPanel1 = new Sunny.UI.UITableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
-            uiGroupBox1.SuspendLayout();
             uiPanel1.SuspendLayout();
+            uiTableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // tbx_input
@@ -64,7 +61,7 @@
             tbx_input.FillColor = SystemColors.ButtonHighlight;
             tbx_input.Font = new Font("黑体", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
             tbx_input.ForeReadOnlyColor = Color.FromArgb(255, 224, 192);
-            tbx_input.Location = new Point(13, 90);
+            tbx_input.Location = new Point(18, 27);
             tbx_input.Margin = new Padding(4, 5, 4, 5);
             tbx_input.MinimumSize = new Size(1, 16);
             tbx_input.Name = "tbx_input";
@@ -90,7 +87,7 @@
             uiButton4.ForeHoverColor = Color.Black;
             uiButton4.ForePressColor = Color.Black;
             uiButton4.ForeSelectedColor = Color.Black;
-            uiButton4.Location = new Point(404, 87);
+            uiButton4.Location = new Point(407, 30);
             uiButton4.Margin = new Padding(2);
             uiButton4.MinimumSize = new Size(1, 1);
             uiButton4.Name = "uiButton4";
@@ -108,60 +105,60 @@
             // 
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.BackColor = Color.FromArgb(224, 224, 224);
-            dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
+            dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             dgv.BackgroundColor = Color.White;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle12.Font = new Font("微软雅黑", 18F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            dataGridViewCellStyle12.ForeColor = Color.Black;
-            dataGridViewCellStyle12.Padding = new Padding(2);
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
-            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new Font("微软雅黑", 18F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.Padding = new Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgv.ColumnHeadersHeight = 50;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgv.Columns.AddRange(new DataGridViewColumn[] { clmRowID, clmOrderNum, clmBarcode, clmCode, clmResult, clmMadeDate, clmScanTime, clmMsg });
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = SystemColors.Window;
-            dataGridViewCellStyle13.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dataGridViewCellStyle13.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.False;
-            dgv.DefaultCellStyle = dataGridViewCellStyle13;
-            dgv.Dock = DockStyle.Bottom;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgv.DefaultCellStyle = dataGridViewCellStyle3;
+            dgv.Dock = DockStyle.Fill;
             dgv.EnableHeadersVisualStyles = false;
             dgv.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
             dgv.GridColor = Color.DimGray;
-            dgv.Location = new Point(0, 214);
+            dgv.Location = new Point(15, 394);
             dgv.Margin = new Padding(15, 5, 15, 5);
             dgv.MultiSelect = false;
             dgv.Name = "dgv";
             dgv.RectColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle14.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dataGridViewCellStyle14.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle14.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle14.SelectionForeColor = Color.White;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
-            dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle4.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle4.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgv.RowHeadersWidth = 51;
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = Color.White;
-            dataGridViewCellStyle15.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dataGridViewCellStyle15.Padding = new Padding(2);
-            dataGridViewCellStyle15.SelectionBackColor = Color.NavajoWhite;
-            dgv.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            dataGridViewCellStyle5.Padding = new Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = Color.NavajoWhite;
+            dgv.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dgv.RowTemplate.Height = 35;
             dgv.SelectedIndex = -1;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv.Size = new Size(1745, 564);
+            dgv.Size = new Size(1660, 379);
             dgv.StripeOddColor = Color.FromArgb(224, 224, 224);
             dgv.TabIndex = 58;
             // 
@@ -215,7 +212,7 @@
             // 
             dtStart.FillColor = Color.White;
             dtStart.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dtStart.Location = new Point(759, 76);
+            dtStart.Location = new Point(734, 27);
             dtStart.Margin = new Padding(4, 5, 4, 5);
             dtStart.MaxLength = 19;
             dtStart.MinimumSize = new Size(63, 0);
@@ -235,7 +232,7 @@
             // 
             dtEnd.FillColor = Color.White;
             dtEnd.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dtEnd.Location = new Point(759, 124);
+            dtEnd.Location = new Point(734, 75);
             dtEnd.Margin = new Padding(4, 5, 4, 5);
             dtEnd.MaxLength = 19;
             dtEnd.MinimumSize = new Size(63, 0);
@@ -255,7 +252,7 @@
             // 
             uiLabel1.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel1.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel1.Location = new Point(618, 78);
+            uiLabel1.Location = new Point(593, 29);
             uiLabel1.Name = "uiLabel1";
             uiLabel1.Size = new Size(133, 33);
             uiLabel1.TabIndex = 61;
@@ -265,28 +262,11 @@
             // 
             uiLabel2.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel2.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel2.Location = new Point(617, 123);
+            uiLabel2.Location = new Point(592, 74);
             uiLabel2.Name = "uiLabel2";
             uiLabel2.Size = new Size(133, 33);
             uiLabel2.TabIndex = 62;
             uiLabel2.Text = "结束时间:";
-            // 
-            // uiGroupBox1
-            // 
-            uiGroupBox1.Controls.Add(uiButton1);
-            uiGroupBox1.Controls.Add(uiRadioButton3);
-            uiGroupBox1.Controls.Add(uiRadioButton2);
-            uiGroupBox1.Controls.Add(uiRadioButton1);
-            uiGroupBox1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiGroupBox1.Location = new Point(1097, 76);
-            uiGroupBox1.Margin = new Padding(4, 5, 4, 5);
-            uiGroupBox1.MinimumSize = new Size(1, 1);
-            uiGroupBox1.Name = "uiGroupBox1";
-            uiGroupBox1.Padding = new Padding(0, 32, 0, 0);
-            uiGroupBox1.Size = new Size(548, 110);
-            uiGroupBox1.TabIndex = 63;
-            uiGroupBox1.Text = "uiGroupBox1";
-            uiGroupBox1.TextAlignment = ContentAlignment.MiddleLeft;
             // 
             // uiButton1
             // 
@@ -301,7 +281,7 @@
             uiButton1.ForeHoverColor = Color.Black;
             uiButton1.ForePressColor = Color.Black;
             uiButton1.ForeSelectedColor = Color.Black;
-            uiButton1.Location = new Point(313, 46);
+            uiButton1.Location = new Point(18, 102);
             uiButton1.Margin = new Padding(2);
             uiButton1.MinimumSize = new Size(1, 1);
             uiButton1.Name = "uiButton1";
@@ -315,63 +295,49 @@
             uiButton1.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiButton1.Click += uiButton1_Click_1;
             // 
-            // uiRadioButton3
-            // 
-            uiRadioButton3.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiRadioButton3.Location = new Point(199, 41);
-            uiRadioButton3.MinimumSize = new Size(1, 1);
-            uiRadioButton3.Name = "uiRadioButton3";
-            uiRadioButton3.Size = new Size(150, 29);
-            uiRadioButton3.TabIndex = 2;
-            uiRadioButton3.Text = "全部";
-            // 
-            // uiRadioButton2
-            // 
-            uiRadioButton2.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiRadioButton2.Location = new Point(13, 67);
-            uiRadioButton2.MinimumSize = new Size(1, 1);
-            uiRadioButton2.Name = "uiRadioButton2";
-            uiRadioButton2.Size = new Size(150, 29);
-            uiRadioButton2.TabIndex = 1;
-            uiRadioButton2.Text = "NG";
-            // 
-            // uiRadioButton1
-            // 
-            uiRadioButton1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiRadioButton1.Location = new Point(13, 35);
-            uiRadioButton1.MinimumSize = new Size(1, 1);
-            uiRadioButton1.Name = "uiRadioButton1";
-            uiRadioButton1.Size = new Size(150, 29);
-            uiRadioButton1.TabIndex = 0;
-            uiRadioButton1.Text = "OK";
-            // 
             // uiPanel1
             // 
+            uiPanel1.Controls.Add(uiButton1);
             uiPanel1.Controls.Add(tbx_input);
-            uiPanel1.Controls.Add(uiGroupBox1);
             uiPanel1.Controls.Add(uiButton4);
             uiPanel1.Controls.Add(uiLabel2);
             uiPanel1.Controls.Add(dtStart);
             uiPanel1.Controls.Add(uiLabel1);
             uiPanel1.Controls.Add(dtEnd);
-            uiPanel1.Dock = DockStyle.Top;
+            uiPanel1.Dock = DockStyle.Fill;
             uiPanel1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiPanel1.Location = new Point(0, 0);
+            uiPanel1.Location = new Point(4, 5);
             uiPanel1.Margin = new Padding(4, 5, 4, 5);
-            uiPanel1.MinimumSize = new Size(1, 1);
+            uiPanel1.MinimumSize = new Size(1800, 200);
             uiPanel1.Name = "uiPanel1";
-            uiPanel1.Size = new Size(1745, 204);
+            uiPanel1.Size = new Size(1800, 379);
             uiPanel1.TabIndex = 64;
-            uiPanel1.Text = null;
+            uiPanel1.Text = "上面版";
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
+            uiPanel1.Click += uiPanel1_Click;
+            // 
+            // uiTableLayoutPanel1
+            // 
+            uiTableLayoutPanel1.ColumnCount = 1;
+            uiTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel1.Controls.Add(dgv, 0, 1);
+            uiTableLayoutPanel1.Controls.Add(uiPanel1, 0, 0);
+            uiTableLayoutPanel1.Dock = DockStyle.Fill;
+            uiTableLayoutPanel1.Location = new Point(0, 0);
+            uiTableLayoutPanel1.Name = "uiTableLayoutPanel1";
+            uiTableLayoutPanel1.RowCount = 2;
+            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel1.Size = new Size(1690, 778);
+            uiTableLayoutPanel1.TabIndex = 64;
+            uiTableLayoutPanel1.TagString = null;
             // 
             // PageBarcodeQuery
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1745, 778);
-            Controls.Add(uiPanel1);
-            Controls.Add(dgv);
+            ClientSize = new Size(1690, 778);
+            Controls.Add(uiTableLayoutPanel1);
             Name = "PageBarcodeQuery";
             RectColor = Color.Black;
             Text = "";
@@ -381,8 +347,8 @@
             Load += Page_Formula_Set_Load;
             SizeChanged += Page_Formula_Set_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
-            uiGroupBox1.ResumeLayout(false);
             uiPanel1.ResumeLayout(false);
+            uiTableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -394,10 +360,6 @@
         private Sunny.UI.UIDatetimePicker dtEnd;
         private Sunny.UI.UILabel uiLabel1;
         private Sunny.UI.UILabel uiLabel2;
-        private Sunny.UI.UIGroupBox uiGroupBox1;
-        private Sunny.UI.UIRadioButton uiRadioButton3;
-        private Sunny.UI.UIRadioButton uiRadioButton2;
-        private Sunny.UI.UIRadioButton uiRadioButton1;
         private Sunny.UI.UIButton uiButton1;
         private DataGridViewTextBoxColumn clmRowID;
         private DataGridViewTextBoxColumn clmOrderNum;
@@ -408,5 +370,6 @@
         private DataGridViewTextBoxColumn clmScanTime;
         private DataGridViewTextBoxColumn clmMsg;
         private Sunny.UI.UIPanel uiPanel1;
+        private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel1;
     }
 }

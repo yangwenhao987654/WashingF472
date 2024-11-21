@@ -43,11 +43,13 @@ namespace DWZ_Scada.Pages
         }
 
         private void Page_Formula_Set_Load(object sender, EventArgs e)
-        {
-           // asc.controllInitializeSize(this);
+        { 
+            //asc.controllInitializeSize(this);
             dtStart.Value = DateTime.Today;
             dtEnd.Value = DateTime.Now;
             Task.Run(SelectByTime);
+
+            //uiPanel1.Refresh();
         }
 
         private void ReflashTable(List<BarcodeRecordEntity> list)
@@ -115,6 +117,11 @@ namespace DWZ_Scada.Pages
         private void uiButton1_Click_1(object sender, EventArgs e)
         {
             SelectByTime();
+        }
+
+        private void uiPanel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
