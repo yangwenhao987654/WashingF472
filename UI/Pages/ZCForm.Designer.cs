@@ -517,7 +517,7 @@ namespace DWZ_Scada.Pages
             uiButton1.RectColor = Color.SlateGray;
             uiButton1.Size = new Size(212, 43);
             uiButton1.TabIndex = 3;
-            uiButton1.Text = "历史记录(F2)";
+            uiButton1.Text = "生产记录(F2)";
             uiButton1.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiButton1.Click += uiButton1_Click;
             // 
@@ -551,7 +551,7 @@ namespace DWZ_Scada.Pages
             uiButton3.RectColor = Color.SlateGray;
             uiButton3.Size = new Size(212, 43);
             uiButton3.TabIndex = 2;
-            uiButton3.Text = "配方设定(F3)";
+            uiButton3.Text = "产品配方(F3)";
             uiButton3.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiButton3.Click += uiButton3_Click;
             // 

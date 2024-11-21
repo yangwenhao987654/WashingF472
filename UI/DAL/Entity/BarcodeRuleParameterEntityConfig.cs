@@ -14,7 +14,7 @@ namespace ScanApp.DAL.Entity
         {
             builder.ToTable("tbRuleParameter");
             //builder.Property(r => r.ErrInfo).HasDefaultValue("").HasMaxLength(100).IsRequired(false);
-            //builder.Property(r => r.UseTime);
+            //builder.Property(r => r.ScanTime);
 
             builder.Property(r => r.MatchPattern).HasMaxLength(100).IsRequired(false);
 

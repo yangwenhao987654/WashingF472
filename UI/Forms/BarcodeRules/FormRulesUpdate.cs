@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ScanApp.DAL.Entity;
-using ScanApp.DAL.ExecuteSQL;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using UI.DAL.DAL;
 
 namespace DWZ_Scada.Forms.ProductFormula
 {

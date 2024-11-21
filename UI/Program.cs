@@ -4,8 +4,9 @@ using LogTool;
 using Microsoft.Extensions.DependencyInjection;
 using ScanApp.DAL.DBContext;
 using ScanApp.DAL.Entity;
-using ScanApp.DAL.ExecuteSQL;
 using System.Text;
+using UI.DAL.BLL;
+using UI.DAL.DAL;
 
 namespace UI
 {
@@ -81,6 +82,9 @@ namespace UI
 
             services.AddSingleton<IProductFormulaDAL, ProductFormulaDAL>();
 
+            services.AddSingleton<IBarcodeRecordBLL, BarcodeRecordBLL>();
+
+            services.AddSingleton<IBarcodeRecordDAL, BarcodeRecordDAL>();
             #endregion
 
         }

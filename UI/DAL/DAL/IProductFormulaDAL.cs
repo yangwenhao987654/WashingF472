@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ScanApp.DAL.DBContext;
 using ScanApp.DAL.Entity;
 
-namespace ScanApp.DAL.ExecuteSQL
+namespace UI.DAL.DAL
 {
     public interface IProductFormulaDAL
     {

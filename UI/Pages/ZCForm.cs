@@ -101,19 +101,16 @@ namespace DWZ_Scada.Pages
                     SetAutoStart();
                     break;
                 case Keys.F2:
-                    //AddFormTopanel(PageAlarmTabMenu.Instance);
+                    AddFormTopanel(PageBarcodeQuery.Instance);
                     break;
                 case Keys.F3:
-                    AddFormTopanel(Page_Formula_Set.Instance);
+                    AddFormTopanel(PageFormulaQuery.Instance);
                     break;
                 case Keys.F4:
                     //AddFormTopanel(DeviceControlPage.Instance);
                     break;
                 case Keys.F5:
                     //AddFormTopanel(Page_PLCAddress.Instance);
-                    break;
-                case Keys.F10:
-                    AddFormTopanel(listViewExLog);
                     break;
                 case Keys.F11:
                     OpenPageProperty();
@@ -215,7 +212,7 @@ namespace DWZ_Scada.Pages
 
         private void uiButton3_Click(object sender, EventArgs e)
         {
-            AddFormTopanel(Page_Formula_Set.Instance);
+            AddFormTopanel(PageFormulaQuery.Instance);
         }
 
         private void uiButton4_Click(object sender, EventArgs e)
@@ -225,7 +222,7 @@ namespace DWZ_Scada.Pages
 
         private void uiButton1_Click(object sender, EventArgs e)
         {
-           // AddFormTopanel(PageAlarmTabMenu.Instance);
+            AddFormTopanel(PageBarcodeQuery.Instance);
         }
 
         private void uiButton2_Click(object sender, EventArgs e)
@@ -317,8 +314,7 @@ namespace DWZ_Scada.Pages
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
-                throw;
+                LogMgr.Instance.Error($"更新Logo错误:{exception.Message}\n {exception.StackTrace}");
             }
          
         }

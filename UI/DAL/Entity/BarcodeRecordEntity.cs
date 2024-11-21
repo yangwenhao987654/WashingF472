@@ -14,14 +14,15 @@ namespace ScanApp.DAL.Entity
         public int Id { get; set; }
 
         /// <summary>
-        /// 产品ID
-        /// </summary>
-        public int ProductId { get; set; }
-
-        /// <summary>
         /// 产品编号
         /// </summary>
-        public int ProductCode { get; set; }
+        public string ProductCode { get; set; }
+
+
+        /// <summary>
+        /// 穴位号
+        /// </summary>
+        public int AcupointNumber { get; set; }
 
         /// <summary>
         /// 条码内容 
@@ -39,9 +40,9 @@ namespace ScanApp.DAL.Entity
         public string UseDateStr { get; set; }
 
         /// <summary>
-        /// 生产时间
+        /// 扫码时间
         /// </summary>
-        public DateTime UseTime { get; set; }
+        public DateTime ScanTime { get; set; }
 
 
         public bool Result { get; set; }

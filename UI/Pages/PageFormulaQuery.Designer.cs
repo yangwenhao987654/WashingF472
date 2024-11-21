@@ -1,6 +1,6 @@
 ﻿namespace DWZ_Scada.Pages
 {
-    partial class Page_Formula_Set
+    partial class PageFormulaQuery
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             tbx_input = new Sunny.UI.UITextBox();
             uiButton1 = new Sunny.UI.UIButton();
             uiButton2 = new Sunny.UI.UIButton();
@@ -180,32 +180,32 @@
             // 
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(224, 224, 224);
-            dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
+            dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             dgv.BackgroundColor = Color.White;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle7.Font = new Font("微软雅黑", 18F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.Padding = new Padding(2);
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new Font("微软雅黑", 18F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.Padding = new Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgv.ColumnHeadersHeight = 50;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgv.Columns.AddRange(new DataGridViewColumn[] { clmRowID, clmOrderNum, clmName, clmCode, clmBarcodeType, clmSupplierCode, clmPartNum, clmFixValue1 });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgv.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgv.DefaultCellStyle = dataGridViewCellStyle3;
             dgv.Dock = DockStyle.Bottom;
             dgv.EnableHeadersVisualStyles = false;
             dgv.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
@@ -215,21 +215,21 @@
             dgv.MultiSelect = false;
             dgv.Name = "dgv";
             dgv.RectColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle9.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle9.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle9.SelectionForeColor = Color.White;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle4.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle4.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgv.RowHeadersWidth = 51;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = Color.White;
-            dataGridViewCellStyle10.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dataGridViewCellStyle10.Padding = new Padding(2);
-            dataGridViewCellStyle10.SelectionBackColor = Color.NavajoWhite;
-            dgv.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            dataGridViewCellStyle5.Padding = new Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = Color.NavajoWhite;
+            dgv.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dgv.RowTemplate.Height = 35;
             dgv.SelectedIndex = -1;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -283,7 +283,7 @@
             clmFixValue1.HeaderText = "固定值1";
             clmFixValue1.Name = "clmFixValue1";
             // 
-            // Page_Formula_Set
+            // PageFormulaQuery
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.AliceBlue;
@@ -294,7 +294,7 @@
             Controls.Add(uiButton2);
             Controls.Add(uiButton1);
             Controls.Add(tbx_input);
-            Name = "Page_Formula_Set";
+            Name = "PageFormulaQuery";
             RectColor = Color.Black;
             Text = "";
             TitleHeight = 29;

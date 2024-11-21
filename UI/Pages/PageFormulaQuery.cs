@@ -3,25 +3,25 @@ using DWZ_Scada.Forms.ProductFormula;
 using LogTool;
 using Microsoft.Extensions.DependencyInjection;
 using ScanApp.DAL.Entity;
-using ScanApp.DAL.ExecuteSQL;
 using Sunny.UI;
+using UI.DAL.DAL;
 
 namespace DWZ_Scada.Pages
 {
-    public partial class Page_Formula_Set : UIPage
+    public partial class PageFormulaQuery : UIPage
     {
-        private static Page_Formula_Set _instance;
-        public static Page_Formula_Set Instance
+        private static PageFormulaQuery _instance;
+        public static PageFormulaQuery Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    lock (typeof(Page_Formula_Set))
+                    lock (typeof(PageFormulaQuery))
                     {
                         if (_instance == null)
                         {
-                            _instance = new Page_Formula_Set();
+                            _instance = new PageFormulaQuery();
                         }
                     }
                 }
@@ -31,7 +31,7 @@ namespace DWZ_Scada.Pages
         AutoResizeForm asc = new AutoResizeForm();
 
         private IProductFormulaDAL productFormulaDAL;
-        public Page_Formula_Set()
+        public PageFormulaQuery()
         {
             InitializeComponent();
             productFormulaDAL = Global.ServiceProvider.GetRequiredService<IProductFormulaDAL>();
@@ -39,7 +39,7 @@ namespace DWZ_Scada.Pages
 
         private void Formula_set_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Page_Formula_Set.Instance?.Dispose();
+            PageFormulaQuery.Instance?.Dispose();
         }
 
         private void Page_Formula_Set_Load(object sender, EventArgs e)

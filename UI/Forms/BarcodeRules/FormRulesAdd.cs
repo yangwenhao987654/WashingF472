@@ -1,12 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using ScanApp.DAL.Entity;
-using ScanApp.DAL.ExecuteSQL;
-using Sunny.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ScanApp.DAL.DBContext;
+using ScanApp.DAL.Entity;
+using Sunny.UI;
 using UI.Forms.RuleParameters;
 
 namespace DWZ_Scada.Forms.ProductFormula

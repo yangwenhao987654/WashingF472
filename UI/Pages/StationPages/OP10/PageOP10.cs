@@ -4,10 +4,12 @@ using DWZ_Scada.ctrls.LogCtrl;
 using DWZ_Scada.Forms.ProductFormula;
 using DWZ_Scada.UIUtil;
 using LogTool;
+using Microsoft.Extensions.DependencyInjection;
 using ScanApp.DAL.DBContext;
 using ScanApp.DAL.Entity;
 using Sunny.UI;
 using UI.BarcodeCheck;
+using UI.DAL.BLL;
 using UI.Forms.BarcodeRules;
 using UI.Validator;
 
@@ -46,10 +48,13 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         public ProductFormulaEntity SelectProduct { get; set; }
 
+        private IBarcodeRecordBLL barcodeRecordBLL;
+
         private PageOP10()
         {
             InitializeComponent();
             _instance = this;
+            barcodeRecordBLL = Global.ServiceProvider.GetRequiredService<IBarcodeRecordBLL>();
         }
 
         private async void Page_Load(object sender, EventArgs e)
@@ -177,24 +182,53 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 UIMessageBox.ShowError("请先选择产品");
                 return;
             }
-
             try
             {
                 string input = tbx_Input.Text;
                 DateTime dt = uiDatePicker1.Value;
                 string dateStr = dt.ToString(tbx_DateFormat.Text);
-                BarcodeValidateResult result = BarcodeValidator.Validate(input, SelectProduct, dateStr);
-                if (result.IsSuccess)
+                BarcodeValidateResult result = new BarcodeValidateResult();
+                if (input!="")
                 {
-                    //TODO 重码判定
-                    
-                    //TODO 插入数据
-                    Mylog.Instance.Info($"[{input}]校验成功");
+                    result = BarcodeValidator.Validate(input, SelectProduct, dateStr);
+                    if (result.IsSuccess)
+                    {
+                        //TODO 重码判定
+                        if (barcodeRecordBLL.IsExist(input))
+                        {
+                            Mylog.Instance.Error($"[{input}]重码");
+                        }
+                        //TODO 插入数据
+                        Mylog.Instance.Info($"[{input}]校验成功");
+                    }
+                    else
+                    {
+                        Mylog.Instance.Error($"[{input}]校验失败,{result.Err}");
+                    }
                 }
                 else
                 {
+                    result.IsSuccess =false;
+                    result.Err = "扫码为空";
                     Mylog.Instance.Error($"[{input}]校验失败,{result.Err}");
                 }
+                BarcodeRecordEntity entity = new BarcodeRecordEntity();
+                entity.Barcode = input;
+                entity.AcupointNumber = result.AcupointNumber;
+                if (result.IsSuccess)
+                {
+                    entity.ErrInfo = "扫码成功";
+                }
+                else
+                {
+                    entity.ErrInfo = result.Err;
+                }
+                entity.Result = result.IsSuccess;
+                entity.ScanTime =DateTime.Now;
+                entity.UseDateStr = dt.ToString("yyyy-MM-dd");
+                entity.ProductCode = SelectProduct.ProductCode;
+                bool b = barcodeRecordBLL.Insert(entity);
+                Mylog.Instance.Debug($"[{input}]保存成功 {b}");
             }
             catch (Exception exception)
             {

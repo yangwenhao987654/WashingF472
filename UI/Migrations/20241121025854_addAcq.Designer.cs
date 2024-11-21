@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScanApp.DAL.DBContext;
 
@@ -10,9 +11,11 @@ using ScanApp.DAL.DBContext;
 namespace ScanApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241121025854_addAcq")]
+    partial class addAcq
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.11");
@@ -36,9 +39,8 @@ namespace ScanApp.Migrations
                         .HasColumnType("TEXT")
                         .HasDefaultValue("");
 
-                    b.Property<string>("ProductCode")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ProductCode")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("Result")
                         .ValueGeneratedOnAdd()
