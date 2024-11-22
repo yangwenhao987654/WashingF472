@@ -25,9 +25,9 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private ModbusTCP modbusTcp = new ModbusTCP();
 
+        public int OKCount { get; set; }
 
-
-
+        public int NGCount { get; set; }
 
         private static PageOP10 _instance;
         public static PageOP10 Instance
@@ -278,12 +278,16 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 entity.AcupointNumber = result.AcupointNumber;
                 if (result.IsSuccess)
                 {
+                    OKCount++;
                     entity.ErrInfo = "扫码成功";
                     SpeckMessage.SpeakAsync("成功");
+                    UpdateText(lbl_OKCount,OKCount.ToString());
                 }
                 else
                 {
                     entity.ErrInfo = result.Err;
+                    NGCount++;
+                    UpdateText(lbl_NGCount, NGCount.ToString());
                     SpeckMessage.SpeakAsync("失败");
                 }
 
@@ -298,6 +302,16 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             {
                 UIMessageBox.ShowError($"校验异常:{exception.Message}");
             }
+        }
+
+        private void UpdateText(Control ctrl,string msg)
+        {
+            if (ctrl.InvokeRequired)
+            {
+                ctrl.BeginInvoke(new MethodInvoker(()=>UpdateText(ctrl,msg)));
+                return;
+            }
+            ctrl.Text =msg;
         }
 
         private async void uiButton3_Click(object sender, EventArgs e)

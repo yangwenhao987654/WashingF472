@@ -361,27 +361,27 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // lbl_NGCount
             // 
             lbl_NGCount.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            lbl_NGCount.ForeColor = Color.FromArgb(48, 48, 48);
+            lbl_NGCount.ForeColor = Color.FromArgb(255, 128, 128);
             lbl_NGCount.Location = new Point(141, 109);
             lbl_NGCount.Name = "lbl_NGCount";
             lbl_NGCount.Size = new Size(192, 54);
             lbl_NGCount.TabIndex = 3;
-            lbl_NGCount.Text = "00000";
+            lbl_NGCount.Text = "0";
             // 
             // lbl_OKCount
             // 
             lbl_OKCount.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            lbl_OKCount.ForeColor = Color.FromArgb(48, 48, 48);
+            lbl_OKCount.ForeColor = Color.LimeGreen;
             lbl_OKCount.Location = new Point(141, 34);
             lbl_OKCount.Name = "lbl_OKCount";
             lbl_OKCount.Size = new Size(192, 60);
             lbl_OKCount.TabIndex = 2;
-            lbl_OKCount.Text = "00000";
+            lbl_OKCount.Text = "0";
             // 
             // uiLabel11
             // 
             uiLabel11.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiLabel11.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel11.ForeColor = Color.FromArgb(255, 128, 128);
             uiLabel11.Location = new Point(4, 109);
             uiLabel11.Name = "uiLabel11";
             uiLabel11.Size = new Size(110, 54);
@@ -391,7 +391,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // uiLabel10
             // 
             uiLabel10.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiLabel10.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel10.ForeColor = Color.LimeGreen;
             uiLabel10.Location = new Point(8, 34);
             uiLabel10.Name = "uiLabel10";
             uiLabel10.Size = new Size(100, 60);
