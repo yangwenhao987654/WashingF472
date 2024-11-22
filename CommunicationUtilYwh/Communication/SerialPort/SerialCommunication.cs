@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace CommunicationUtilYwh.Communication
 {
-    public class SerialCommunication
+    public class SerialCommunication:IDisposable
     {
         // 定义一个事件，用于通知串口数据接收
         public event EventHandler<string> DataReceived;
@@ -378,6 +378,12 @@ namespace CommunicationUtilYwh.Communication
         {
             Success =1,
             Fail = 0,
+        }
+
+        public void Dispose()
+        {
+            Close();
+            serialPort?.Dispose();
         }
     }
 }

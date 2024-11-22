@@ -53,17 +53,16 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiLabel2 = new UILabel();
             uiComboBox1 = new UIComboBox();
             uiPanel3 = new UIPanel();
+            lbl_NGCount = new UILabel();
+            lbl_OKCount = new UILabel();
+            uiLabel11 = new UILabel();
+            uiLabel10 = new UILabel();
             uiPanel1 = new UIPanel();
             myLogCtrl1 = new ctrls.MyLogCtrl();
-            uiButton2 = new UIButton();
             uiButton1 = new UIButton();
             tbx_Input = new UITextBox();
             uiButton3 = new UIButton();
-            uiLabel10 = new UILabel();
-            uiLabel11 = new UILabel();
             userCtrlEntry1 = new DIPTest.Ctrl.UserCtrlEntry();
-            lbl_OKCount = new UILabel();
-            lbl_NGCount = new UILabel();
             uiPanel2.SuspendLayout();
             uiPanel3.SuspendLayout();
             uiPanel1.SuspendLayout();
@@ -356,7 +355,48 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiPanel3.Name = "uiPanel3";
             uiPanel3.Size = new Size(361, 180);
             uiPanel3.TabIndex = 37;
+            uiPanel3.Text = null;
             uiPanel3.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // lbl_NGCount
+            // 
+            lbl_NGCount.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            lbl_NGCount.ForeColor = Color.FromArgb(48, 48, 48);
+            lbl_NGCount.Location = new Point(141, 109);
+            lbl_NGCount.Name = "lbl_NGCount";
+            lbl_NGCount.Size = new Size(192, 54);
+            lbl_NGCount.TabIndex = 3;
+            lbl_NGCount.Text = "00000";
+            // 
+            // lbl_OKCount
+            // 
+            lbl_OKCount.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            lbl_OKCount.ForeColor = Color.FromArgb(48, 48, 48);
+            lbl_OKCount.Location = new Point(141, 34);
+            lbl_OKCount.Name = "lbl_OKCount";
+            lbl_OKCount.Size = new Size(192, 60);
+            lbl_OKCount.TabIndex = 2;
+            lbl_OKCount.Text = "00000";
+            // 
+            // uiLabel11
+            // 
+            uiLabel11.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel11.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel11.Location = new Point(4, 109);
+            uiLabel11.Name = "uiLabel11";
+            uiLabel11.Size = new Size(110, 54);
+            uiLabel11.TabIndex = 1;
+            uiLabel11.Text = "NG:";
+            // 
+            // uiLabel10
+            // 
+            uiLabel10.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiLabel10.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel10.Location = new Point(8, 34);
+            uiLabel10.Name = "uiLabel10";
+            uiLabel10.Size = new Size(100, 60);
+            uiLabel10.TabIndex = 0;
+            uiLabel10.Text = "OK:";
             // 
             // uiPanel1
             // 
@@ -385,18 +425,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             myLogCtrl1.TabIndex = 0;
             myLogCtrl1.UseCompatibleStateImageBehavior = false;
             myLogCtrl1.View = View.Details;
-            // 
-            // uiButton2
-            // 
-            uiButton2.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiButton2.Location = new Point(1056, 229);
-            uiButton2.MinimumSize = new Size(1, 1);
-            uiButton2.Name = "uiButton2";
-            uiButton2.Size = new Size(151, 56);
-            uiButton2.TabIndex = 40;
-            uiButton2.Text = "查询条码规则";
-            uiButton2.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiButton2.Click += uiButton2_Click;
             // 
             // uiButton1
             // 
@@ -436,26 +464,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiButton3.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiButton3.Click += uiButton3_Click;
             // 
-            // uiLabel10
-            // 
-            uiLabel10.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiLabel10.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel10.Location = new Point(8, 34);
-            uiLabel10.Name = "uiLabel10";
-            uiLabel10.Size = new Size(100, 60);
-            uiLabel10.TabIndex = 0;
-            uiLabel10.Text = "OK:";
-            // 
-            // uiLabel11
-            // 
-            uiLabel11.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiLabel11.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel11.Location = new Point(4, 109);
-            uiLabel11.Name = "uiLabel11";
-            uiLabel11.Size = new Size(110, 54);
-            uiLabel11.TabIndex = 1;
-            uiLabel11.Text = "NG:";
-            // 
             // userCtrlEntry1
             // 
             userCtrlEntry1.Location = new Point(524, 283);
@@ -466,26 +474,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             userCtrlEntry1.TextAlign = ContentAlignment.MiddleCenter;
             userCtrlEntry1.TextFont = new Font("微软雅黑", 50F);
             // 
-            // lbl_OKCount
-            // 
-            lbl_OKCount.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            lbl_OKCount.ForeColor = Color.FromArgb(48, 48, 48);
-            lbl_OKCount.Location = new Point(141, 34);
-            lbl_OKCount.Name = "lbl_OKCount";
-            lbl_OKCount.Size = new Size(192, 60);
-            lbl_OKCount.TabIndex = 2;
-            lbl_OKCount.Text = "00000";
-            // 
-            // lbl_NGCount
-            // 
-            lbl_NGCount.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            lbl_NGCount.ForeColor = Color.FromArgb(48, 48, 48);
-            lbl_NGCount.Location = new Point(141, 109);
-            lbl_NGCount.Name = "lbl_NGCount";
-            lbl_NGCount.Size = new Size(192, 54);
-            lbl_NGCount.TabIndex = 3;
-            lbl_NGCount.Text = "00000";
-            // 
             // PageOP10
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -494,7 +482,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             Controls.Add(uiButton3);
             Controls.Add(tbx_Input);
             Controls.Add(uiButton1);
-            Controls.Add(uiButton2);
             Controls.Add(uiPanel1);
             Controls.Add(uiPanel3);
             Controls.Add(uiPanel2);
@@ -522,7 +509,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         private UIPanel uiPanel2;
         private UIPanel uiPanel3;
         private UIPanel uiPanel1;
-        private UIButton uiButton2;
         private UIComboBox uiComboBox1;
         private UILabel uiLabel3;
         private UITextBox tbx_Code;

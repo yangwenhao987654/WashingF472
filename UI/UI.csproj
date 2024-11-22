@@ -41,9 +41,6 @@
     <Compile Update="ctrls\userCtrlScanInput.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="ctrls\windingCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Forms\BarcodeRules\FormRulesSetting.cs">
       <SubType>Form</SubType>
     </Compile>

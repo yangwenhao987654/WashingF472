@@ -1,13 +1,14 @@
-﻿using System.IO.Ports;
-using CommunicationUtilYwh.Device;
+﻿using CommunicationUtilYwh.Device;
 using DWZ_Scada.ctrls.LogCtrl;
-using DWZ_Scada.Forms.ProductFormula;
 using DWZ_Scada.UIUtil;
 using LogTool;
 using Microsoft.Extensions.DependencyInjection;
 using ScanApp.DAL.DBContext;
 using ScanApp.DAL.Entity;
 using Sunny.UI;
+using System.IO.Ports;
+using AutoTF;
+using CommonUtilYwh.Communication.ModbusTCP;
 using UI.BarcodeCheck;
 using UI.DAL.BLL;
 using UI.Forms.BarcodeRules;
@@ -21,6 +22,11 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         private readonly Action _clearAlarmDelegate;
 
         private Scanner_RS232 scanner;
+
+        private ModbusTCP modbusTcp = new ModbusTCP();
+
+
+
 
 
         private static PageOP10 _instance;
@@ -50,6 +56,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private IBarcodeRecordBLL barcodeRecordBLL;
 
+        private CancellationTokenSource cts =new CancellationTokenSource();
+
         private PageOP10()
         {
             InitializeComponent();
@@ -77,7 +85,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiComboBox1.DataSource = list;
             uiComboBox1.DisplayMember = "ProductName";
 
-            SerialPort port = new SerialPort("COM1");
+            SerialPort port = new SerialPort(SystemParams.Instance.ScannerComName);
+            port.PortName =SystemParams.Instance.ScannerComName;
             scanner = new Scanner_RS232(port);
             bool isOpen = scanner.Open();
             if (!isOpen)
@@ -85,6 +94,60 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 UIMessageBox.ShowError("扫码枪串口打开失败");
             }
 
+            //modbusTcp.Connect();
+
+            Thread t = new Thread(()=>PLCMainWork(cts.Token));
+            t.Start();
+
+        }
+
+        public  void PLCMainWork(CancellationToken token)
+        {
+            int state = -1;
+
+            while (!token.IsCancellationRequested)
+            {
+                try
+                {
+
+                    if (modbusTcp.IsConnect)
+                    {
+                        bool isFinish = GetFinihSignal();
+                        if (isFinish)
+                        {
+                            TriggerScanner();
+                        }
+                    }
+                    else
+                    {
+                        bool f = modbusTcp.Connect(SystemParams.Instance.ModbusIP, SystemParams.Instance.ModbusPort);
+                        if (f)
+                        {
+                            LogMgr.Instance.Info($"ModbusTCP连接成功");
+                        }
+                        else
+                        {
+                            LogMgr.Instance.Error($"ModbusTCP连接失败");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogMgr.Instance.Error($"Exception in modbusTcp Work: {ex.Message}");
+                }
+
+                Thread.Sleep(1000);
+            }
+        }
+
+        private void TriggerScanner()
+        {
+           
+        }
+
+        private bool GetFinihSignal()
+        {
+            return true;
         }
 
 
@@ -101,12 +164,10 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private void PageOP10_FormClosing(object sender, FormClosingEventArgs e)
         {
-            LogMgr.Instance.Info("关闭OP10-HttpServer");
-            if (!OP10MainFunc.IsInstanceNull)
-            {
-                OP10MainFunc.Instance?.Dispose();
-            }
-            LogMgr.Instance.Info("关闭OP10程序");
+            LogMgr.Instance.Info("关闭程序");
+            cts.Cancel();
+            modbusTcp?.Close();
+            scanner?.Dispose();
             _instance = null;
             //调用 Close() 方法,先进入  FormClosing 事件 ，之后再调用Designer类的Dispose
         }
@@ -218,11 +279,14 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 if (result.IsSuccess)
                 {
                     entity.ErrInfo = "扫码成功";
+                    SpeckMessage.SpeakAsync("成功");
                 }
                 else
                 {
                     entity.ErrInfo = result.Err;
+                    SpeckMessage.SpeakAsync("失败");
                 }
+
                 entity.Result = result.IsSuccess;
                 entity.ScanTime =DateTime.Now;
                 entity.UseDateStr = dt.ToString("yyyy-MM-dd");

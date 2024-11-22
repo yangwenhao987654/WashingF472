@@ -1,6 +1,4 @@
 ﻿using CSharpFormApplication;
-using DWZ_Scada.Forms.ProductFormula;
-using LogTool;
 using Microsoft.Extensions.DependencyInjection;
 using ScanApp.DAL.Entity;
 using Sunny.UI;
