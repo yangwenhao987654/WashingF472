@@ -99,12 +99,15 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private void SerialPortMonitor(CancellationToken token)
         {
-            SerialPort port = new SerialPort(SystemParams.Instance.ScannerComName);
-            port.PortName = SystemParams.Instance.ScannerComName;
-            scanner = new Scanner_RS232(port);
-         
             while (!token.IsCancellationRequested)
             {
+                if (SystemParams.Instance.ScannerComName==null)
+                {
+                    SystemParams.Instance.ScannerComName = "Com1";
+                }
+                SerialPort port = new SerialPort(SystemParams.Instance.ScannerComName);
+                scanner = new Scanner_RS232(port);
+                //port.PortName = SystemParams.Instance.ScannerComName;
                 try
                 {
                     if (scanner.IsOpen)
@@ -114,6 +117,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                     else
                     {
                         Thread.Sleep(1000);
+                     
+                       
                         scanner.SetPort(new SerialPort(SystemParams.Instance.ScannerComName));
                         bool isOpen = scanner.Open();
                       /*  if (!isOpen)

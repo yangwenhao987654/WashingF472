@@ -240,12 +240,12 @@ public class ModbusTCP : MyPlc
     {
         // 连接
         IPAddress address;
-        if (!IPAddress.TryParse(IP, out address)) return false;
+        if (!IPAddress.TryParse(ip, out address)) return false;
 
         client?.ConnectClose();
         //站号 Station 默认为1
 
-        client = new ModbusTcpNet(IP, port);
+        client = new ModbusTcpNet(ip, port);
         client.AddressStartWithZero = true;
         client.DataFormat = DataFormat.CDAB;
         client.IsStringReverse = false;
