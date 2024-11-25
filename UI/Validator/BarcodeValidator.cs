@@ -17,6 +17,12 @@ namespace UI.Validator
             int currentIndex = 0;
             foreach (var param in rule.Parameters)
             {
+                //TODO 条码参数类型校验
+                switch (param.Type)
+                {
+                    case "":
+                        break;
+                }
                 // 截取当前参数内容
                 if (currentIndex + param.Length > barcode.Length)
                 {
@@ -175,6 +181,7 @@ namespace UI.Validator
                 result.Err = "穴位号错误";
                 return result;
             }
+            result.IsSuccess = true;
             result.AcupointNumber = acqNum;
             return result;
         }
@@ -213,6 +220,7 @@ namespace UI.Validator
                 result.Err = "穴位号错误";
                 return result;
             }
+            result.IsSuccess = true;
             result.AcupointNumber = acqNum;
             return result;
         }
@@ -246,6 +254,7 @@ namespace UI.Validator
                 result.Err = "穴位号错误";
                 return result;
             }
+            result.IsSuccess = true;
             result.AcupointNumber = acqNum;
             return result;
         }

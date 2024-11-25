@@ -94,7 +94,7 @@ namespace LogTool
                     }
                     UnShowLogList.Clear();
                 }
-                if (ctrl != null && UnShowLogList.Count > 1000)
+                if (ctrl != null && UnShowLogList.Count > 100)
                 {
                     UnShowLogList.RemoveAt(0);
                 }

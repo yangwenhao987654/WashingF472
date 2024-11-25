@@ -36,6 +36,11 @@ namespace CommunicationUtilYwh.Communication
             }
         }
 
+        public void SetPort(SerialPort serialPort)
+        {
+            this.serialPort = serialPort;
+        }
+
         public SerialCommunication(SerialPort serialPort )
         {
             this.serialPort = serialPort;

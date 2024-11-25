@@ -37,10 +37,10 @@
             tbx_Code = new Sunny.UI.UITextBox();
             uiComboBox1 = new Sunny.UI.UIComboBox();
             uiPanel1 = new Sunny.UI.UIPanel();
-            ctrlCode31 = new UI.CtrlCodeInfo.CtrlCode31();
-            ctrlCode14 = new UI.CtrlCodeInfo.CtrlCode14();
             ctrlCode40 = new UI.CtrlCodeInfo.CtrlCode40();
             ctrlCode43 = new UI.CtrlCodeInfo.CtrlCode43();
+            ctrlCode14 = new UI.CtrlCodeInfo.CtrlCode14();
+            ctrlCode31 = new UI.CtrlCodeInfo.CtrlCode31();
             uiPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -135,7 +135,7 @@
             // 
             uiComboBox1.DataSource = null;
             uiComboBox1.FillColor = Color.White;
-            uiComboBox1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiComboBox1.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiComboBox1.ItemHoverColor = Color.FromArgb(155, 200, 255);
             uiComboBox1.ItemSelectForeColor = Color.FromArgb(235, 243, 255);
             uiComboBox1.Location = new Point(437, 185);
@@ -166,14 +166,24 @@
             uiPanel1.Text = null;
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // ctrlCode31
+            // ctrlCode40
             // 
-            ctrlCode31.BackColor = Color.Transparent;
-            ctrlCode31.Location = new Point(186, 12);
-            ctrlCode31.Name = "ctrlCode31";
-            ctrlCode31.Size = new Size(562, 411);
-            ctrlCode31.TabIndex = 0;
-            ctrlCode31.Visible = false;
+            ctrlCode40.BackColor = Color.Transparent;
+            ctrlCode40.Location = new Point(201, 24);
+            ctrlCode40.Name = "ctrlCode40";
+            ctrlCode40.Size = new Size(562, 411);
+            ctrlCode40.TabIndex = 13;
+            ctrlCode40.Visible = false;
+            //ctrlCode40.Load += this.ctrlCode40_Load;
+            // 
+            // ctrlCode43
+            // 
+            ctrlCode43.BackColor = Color.Transparent;
+            ctrlCode43.Location = new Point(219, 24);
+            ctrlCode43.Name = "ctrlCode43";
+            ctrlCode43.Size = new Size(562, 411);
+            ctrlCode43.TabIndex = 14;
+            ctrlCode43.Visible = false;
             // 
             // ctrlCode14
             // 
@@ -184,23 +194,14 @@
             ctrlCode14.TabIndex = 1;
             ctrlCode14.Visible = false;
             // 
-            // ctrlCode40
+            // ctrlCode31
             // 
-            ctrlCode40.BackColor = Color.Transparent;
-            ctrlCode40.Location = new Point(201, 24);
-            ctrlCode40.Name = "ctrlCode40";
-            ctrlCode40.Size = new Size(562, 411);
-            ctrlCode40.TabIndex = 13;
-            ctrlCode40.Visible = false;
-            // 
-            // ctrlCode43
-            // 
-            ctrlCode43.BackColor = Color.Transparent;
-            ctrlCode43.Location = new Point(219, 24);
-            ctrlCode43.Name = "ctrlCode43";
-            ctrlCode43.Size = new Size(562, 411);
-            ctrlCode43.TabIndex = 14;
-            ctrlCode43.Visible = false;
+            ctrlCode31.BackColor = Color.Transparent;
+            ctrlCode31.Location = new Point(186, 12);
+            ctrlCode31.Name = "ctrlCode31";
+            ctrlCode31.Size = new Size(562, 411);
+            ctrlCode31.TabIndex = 0;
+            ctrlCode31.Visible = false;
             // 
             // FormProductFormulaAdd
             // 

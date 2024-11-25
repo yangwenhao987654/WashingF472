@@ -135,7 +135,7 @@
             // 
             uiComboBox1.DataSource = null;
             uiComboBox1.FillColor = Color.White;
-            uiComboBox1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiComboBox1.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiComboBox1.ItemHoverColor = Color.FromArgb(155, 200, 255);
             uiComboBox1.ItemSelectForeColor = Color.FromArgb(235, 243, 255);
             uiComboBox1.Location = new Point(437, 185);

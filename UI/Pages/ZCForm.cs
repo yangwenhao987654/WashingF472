@@ -17,7 +17,6 @@ namespace DWZ_Scada.Pages
         private Form mainForm;
         private static ZCForm _instance;
 
-        public ListViewEx_Log listViewExLog;
         private Timer timer;
 
         private ZCForm()
@@ -166,7 +165,6 @@ namespace DWZ_Scada.Pages
                 });
                 return;
             }
-
             lblTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss ");
         }
 
@@ -179,7 +177,7 @@ namespace DWZ_Scada.Pages
             ctrl.Show();
         }
 
-        private void OpenPageProperty()
+        private static void OpenPageProperty()
         {
             bool flag = SystemParams.Instance.OpLvl == 0;
             if (!flag)
@@ -266,7 +264,6 @@ namespace DWZ_Scada.Pages
             {
                LogMgr.Instance.Error($"加载Logo文件错误:{e.Message}");
             }
-         
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -310,13 +307,11 @@ namespace DWZ_Scada.Pages
                 pictureBox1.ImageLocation = destinationPath;
                 SystemParams.Save();
                 MessageBox.Show("Logo 已成功更换并保存！", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
             }
             catch (Exception exception)
             {
                 LogMgr.Instance.Error($"更新Logo错误:{exception.Message}\n {exception.StackTrace}");
             }
-         
         }
     }
 }

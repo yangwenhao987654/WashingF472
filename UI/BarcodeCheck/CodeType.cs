@@ -12,7 +12,6 @@ namespace UI.BarcodeCheck
 
         public const int Code31 = 31;
 
-
         public const int Code40 = 40;
 
         public const int Code43 = 43;

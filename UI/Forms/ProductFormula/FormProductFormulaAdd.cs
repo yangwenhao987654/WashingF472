@@ -18,7 +18,7 @@ namespace DWZ_Scada.Forms.ProductFormula
 
         }
 
-        public int LastSelectIndex { get; set; } =-1;
+        public int LastSelectIndex { get; set; } = -1;
 
 
         public int SelectedCodeType { get; set; } = -1;
@@ -78,15 +78,15 @@ namespace DWZ_Scada.Forms.ProductFormula
                         break;
                     case CodeType.Code31:
                         ctrlCode31.GetResult(entity);
-                        result =true;
+                        result = true;
                         break;
                     case CodeType.Code40:
                         ctrlCode40.GetResult(entity);
-                        result =true;
+                        result = true;
                         break;
                     case CodeType.Code43:
                         ctrlCode43.GetResult(entity);
-                        result =true;
+                        result = true;
                         break;
                     default:
                         throw new Exception("未支持的条码类型！！!");
@@ -124,16 +124,16 @@ namespace DWZ_Scada.Forms.ProductFormula
 
         private void uiComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (uiComboBox1.SelectedIndex==-1 ||uiComboBox1.SelectedIndex==LastSelectIndex)
+            if (uiComboBox1.SelectedIndex == -1 || uiComboBox1.SelectedIndex == LastSelectIndex)
             {
                 return;
             }
             LastSelectIndex = uiComboBox1.SelectedIndex;
             int type = (int)uiComboBox1.SelectedItem;
             SelectedCodeType = type;
-            foreach (Control ctrl in uiPanel1.Controls) 
+            foreach (Control ctrl in uiPanel1.Controls)
             {
-                ctrl.Visible =false;
+                ctrl.Visible = false;
             }
             if (type == CodeType.Code31)
             {
@@ -151,6 +151,11 @@ namespace DWZ_Scada.Forms.ProductFormula
             {
                 ctrlCode40.Visible = true;
             }
+        }
+
+        private void ctrlCode40_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

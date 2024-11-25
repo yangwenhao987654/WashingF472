@@ -13,6 +13,7 @@ using UI.BarcodeCheck;
 using UI.DAL.BLL;
 using UI.Forms.BarcodeRules;
 using UI.Validator;
+using Newtonsoft.Json.Linq;
 
 namespace DWZ_Scada.Pages.StationPages.OP10
 {
@@ -85,20 +86,47 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiComboBox1.DataSource = list;
             uiComboBox1.DisplayMember = "ProductName";
 
-            SerialPort port = new SerialPort(SystemParams.Instance.ScannerComName);
-            port.PortName =SystemParams.Instance.ScannerComName;
-            scanner = new Scanner_RS232(port);
-            bool isOpen = scanner.Open();
-            if (!isOpen)
-            {
-                UIMessageBox.ShowError("扫码枪串口打开失败");
-            }
+         
 
             //modbusTcp.Connect();
+            Thread t0 = new Thread(() => SerialPortMonitor(cts.Token));
+            t0.Start();
 
             Thread t = new Thread(()=>PLCMainWork(cts.Token));
             t.Start();
 
+        }
+
+        private void SerialPortMonitor(CancellationToken token)
+        {
+            SerialPort port = new SerialPort(SystemParams.Instance.ScannerComName);
+            port.PortName = SystemParams.Instance.ScannerComName;
+            scanner = new Scanner_RS232(port);
+         
+            while (!token.IsCancellationRequested)
+            {
+                try
+                {
+                    if (scanner.IsOpen)
+                    {
+                        Thread.Sleep(2000);
+                    }
+                    else
+                    {
+                        Thread.Sleep(1000);
+                        scanner.SetPort(new SerialPort(SystemParams.Instance.ScannerComName));
+                        bool isOpen = scanner.Open();
+                      /*  if (!isOpen)
+                        {
+                            UIMessageBox.ShowError("扫码枪串口打开失败");
+                        }*/
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogMgr.Instance.Error($"串口监控线程错误:{ex.Message}");
+                }
+            }
         }
 
         public  void PLCMainWork(CancellationToken token)
@@ -258,9 +286,14 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                         if (barcodeRecordBLL.IsExist(input))
                         {
                             Mylog.Instance.Error($"[{input}]重码");
+                            result.Err = "重码";
+                            result.IsSuccess = false;
+                        }
+                        else
+                        {
+                            Mylog.Instance.Info($"[{input}]校验成功");
                         }
                         //TODO 插入数据
-                        Mylog.Instance.Info($"[{input}]校验成功");
                     }
                     else
                     {
@@ -296,7 +329,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 entity.UseDateStr = dt.ToString("yyyy-MM-dd");
                 entity.ProductCode = SelectProduct.ProductCode;
                 bool b = barcodeRecordBLL.Insert(entity);
-                Mylog.Instance.Debug($"[{input}]保存成功 {b}");
+                //Mylog.Instance.Debug($"[{input}]保存成功 {b}");
             }
             catch (Exception exception)
             {
