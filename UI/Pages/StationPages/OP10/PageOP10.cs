@@ -9,10 +9,12 @@ using ScanApp.DAL.DBContext;
 using ScanApp.DAL.Entity;
 using Sunny.UI;
 using System.IO.Ports;
+using System.Media;
 using TouchSocket.Core;
 using UI.BarcodeCheck;
 using UI.DAL.BLL;
 using UI.Validator;
+using UtilYwh.VoicePrompt;
 
 namespace DWZ_Scada.Pages.StationPages.OP10
 {
@@ -58,6 +60,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         private IBarcodeRecordBLL barcodeRecordBLL;
 
         private CancellationTokenSource cts =new CancellationTokenSource();
+
+        SoundHelper soundHelper = new SoundHelper();
 
         private PageOP10()
         {
@@ -382,7 +386,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 {
                     OKCount++;
                     entity.ErrInfo = "扫码成功";
-                    SpeckMessage.SpeakAsync("成功");
+                    SpeckMessage.SpeakAsync("扫码成功");
                     UpdateText(lbl_OKCount, OKCount.ToString());
                     userCtrlEntry1.Pass(input);
                 }
@@ -392,7 +396,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                     NGCount++;
                     UpdateText(lbl_NGCount, NGCount.ToString());
                     userCtrlEntry1.Fail(input,result.Err);
-                    SpeckMessage.SpeakAsync("失败");
+                   soundHelper.PlayErr();
                 }
 
                 entity.Result = result.IsSuccess;
@@ -444,6 +448,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private async void uiButton3_Click(object sender, EventArgs e)
         {
+          
+            //soundHelper.PlayErr();
             string res = "";
             for (int i = 0; i < 3; i++)
             {

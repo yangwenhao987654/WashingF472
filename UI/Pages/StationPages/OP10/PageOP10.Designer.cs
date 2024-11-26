@@ -352,7 +352,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiPanel3.Margin = new Padding(4, 5, 4, 5);
             uiPanel3.MinimumSize = new Size(1, 1);
             uiPanel3.Name = "uiPanel3";
-            uiPanel3.Size = new Size(361, 180);
+            uiPanel3.Size = new Size(361, 163);
             uiPanel3.TabIndex = 37;
             uiPanel3.Text = null;
             uiPanel3.TextAlignment = ContentAlignment.TopCenter;
@@ -361,7 +361,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // 
             lbl_NGCount.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
             lbl_NGCount.ForeColor = Color.FromArgb(255, 128, 128);
-            lbl_NGCount.Location = new Point(141, 109);
+            lbl_NGCount.Location = new Point(144, 93);
             lbl_NGCount.Name = "lbl_NGCount";
             lbl_NGCount.Size = new Size(192, 54);
             lbl_NGCount.TabIndex = 3;
@@ -371,7 +371,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // 
             lbl_OKCount.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
             lbl_OKCount.ForeColor = Color.LimeGreen;
-            lbl_OKCount.Location = new Point(141, 34);
+            lbl_OKCount.Location = new Point(144, 18);
             lbl_OKCount.Name = "lbl_OKCount";
             lbl_OKCount.Size = new Size(192, 60);
             lbl_OKCount.TabIndex = 2;
@@ -381,7 +381,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // 
             uiLabel11.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel11.ForeColor = Color.FromArgb(255, 128, 128);
-            uiLabel11.Location = new Point(4, 109);
+            uiLabel11.Location = new Point(7, 93);
             uiLabel11.Name = "uiLabel11";
             uiLabel11.Size = new Size(110, 54);
             uiLabel11.TabIndex = 1;
@@ -391,7 +391,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // 
             uiLabel10.Font = new Font("微软雅黑", 30F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel10.ForeColor = Color.LimeGreen;
-            uiLabel10.Location = new Point(8, 34);
+            uiLabel10.Location = new Point(11, 18);
             uiLabel10.Name = "uiLabel10";
             uiLabel10.Size = new Size(100, 60);
             uiLabel10.TabIndex = 0;
@@ -401,11 +401,12 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // 
             uiPanel1.Controls.Add(myLogCtrl1);
             uiPanel1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiPanel1.Location = new Point(35, 450);
+            uiPanel1.Location = new Point(35, 397);
             uiPanel1.Margin = new Padding(4, 5, 4, 5);
+            uiPanel1.MaximumSize = new Size(2000, 300);
             uiPanel1.MinimumSize = new Size(1, 1);
             uiPanel1.Name = "uiPanel1";
-            uiPanel1.Size = new Size(1340, 439);
+            uiPanel1.Size = new Size(1340, 300);
             uiPanel1.TabIndex = 39;
             uiPanel1.Text = null;
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
@@ -423,7 +424,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             myLogCtrl1.MultiSelect = false;
             myLogCtrl1.Name = "myLogCtrl1";
             myLogCtrl1.ShowGroups = false;
-            myLogCtrl1.Size = new Size(1340, 439);
+            myLogCtrl1.Size = new Size(1340, 300);
             myLogCtrl1.TabIndex = 0;
             myLogCtrl1.UseCompatibleStateImageBehavior = false;
             myLogCtrl1.View = View.Details;
@@ -471,7 +472,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             userCtrlEntry1.Location = new Point(385, 214);
             userCtrlEntry1.Margin = new Padding(4);
             userCtrlEntry1.Name = "userCtrlEntry1";
-            userCtrlEntry1.Size = new Size(609, 227);
+            userCtrlEntry1.Size = new Size(609, 173);
             userCtrlEntry1.TabIndex = 44;
             userCtrlEntry1.TextAlign = ContentAlignment.MiddleCenter;
             userCtrlEntry1.TextFont = new Font("微软雅黑", 50F);

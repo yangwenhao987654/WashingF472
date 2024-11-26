@@ -47,6 +47,31 @@ namespace AutoTF
             }
         }
 
+        public static void SpeakErr(string textToSpeak)
+        {
+            if (!IsUseVoicePrompt)
+            {
+                return;
+            }
+            Task.Run(() => {
+                lock (lockObject)
+                {
+                    // 创建SpeechSynthesizer实例
+                    using (SpeechSynthesizer synth = new SpeechSynthesizer())
+                    {
+                        // 设置语音输出的声音
+                        synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult);
+
+                        // 设置语速（可选）
+                        synth.Rate = 2;
+                        // 将文本内容转换为语音并进行输出
+                        synth.Speak(textToSpeak);
+                    }
+                }
+            });
+
+        }
+
         public static void SpeakAsync(string textToSpeak)
         {
             if (!IsUseVoicePrompt)
