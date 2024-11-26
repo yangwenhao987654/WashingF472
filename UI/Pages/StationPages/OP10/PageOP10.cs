@@ -75,6 +75,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             myLogCtrl1.BindingControl = uiPanel1;
             Mylog.Instance.Init(myLogCtrl1);
 
+            PageFormulaQuery.ProductFormulaChanged += PageFormulaQuery_ProductFormulaChanged;
+
             await Task.Run(async () =>
             {
                 using (MyDbContext db = new MyDbContext())
@@ -82,8 +84,9 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                     list = db.tbProductFormula.ToList();
                 }
             });
-            uiComboBox1.DataSource = list;
             uiComboBox1.DisplayMember = "ProductName";
+            uiComboBox1.DataSource = list;
+          
 
             if (SystemParams.Instance.ScannerComName == null)
             {
@@ -99,6 +102,28 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             Thread t = new Thread(()=>PLCMainWork(cts.Token));
             t.Start();
 
+        }
+
+        private void PageFormulaQuery_ProductFormulaChanged()
+        {
+
+            using (MyDbContext db = new MyDbContext())
+            {
+                list = db.tbProductFormula.ToList();
+            }
+            uiComboBox1.SelectedIndexChanged -= uiComboBox1_SelectedIndexChanged;
+            uiComboBox1.DisplayMember = "ProductName";
+            uiComboBox1.DataSource = list;
+            if (SelectProduct!=null)
+            {
+                SelectProduct = list.FirstOrDefault(r => r.ID == SelectProduct.ID);
+                if (SelectProduct!=null)
+                {
+                    uiComboBox1.SelectedItem = SelectProduct;
+                }
+            }
+            uiComboBox1.SelectedIndexChanged += uiComboBox1_SelectedIndexChanged;
+            uiComboBox1_SelectedIndexChanged(null, null);
         }
 
         private void SerialPortMonitor(CancellationToken token)

@@ -41,7 +41,6 @@ namespace CommunicationUtilYwh.Device
                 //result.ReplaceLineEndings("\r");
                 LogMgr.Instance.Debug(@$"过滤后长度:{result.Length}");
             }
-            
             return result;
         }
     }

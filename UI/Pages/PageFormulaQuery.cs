@@ -30,6 +30,8 @@ namespace DWZ_Scada.Pages
         }
         AutoResizeForm asc = new AutoResizeForm();
 
+        public static event Action ProductFormulaChanged;
+
         private IProductFormulaDAL productFormulaDAL;
         public PageFormulaQuery()
         {
@@ -114,6 +116,7 @@ namespace DWZ_Scada.Pages
             FormProductFormulaAdd form = new FormProductFormulaAdd();
             form.ShowDialog();
             SelectAll();
+            ProductFormulaChanged?.Invoke();
         }
 
         private void uiButton3_Click(object sender, EventArgs e)
@@ -135,6 +138,7 @@ namespace DWZ_Scada.Pages
             {
                 LogMgr.Instance.Error($"错误:{ex.Message}");
             }
+            ProductFormulaChanged?.Invoke();
         }
 
         private void uiButton2_Click(object sender, EventArgs e)
@@ -171,6 +175,7 @@ namespace DWZ_Scada.Pages
             {
                 LogMgr.Instance.Error($"错误:{ex.Message}");
             }
+            ProductFormulaChanged?.Invoke();
         }
     }
 }
