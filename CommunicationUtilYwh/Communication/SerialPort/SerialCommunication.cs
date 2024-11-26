@@ -87,7 +87,8 @@ namespace CommunicationUtilYwh.Communication
             }
             catch(Exception ex)
             {
-                return false;
+                LogMgr.Instance.Error($"串口连接失败:{ex.Message}");
+                throw ;
             }
         }
 

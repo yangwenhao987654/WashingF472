@@ -72,7 +72,7 @@
             tbx_input.FillColor = SystemColors.ButtonHighlight;
             tbx_input.Font = new Font("黑体", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
             tbx_input.ForeReadOnlyColor = Color.FromArgb(255, 224, 192);
-            tbx_input.Location = new Point(18, 27);
+            tbx_input.Location = new Point(11, 28);
             tbx_input.Margin = new Padding(4, 5, 4, 5);
             tbx_input.MinimumSize = new Size(1, 16);
             tbx_input.Name = "tbx_input";
@@ -98,7 +98,7 @@
             uiButton4.ForeHoverColor = Color.Black;
             uiButton4.ForePressColor = Color.Black;
             uiButton4.ForeSelectedColor = Color.Black;
-            uiButton4.Location = new Point(18, 100);
+            uiButton4.Location = new Point(63, 102);
             uiButton4.Margin = new Padding(2);
             uiButton4.MinimumSize = new Size(1, 1);
             uiButton4.Name = "uiButton4";
@@ -146,7 +146,7 @@
             dgv.EnableHeadersVisualStyles = false;
             dgv.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
             dgv.GridColor = Color.DimGray;
-            dgv.Location = new Point(15, 199);
+            dgv.Location = new Point(15, 206);
             dgv.Margin = new Padding(15, 5, 15, 5);
             dgv.MultiSelect = false;
             dgv.Name = "dgv";
@@ -169,7 +169,7 @@
             dgv.RowTemplate.Height = 35;
             dgv.SelectedIndex = -1;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv.Size = new Size(1660, 574);
+            dgv.Size = new Size(1250, 459);
             dgv.StripeOddColor = Color.FromArgb(224, 224, 224);
             dgv.TabIndex = 58;
             // 
@@ -223,7 +223,7 @@
             // 
             dtStart.FillColor = Color.White;
             dtStart.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dtStart.Location = new Point(1000, 26);
+            dtStart.Location = new Point(1000, 7);
             dtStart.Margin = new Padding(4, 5, 4, 5);
             dtStart.MaxLength = 19;
             dtStart.MinimumSize = new Size(63, 0);
@@ -243,7 +243,7 @@
             // 
             dtEnd.FillColor = Color.White;
             dtEnd.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            dtEnd.Location = new Point(1000, 74);
+            dtEnd.Location = new Point(1000, 55);
             dtEnd.Margin = new Padding(4, 5, 4, 5);
             dtEnd.MaxLength = 19;
             dtEnd.MinimumSize = new Size(63, 0);
@@ -263,7 +263,7 @@
             // 
             uiLabel1.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel1.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel1.Location = new Point(859, 28);
+            uiLabel1.Location = new Point(859, 9);
             uiLabel1.Name = "uiLabel1";
             uiLabel1.Size = new Size(133, 33);
             uiLabel1.TabIndex = 61;
@@ -273,7 +273,7 @@
             // 
             uiLabel2.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel2.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel2.Location = new Point(858, 73);
+            uiLabel2.Location = new Point(858, 54);
             uiLabel2.Name = "uiLabel2";
             uiLabel2.Size = new Size(133, 33);
             uiLabel2.TabIndex = 62;
@@ -292,7 +292,7 @@
             uiButton1.ForeHoverColor = Color.Black;
             uiButton1.ForePressColor = Color.Black;
             uiButton1.ForeSelectedColor = Color.Black;
-            uiButton1.Location = new Point(859, 117);
+            uiButton1.Location = new Point(859, 102);
             uiButton1.Margin = new Padding(2);
             uiButton1.MinimumSize = new Size(1, 1);
             uiButton1.Name = "uiButton1";
@@ -323,6 +323,8 @@
             uiPanel1.Margin = new Padding(4, 5, 4, 5);
             uiPanel1.MinimumSize = new Size(1800, 200);
             uiPanel1.Name = "uiPanel1";
+            uiPanel1.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
+            uiPanel1.RectColor = Color.Transparent;
             uiPanel1.Size = new Size(1800, 200);
             uiPanel1.TabIndex = 64;
             uiPanel1.Text = null;
@@ -336,7 +338,7 @@
             uiPanel2.Controls.Add(uiLabel4);
             uiPanel2.Controls.Add(uiLabel3);
             uiPanel2.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiPanel2.Location = new Point(399, 26);
+            uiPanel2.Location = new Point(399, 7);
             uiPanel2.Margin = new Padding(4, 5, 4, 5);
             uiPanel2.MinimumSize = new Size(1, 1);
             uiPanel2.Name = "uiPanel2";
@@ -391,7 +393,7 @@
             uiGroupBox1.Controls.Add(rbtb_NG);
             uiGroupBox1.Controls.Add(rbtn_OK);
             uiGroupBox1.Font = new Font("微软雅黑", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiGroupBox1.Location = new Point(655, 20);
+            uiGroupBox1.Location = new Point(655, 1);
             uiGroupBox1.Margin = new Padding(4, 5, 4, 5);
             uiGroupBox1.MinimumSize = new Size(1, 1);
             uiGroupBox1.Name = "uiGroupBox1";
@@ -441,9 +443,9 @@
             uiTableLayoutPanel1.Location = new Point(0, 0);
             uiTableLayoutPanel1.Name = "uiTableLayoutPanel1";
             uiTableLayoutPanel1.RowCount = 2;
-            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
-            uiTableLayoutPanel1.Size = new Size(1690, 778);
+            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+            uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
+            uiTableLayoutPanel1.Size = new Size(1280, 670);
             uiTableLayoutPanel1.TabIndex = 64;
             uiTableLayoutPanel1.TagString = null;
             // 
@@ -451,7 +453,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1690, 778);
+            ClientSize = new Size(1280, 670);
             Controls.Add(uiTableLayoutPanel1);
             Name = "PageBarcodeQuery";
             RectColor = Color.Black;

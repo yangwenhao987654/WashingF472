@@ -67,6 +67,45 @@ namespace DWZ_Scada.Pages
             }
         }
 
+        public void UpdatePlcState(PlcState state)
+        {
+            if (state.ToString() == uiLight1.Tag.ToString())
+            {
+                return;
+            }
+            if (InvokeRequired)
+            {
+                Invoke(new Action<PlcState>(UpdatePlcState), state);
+                return;
+            }
+            lbl_PLCConn.Text = "已连接";
+            switch (state)
+            {
+                case PlcState.OffLine:
+                    lbl_PLCState.Text = "离线";
+                    lbl_PLCConn.Text = "未连接";
+                    uiLight1.OnColor = Color.LightGray;
+                    break;
+
+                case PlcState.Online:
+                    lbl_PLCState.Text = "在线";
+                    uiLight1.OnColor = Color.Green;
+                    break;
+                case PlcState.Alarm:
+                    lbl_PLCState.Text = "报警";
+                    uiLight1.OnColor = Color.Red;
+                    break;
+                case PlcState.Stop:
+                    lbl_PLCState.Text = "停止";
+                    uiLight1.OnColor = Color.DimGray;
+                    break;
+                case PlcState.Running:
+                    lbl_PLCState.Text = "运行中";
+                    uiLight1.OnColor = Color.GreenYellow;
+                    break;
+            }
+        }
+
         private void ZCForm_Load(object sender, EventArgs e)
         {
             timer = new Timer(TimerElapsed, null, 0, 1000);

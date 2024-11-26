@@ -2,13 +2,20 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <StartupObject>UI.Program</StartupObject>
+    <PackageIcon>ZCLogo_12.ico</PackageIcon>
+    <ApplicationIcon>ZCLogo_12.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" />
+
+  <ItemGroup>
+    <Content Include="ZCLogo_12.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="AAAForm1.cs">
@@ -82,6 +89,13 @@
   <ItemGroup>
     <Folder Include="DAL\ExecuteSQL\" />
     <Folder Include="Pages\PLCControl\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="E:\DotNetCoreCode\repos\AutoLabelSolution\PaddleOCRSharp_Vpro\ZCLogo_12.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

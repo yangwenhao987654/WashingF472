@@ -10,7 +10,9 @@ namespace CommunicationUtilYwh.Device
 {
     public class Scanner_RS232:SerialCommunication
     {
-        private string TriggerCmd = "";
+        private string TriggerCmd = "LON";
+
+        private string StopCmd = "LOFF";
 
         public Scanner_RS232(SerialPort serialPort) :base(serialPort)
         {
@@ -19,6 +21,8 @@ namespace CommunicationUtilYwh.Device
 
         public void Trigger()
         {
+            this.CleanInBuffer();
+            //
             this.SendData(TriggerCmd);
         }
 

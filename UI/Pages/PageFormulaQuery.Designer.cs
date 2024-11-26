@@ -55,7 +55,7 @@
             tbx_input.FillColor = SystemColors.ButtonHighlight;
             tbx_input.Font = new Font("黑体", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
             tbx_input.ForeReadOnlyColor = Color.FromArgb(255, 224, 192);
-            tbx_input.Location = new Point(48, 28);
+            tbx_input.Location = new Point(13, 9);
             tbx_input.Margin = new Padding(4, 5, 4, 5);
             tbx_input.MinimumSize = new Size(1, 16);
             tbx_input.Name = "tbx_input";
@@ -81,7 +81,7 @@
             uiButton1.ForeHoverColor = Color.Black;
             uiButton1.ForePressColor = Color.Black;
             uiButton1.ForeSelectedColor = Color.Black;
-            uiButton1.Location = new Point(730, 28);
+            uiButton1.Location = new Point(641, 9);
             uiButton1.Margin = new Padding(2);
             uiButton1.MinimumSize = new Size(1, 1);
             uiButton1.Name = "uiButton1";
@@ -108,7 +108,7 @@
             uiButton2.ForeHoverColor = Color.Black;
             uiButton2.ForePressColor = Color.Black;
             uiButton2.ForeSelectedColor = Color.Black;
-            uiButton2.Location = new Point(1151, 28);
+            uiButton2.Location = new Point(1062, 9);
             uiButton2.Margin = new Padding(2);
             uiButton2.MinimumSize = new Size(1, 1);
             uiButton2.Name = "uiButton2";
@@ -135,7 +135,7 @@
             uiButton3.ForeHoverColor = Color.Black;
             uiButton3.ForePressColor = Color.Black;
             uiButton3.ForeSelectedColor = Color.Black;
-            uiButton3.Location = new Point(941, 28);
+            uiButton3.Location = new Point(852, 9);
             uiButton3.Margin = new Padding(2);
             uiButton3.MinimumSize = new Size(1, 1);
             uiButton3.Name = "uiButton3";
@@ -162,7 +162,7 @@
             uiButton4.ForeHoverColor = Color.Black;
             uiButton4.ForePressColor = Color.Black;
             uiButton4.ForeSelectedColor = Color.Black;
-            uiButton4.Location = new Point(512, 28);
+            uiButton4.Location = new Point(423, 9);
             uiButton4.Margin = new Padding(2);
             uiButton4.MinimumSize = new Size(1, 1);
             uiButton4.Name = "uiButton4";
@@ -210,7 +210,7 @@
             dgv.EnableHeadersVisualStyles = false;
             dgv.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
             dgv.GridColor = Color.DimGray;
-            dgv.Location = new Point(0, 134);
+            dgv.Location = new Point(0, 70);
             dgv.Margin = new Padding(15, 5, 15, 5);
             dgv.MultiSelect = false;
             dgv.Name = "dgv";
@@ -233,7 +233,7 @@
             dgv.RowTemplate.Height = 35;
             dgv.SelectedIndex = -1;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv.Size = new Size(1703, 644);
+            dgv.Size = new Size(1280, 600);
             dgv.StripeOddColor = Color.FromArgb(224, 224, 224);
             dgv.TabIndex = 58;
             // 
@@ -287,7 +287,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1703, 778);
+            ClientSize = new Size(1280, 670);
             Controls.Add(dgv);
             Controls.Add(uiButton4);
             Controls.Add(uiButton3);
