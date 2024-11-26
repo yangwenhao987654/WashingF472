@@ -434,7 +434,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiButton1.Name = "uiButton1";
             uiButton1.Size = new Size(100, 35);
             uiButton1.TabIndex = 41;
-            uiButton1.Text = "测试";
+            uiButton1.Text = "条码校验";
             uiButton1.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiButton1.Click += uiButton1_Click_1;
             // 
@@ -460,7 +460,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiButton3.Name = "uiButton3";
             uiButton3.Size = new Size(100, 35);
             uiButton3.TabIndex = 43;
-            uiButton3.Text = "触发扫码";
+            uiButton3.Text = "测试扫码";
             uiButton3.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiButton3.Click += uiButton3_Click;
             // 

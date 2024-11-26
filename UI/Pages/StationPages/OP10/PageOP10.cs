@@ -369,70 +369,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 UIMessageBox.ShowError("请先选择产品");
                 return;
             }
-            try
-            {
-                string input = tbx_Input.Text;
-                DateTime dt = uiDatePicker1.Value;
-                string dateStr = dt.ToString(tbx_DateFormat.Text);
-                BarcodeValidateResult result = new BarcodeValidateResult();
-                if (input!="")
-                {
-                    result = BarcodeValidator.Validate(input, SelectProduct, dateStr);
-                    if (result.IsSuccess)
-                    {
-                        //TODO 重码判定
-                        if (barcodeRecordBLL.IsExist(input))
-                        {
-                            Mylog.Instance.Error($"[{input}]重码");
-                            result.Err = "重码";
-                            result.IsSuccess = false;
-                        }
-                        else
-                        {
-                            Mylog.Instance.Info($"[{input}]校验成功");
-                        }
-                        //TODO 插入数据
-                    }
-                    else
-                    {
-                        Mylog.Instance.Error($"[{input}]校验失败,{result.Err}");
-                    }
-                }
-                else
-                {
-                    result.IsSuccess =false;
-                    result.Err = "扫码为空";
-                    Mylog.Instance.Error($"[{input}]校验失败,{result.Err}");
-                }
-                BarcodeRecordEntity entity = new BarcodeRecordEntity();
-                entity.Barcode = input;
-                entity.AcupointNumber = result.AcupointNumber;
-                if (result.IsSuccess)
-                {
-                    OKCount++;
-                    entity.ErrInfo = "扫码成功";
-                    SpeckMessage.SpeakAsync("成功");
-                    UpdateText(lbl_OKCount,OKCount.ToString());
-                }
-                else
-                {
-                    entity.ErrInfo = result.Err;
-                    NGCount++;
-                    UpdateText(lbl_NGCount, NGCount.ToString());
-                    SpeckMessage.SpeakAsync("失败");
-                }
-
-                entity.Result = result.IsSuccess;
-                entity.ScanTime =DateTime.Now;
-                entity.UseDateStr = dt.ToString("yyyy-MM-dd");
-                entity.ProductCode = SelectProduct.ProductCode;
-                bool b = barcodeRecordBLL.Insert(entity);
-                //Mylog.Instance.Debug($"[{input}]保存成功 {b}");
-            }
-            catch (Exception exception)
-            {
-                UIMessageBox.ShowError($"校验异常:{exception.Message}");
-            }
+            string input = tbx_Input.Text;
+            CheckBarcode(input);
         }
 
         private void UpdateText(Control ctrl,string msg)
@@ -451,7 +389,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             for (int i = 0; i < 3; i++)
             {
                 res = TriggerScanner();
-                Mylog.Instance.Debug($"读码结果:[{res}]");
+                //Mylog.Instance.Debug($"读码结果:[{res}]");
                 if (res != "")
                 {
                     break;
@@ -465,6 +403,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             {
                 Mylog.Instance.Error("读取失败");
             }
+
+            tbx_Input.Text = res;
         }
 
       

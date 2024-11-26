@@ -8,6 +8,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using AutoTF;
+using System.Drawing.Design;
+using System.Windows.Forms.Design;
 
 namespace DWZ_Scada
 {
@@ -121,6 +123,12 @@ namespace DWZ_Scada
         [Permission(3), ReadOnly(false)]
         [DisplayName("2.ModbusTCP_IO 端口号"), Category("1.通讯配置"), Description("ModbusIO卡的端口号")]
         public int ModbusPort { get; set; }
+
+
+        [EditorAttribute(typeof(FileNameEditor), typeof(UITypeEditor))]
+        [Permission(3), ReadOnly(false)]
+        [DisplayName("1.数据库配置"), Category("2.数据库配置"), Description("数据库文件位置")]
+        public string DBFilePath { get; set; }
         #endregion
 
         #region 软件配置参数

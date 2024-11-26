@@ -176,11 +176,12 @@ namespace CommunicationUtilYwh.Communication
                 {
                     //data += "\r\n";
                     //加
-                    data += "\n";
+                    data += "\r";
 
                 }
                 //写入之前是否需要清空缓存区
                 serialPort.Write(data);
+                LogMgr.Instance.Debug($@"发送指令:{data}");
                 return true;
             }
             else
@@ -315,6 +316,7 @@ namespace CommunicationUtilYwh.Communication
             try
             {
                 byte[] receivedData = new byte[serialPort.BytesToRead];//创建接收数据数组
+                LogMgr.Instance.Debug($"接收缓冲区大小:{receivedData.Length}");
                 serialPort.Read(receivedData, 0, receivedData.Length);//读取数据
                 var content = string.Empty;
                 //显示形式
@@ -330,7 +332,7 @@ namespace CommunicationUtilYwh.Communication
                         }
                         break;
                     case "ASCII":
-                        content = Encoding.GetEncoding("GB2312").GetString(receivedData);//防止乱码
+                        content = Encoding.ASCII.GetString(receivedData);//防止乱码
                         break;
                 }
                 //接收文本框

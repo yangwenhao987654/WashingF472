@@ -5,9 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DWZ_Scada;
+using LogTool;
 using Microsoft.Extensions.Configuration;
 using ScadaBase.DAL.Interceptor;
 using ScanApp.DAL.Entity;
+using System.IO;
 
 namespace ScanApp.DAL.DBContext
 {
@@ -29,8 +32,18 @@ namespace ScanApp.DAL.DBContext
             try
             {
                 base.OnConfiguring(optionsBuilder);
-                var path = Application.StartupPath;
-                DbPath = System.IO.Path.Join(path,"DB", "ScanData.db");
+                string filePath = SystemParams.Instance.DBFilePath;
+                if (!File.Exists(filePath))
+                {
+                    var path = Application.StartupPath;
+                    DbPath = System.IO.Path.Join(path, "DB", "ScanData.db");
+                    LogMgr.Instance.Debug($"打开DB:{filePath}失败，\n使用默认DB:{DbPath}");
+                }
+                else
+                {
+                    DbPath = filePath;
+                    LogMgr.Instance.Debug($"使用指定DB:{DbPath}");
+                }
                 DbContextOptionsBuilder builder = optionsBuilder.UseSqlite($"Data Source={DbPath}")
                     .AddInterceptors(new MyDbCommandInterceptor())
                     .EnableSensitiveDataLogging();
