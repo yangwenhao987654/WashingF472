@@ -134,6 +134,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
            
             while (!token.IsCancellationRequested)
             {
+                //Thread.Sleep(2000);
                
                 //port.PortName = SystemParams.Instance.ScannerComName;
                 try
@@ -187,6 +188,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         {
             int state = -1;
             //
+            Thread.Sleep(2000);
             while (!token.IsCancellationRequested)
             {
                 try

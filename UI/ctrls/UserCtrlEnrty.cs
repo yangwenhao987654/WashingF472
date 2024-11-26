@@ -144,20 +144,6 @@ namespace DIPTest.Ctrl
                     }
                     // 减小字体
                     fontSize -= 0.5f;
-                    //获取最后一行的长度 最后一行没满 就跳过 
-                    /*  if (textSize.Width >= labelSize.Width && textSize.Height >= (labelSize.Height / 2.3))
-                      {
-                          fontSize -= 0.5f;
-                          ctrl.Font = testFont;
-                          //break;
-                      }
-                      else
-                      {
-                          break;
-                      }*/
-                    // 减小字体
-
-
                     // 防止字体太小，退出循环
                     if (fontSize <= 1)
                     {
