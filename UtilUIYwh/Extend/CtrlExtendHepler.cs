@@ -19,6 +19,12 @@ namespace UtilUIYwh.Extend
             }
         }
 
+
+        public static void OnShow(this Control ctrl)
+        {
+            
+        }
+
         public static void GetCtrls(this UserControl frm, List<Control> result)
         {
             foreach (Control item in frm.Controls)

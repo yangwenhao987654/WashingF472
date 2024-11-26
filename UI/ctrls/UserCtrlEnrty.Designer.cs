@@ -34,41 +34,41 @@
             // 
             // uiLabel4
             // 
-            uiLabel4.BackColor = System.Drawing.Color.Gray;
-            uiLabel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            uiLabel4.Font = new System.Drawing.Font("微软雅黑", 50F);
-            uiLabel4.ForeColor = System.Drawing.Color.FromArgb(48, 48, 48);
-            uiLabel4.Location = new System.Drawing.Point(0, 0);
-            uiLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            uiLabel4.BackColor = Color.Gray;
+            uiLabel4.Dock = DockStyle.Fill;
+            uiLabel4.Font = new Font("微软雅黑", 50F);
+            uiLabel4.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel4.Location = new Point(0, 0);
+            uiLabel4.Margin = new Padding(4, 0, 4, 0);
             uiLabel4.Name = "uiLabel4";
-            uiLabel4.Size = new System.Drawing.Size(313, 168);
+            uiLabel4.Size = new Size(313, 168);
             uiLabel4.TabIndex = 2;
             uiLabel4.Text = "等待中";
-            uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            uiLabel4.TextAlign = ContentAlignment.MiddleCenter;
             uiLabel4.Click += uiLabel4_Click;
             // 
             // lbl_Input
             // 
-            lbl_Input.BackColor = System.Drawing.Color.PaleTurquoise;
-            lbl_Input.Dock = System.Windows.Forms.DockStyle.Top;
-            lbl_Input.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
-            lbl_Input.ForeColor = System.Drawing.Color.FromArgb(48, 48, 48);
-            lbl_Input.Location = new System.Drawing.Point(0, 0);
+            lbl_Input.BackColor = Color.PaleTurquoise;
+            lbl_Input.Dock = DockStyle.Top;
+            lbl_Input.Font = new Font("宋体", 20F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            lbl_Input.ForeColor = Color.FromArgb(48, 48, 48);
+            lbl_Input.Location = new Point(0, 0);
             lbl_Input.Name = "lbl_Input";
-            lbl_Input.Size = new System.Drawing.Size(313, 36);
+            lbl_Input.Size = new Size(313, 36);
             lbl_Input.TabIndex = 3;
             lbl_Input.Text = "SN";
-            lbl_Input.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lbl_Input.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // UserCtrlEntry
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(lbl_Input);
             Controls.Add(uiLabel4);
-            Margin = new System.Windows.Forms.Padding(4);
+            Margin = new Padding(4);
             Name = "UserCtrlEntry";
-            Size = new System.Drawing.Size(313, 168);
+            Size = new Size(313, 168);
             Resize += UserCtrlResult_Resize;
             ResumeLayout(false);
         }

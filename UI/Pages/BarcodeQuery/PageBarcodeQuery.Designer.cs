@@ -50,6 +50,7 @@
             uiLabel2 = new Sunny.UI.UILabel();
             uiButton1 = new Sunny.UI.UIButton();
             uiPanel1 = new Sunny.UI.UIPanel();
+            uiButton2 = new Sunny.UI.UIButton();
             uiPanel2 = new Sunny.UI.UIPanel();
             lbl_NGCount = new Sunny.UI.UILabel();
             lbl_OKCount = new Sunny.UI.UILabel();
@@ -308,6 +309,7 @@
             // 
             // uiPanel1
             // 
+            uiPanel1.Controls.Add(uiButton2);
             uiPanel1.Controls.Add(uiPanel2);
             uiPanel1.Controls.Add(uiGroupBox1);
             uiPanel1.Controls.Add(uiButton1);
@@ -330,6 +332,33 @@
             uiPanel1.Text = null;
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
             uiPanel1.Click += uiPanel1_Click;
+            // 
+            // uiButton2
+            // 
+            uiButton2.Cursor = Cursors.Hand;
+            uiButton2.FillColor = SystemColors.ButtonHighlight;
+            uiButton2.FillColor2 = Color.Gray;
+            uiButton2.FillHoverColor = Color.Silver;
+            uiButton2.FillPressColor = Color.Gray;
+            uiButton2.FillSelectedColor = Color.Silver;
+            uiButton2.Font = new Font("微软雅黑", 22F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiButton2.ForeColor = Color.Black;
+            uiButton2.ForeHoverColor = Color.Black;
+            uiButton2.ForePressColor = Color.Black;
+            uiButton2.ForeSelectedColor = Color.Black;
+            uiButton2.Location = new Point(1019, 102);
+            uiButton2.Margin = new Padding(2);
+            uiButton2.MinimumSize = new Size(1, 1);
+            uiButton2.Name = "uiButton2";
+            uiButton2.RectColor = Color.Silver;
+            uiButton2.RectHoverColor = Color.Silver;
+            uiButton2.RectPressColor = Color.Gray;
+            uiButton2.RectSelectedColor = Color.Silver;
+            uiButton2.Size = new Size(145, 50);
+            uiButton2.TabIndex = 65;
+            uiButton2.Text = "导出";
+            uiButton2.TipsFont = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            uiButton2.Click += uiButton2_Click;
             // 
             // uiPanel2
             // 
@@ -499,5 +528,6 @@
         private Sunny.UI.UILabel uiLabel3;
         private Sunny.UI.UILabel lbl_NGCount;
         private Sunny.UI.UILabel lbl_OKCount;
+        private Sunny.UI.UIButton uiButton2;
     }
 }

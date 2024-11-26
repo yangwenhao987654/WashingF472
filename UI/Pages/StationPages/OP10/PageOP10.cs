@@ -9,6 +9,7 @@ using ScanApp.DAL.DBContext;
 using ScanApp.DAL.Entity;
 using Sunny.UI;
 using System.IO.Ports;
+using TouchSocket.Core;
 using UI.BarcodeCheck;
 using UI.DAL.BLL;
 using UI.Validator;
@@ -71,7 +72,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             LogMgr.Instance.Debug("打开扫码对比软件");
 
             //OP10MainFunc.Instance.StartAsync();
-
+            uiDatePicker1.Value =DateTime.Now;
             myLogCtrl1.BindingControl = uiPanel1;
             Mylog.Instance.Init(myLogCtrl1);
 
@@ -87,7 +88,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiComboBox1.DisplayMember = "ProductName";
             uiComboBox1.DataSource = list;
           
-
+            
             if (SystemParams.Instance.ScannerComName == null)
             {
                 SystemParams.Instance.ScannerComName = "COM3";
@@ -103,6 +104,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             t.Start();
 
         }
+
+     
 
         private void PageFormulaQuery_ProductFormulaChanged()
         {
@@ -164,10 +167,26 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             }
         }
 
+        public string ScanHandle()
+        {
+            LogMgr.Instance.Debug("开始触发扫码");
+            string res = "";
+            for (int i = 0; i < 3; i++)
+            {
+                res = TriggerScanner();
+                if (res != "")
+                {
+                    break;
+                }
+            }
+            userCtrlEntry1.Start(res);
+            return res;
+        }
+
         public  void PLCMainWork(CancellationToken token)
         {
             int state = -1;
-
+            //
             while (!token.IsCancellationRequested)
             {
                 try
@@ -178,28 +197,26 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                         bool isFinish = GetFinihSignal();
                         if (isFinish)
                         {
-                            Mylog.Instance.Info("收到打标完成信号");
+                            LogMgr.Instance.Debug("接收到扫码完成信号");
+                            bool isContinue = true;
                             string res = "";
-                            for (int i = 0; i < 3; i++)
+                            while (true)
                             {
-                                 res = TriggerScanner();
-                                if (res!="")
+                                res = ScanHandle();
+                                if (res == "")
+                                {
+                                    bool b = UIMessageBox.ShowAsk("扫码失败，是否重新扫码?");
+                                    if (!b)
+                                    {
+                                        break;
+                                    }
+                                }
+                                else
                                 {
                                     break;
                                 }
                             }
-
-                            if (res!="")
-                            {
-                                Mylog.Instance.Info($"读取条码:[{res}]");
-                                CheckBarcode(res);
-                                //TODO 检查条码
-                            }
-                            else
-                            {
-                                Mylog.Instance.Error("读取失败");
-                                CheckBarcode(res);
-                            }
+                            CheckBarcode(res);
                             Thread.Sleep(2000);
                         }
                     }
@@ -335,26 +352,25 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                         //TODO 重码判定
                         if (barcodeRecordBLL.IsExist(input))
                         {
-                            Mylog.Instance.Error($"[{input}]重码");
+                            Mylog.Instance.Error($"条码[{input}]: 重码");
                             result.Err = "重码";
                             result.IsSuccess = false;
                         }
                         else
                         {
-                            Mylog.Instance.Info($"[{input}]校验成功");
+                            Mylog.Instance.Info($"条码[{input}]: 校验成功");
                         }
-                        //TODO 插入数据
                     }
                     else
                     {
-                        Mylog.Instance.Error($"[{input}]校验失败,{result.Err}");
+                        Mylog.Instance.Error($"条码[{input}]: 校验失败[{result.Err}]");
                     }
                 }
                 else
                 {
                     result.IsSuccess = false;
                     result.Err = "扫码为空";
-                    Mylog.Instance.Error($"[{input}]校验失败,{result.Err}");
+                    Mylog.Instance.Error($"条码[{input}]: 校验失败[{result.Err}]");
                 }
                 BarcodeRecordEntity entity = new BarcodeRecordEntity();
                 entity.Barcode = input;
@@ -365,12 +381,14 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                     entity.ErrInfo = "扫码成功";
                     SpeckMessage.SpeakAsync("成功");
                     UpdateText(lbl_OKCount, OKCount.ToString());
+                    userCtrlEntry1.Pass(input);
                 }
                 else
                 {
                     entity.ErrInfo = result.Err;
                     NGCount++;
                     UpdateText(lbl_NGCount, NGCount.ToString());
+                    userCtrlEntry1.Fail(input,result.Err);
                     SpeckMessage.SpeakAsync("失败");
                 }
 
@@ -383,7 +401,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             }
             catch (Exception exception)
             {
-                UIMessageBox.ShowError($"校验异常:{exception.Message}");
+                LogMgr.Instance.Error($"校验异常:{exception.Message} {exception.StackTrace}");
+                userCtrlEntry1.Fail(input, "校验异常");
             }
         }
 
@@ -395,7 +414,19 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 return;
             }
             string input = tbx_Input.Text;
-            CheckBarcode(input);
+            Task.Run(() =>
+            {
+                try
+                {
+                    CheckBarcode(input);
+                }
+                catch (Exception exception)
+                {
+                   UIMessageBox.ShowError($"错误:{exception.Message}");
+                }
+              
+            });
+
         }
 
         private void UpdateText(Control ctrl,string msg)

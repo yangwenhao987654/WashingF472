@@ -35,9 +35,9 @@
             contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
             清除 = new System.Windows.Forms.ToolStripMenuItem();
             复制 = new System.Windows.Forms.ToolStripMenuItem();
+            弹窗 = new System.Windows.Forms.ToolStripMenuItem();
             columnHeader1 = new System.Windows.Forms.ColumnHeader();
             columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            弹窗 = new System.Windows.Forms.ToolStripMenuItem();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -76,6 +76,13 @@
             复制.Text = "复制选中行";
             复制.Click += 复制_Click;
             // 
+            // 弹窗
+            // 
+            弹窗.Name = "弹窗";
+            弹窗.Size = new System.Drawing.Size(136, 22);
+            弹窗.Text = "弹窗";
+            弹窗.Click += 弹窗_Click;
+            // 
             // columnHeader1
             // 
             columnHeader1.Text = "时间";
@@ -86,13 +93,6 @@
             columnHeader2.Text = "内容";
             columnHeader2.Width = 2000;
             // 
-            // 弹窗
-            // 
-            弹窗.Name = "弹窗";
-            弹窗.Size = new System.Drawing.Size(136, 22);
-            弹窗.Text = "弹窗";
-            弹窗.Click += 弹窗_Click;
-            // 
             // MyLogCtrl
             // 
             Alignment = System.Windows.Forms.ListViewAlignment.Default;
@@ -102,6 +102,8 @@
             FullRowSelect = true;
             HideSelection = true;
             LabelWrap = false;
+            MultiSelect = false;
+            ShowGroups = false;
             Size = new System.Drawing.Size(554, 345);
             View = System.Windows.Forms.View.Details;
             contextMenuStrip1.ResumeLayout(false);

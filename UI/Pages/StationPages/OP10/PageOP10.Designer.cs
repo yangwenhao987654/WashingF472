@@ -75,7 +75,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiLabel1.ForeColor = Color.FromArgb(48, 48, 48);
             uiLabel1.Location = new Point(0, 0);
             uiLabel1.Name = "uiLabel1";
-            uiLabel1.Size = new Size(1223, 59);
+            uiLabel1.Size = new Size(1400, 59);
             uiLabel1.TabIndex = 1;
             uiLabel1.Text = "扫码对比系统";
             uiLabel1.TextAlign = ContentAlignment.MiddleCenter;
@@ -122,7 +122,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiPanel2.Margin = new Padding(4, 5, 4, 5);
             uiPanel2.MinimumSize = new Size(1, 1);
             uiPanel2.Name = "uiPanel2";
-            uiPanel2.Size = new Size(1194, 141);
+            uiPanel2.Size = new Size(1362, 141);
             uiPanel2.TabIndex = 36;
             uiPanel2.Text = null;
             uiPanel2.TextAlignment = ContentAlignment.MiddleCenter;
@@ -337,7 +337,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiComboBox1.Size = new Size(150, 29);
             uiComboBox1.SymbolSize = 24;
             uiComboBox1.TabIndex = 0;
-            uiComboBox1.Text = "uiComboBox1";
             uiComboBox1.TextAlignment = ContentAlignment.MiddleLeft;
             uiComboBox1.Watermark = "";
             uiComboBox1.SelectedIndexChanged += uiComboBox1_SelectedIndexChanged;
@@ -349,7 +348,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiPanel3.Controls.Add(uiLabel11);
             uiPanel3.Controls.Add(uiLabel10);
             uiPanel3.Font = new Font("宋体", 20F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiPanel3.Location = new Point(35, 246);
+            uiPanel3.Location = new Point(16, 224);
             uiPanel3.Margin = new Padding(4, 5, 4, 5);
             uiPanel3.MinimumSize = new Size(1, 1);
             uiPanel3.Name = "uiPanel3";
@@ -406,7 +405,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiPanel1.Margin = new Padding(4, 5, 4, 5);
             uiPanel1.MinimumSize = new Size(1, 1);
             uiPanel1.Name = "uiPanel1";
-            uiPanel1.Size = new Size(1172, 522);
+            uiPanel1.Size = new Size(1340, 439);
             uiPanel1.TabIndex = 39;
             uiPanel1.Text = null;
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
@@ -420,8 +419,11 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             myLogCtrl1.HideSelection = true;
             myLogCtrl1.LabelWrap = false;
             myLogCtrl1.Location = new Point(0, 0);
+            myLogCtrl1.Margin = new Padding(3, 3, 3, 20);
+            myLogCtrl1.MultiSelect = false;
             myLogCtrl1.Name = "myLogCtrl1";
-            myLogCtrl1.Size = new Size(1172, 522);
+            myLogCtrl1.ShowGroups = false;
+            myLogCtrl1.Size = new Size(1340, 439);
             myLogCtrl1.TabIndex = 0;
             myLogCtrl1.UseCompatibleStateImageBehavior = false;
             myLogCtrl1.View = View.Details;
@@ -429,7 +431,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // uiButton1
             // 
             uiButton1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiButton1.Location = new Point(917, 231);
+            uiButton1.Location = new Point(1029, 270);
             uiButton1.MinimumSize = new Size(1, 1);
             uiButton1.Name = "uiButton1";
             uiButton1.Size = new Size(100, 35);
@@ -441,7 +443,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // tbx_Input
             // 
             tbx_Input.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            tbx_Input.Location = new Point(524, 228);
+            tbx_Input.Location = new Point(1015, 224);
             tbx_Input.Margin = new Padding(4, 5, 4, 5);
             tbx_Input.MinimumSize = new Size(1, 16);
             tbx_Input.Name = "tbx_Input";
@@ -455,7 +457,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // uiButton3
             // 
             uiButton3.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiButton3.Location = new Point(917, 279);
+            uiButton3.Location = new Point(1029, 330);
             uiButton3.MinimumSize = new Size(1, 1);
             uiButton3.Name = "uiButton3";
             uiButton3.Size = new Size(100, 35);
@@ -466,10 +468,10 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // 
             // userCtrlEntry1
             // 
-            userCtrlEntry1.Location = new Point(524, 283);
+            userCtrlEntry1.Location = new Point(385, 214);
             userCtrlEntry1.Margin = new Padding(4);
             userCtrlEntry1.Name = "userCtrlEntry1";
-            userCtrlEntry1.Size = new Size(313, 156);
+            userCtrlEntry1.Size = new Size(609, 227);
             userCtrlEntry1.TabIndex = 44;
             userCtrlEntry1.TextAlign = ContentAlignment.MiddleCenter;
             userCtrlEntry1.TextFont = new Font("微软雅黑", 50F);
@@ -477,7 +479,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             // PageOP10
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1223, 1000);
+            ClientSize = new Size(1400, 1000);
             Controls.Add(userCtrlEntry1);
             Controls.Add(uiButton3);
             Controls.Add(tbx_Input);

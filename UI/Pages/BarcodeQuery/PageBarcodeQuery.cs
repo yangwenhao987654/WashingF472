@@ -1,6 +1,7 @@
 ﻿using CSharpFormApplication;
 using Microsoft.Extensions.DependencyInjection;
 using ScanApp.DAL.Entity;
+using SJTU_UI.ExcleUtil;
 using Sunny.UI;
 using UI.DAL.BLL;
 
@@ -40,8 +41,18 @@ namespace DWZ_Scada.Pages
 
         }
 
+        public new void Show()
+        {
+            base.Show();
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+        }
+
         private void Page_Formula_Set_Load(object sender, EventArgs e)
-        { 
+        {
             //asc.controllInitializeSize(this);
             dtStart.Value = DateTime.Today;
             dtEnd.Value = DateTime.Now;
@@ -57,10 +68,10 @@ namespace DWZ_Scada.Pages
                 dgv.Invoke(new Action<List<BarcodeRecordEntity>>(ReflashTable), list);
                 return;
             }
-            int okCount =0;
+            int okCount = 0;
             int NGCount = 0;
             dgv.Rows.Clear();
-            if (list==null)
+            if (list == null)
             {
                 return;
             }
@@ -91,7 +102,7 @@ namespace DWZ_Scada.Pages
             dgv.ResumeLayout();
             dgv.ClearSelection();
             dgv.CurrentCell = null;
-            lbl_OKCount.Text =okCount.ToString();
+            lbl_OKCount.Text = okCount.ToString();
             lbl_NGCount.Text = NGCount.ToString();
         }
 
@@ -124,7 +135,7 @@ namespace DWZ_Scada.Pages
         {
             DateTime start = dtStart.Value;
             DateTime end = dtEnd.Value;
-            List<BarcodeRecordEntity> list =null;
+            List<BarcodeRecordEntity> list = null;
 
             if (rbtb_NG.Checked)
             {
@@ -149,6 +160,11 @@ namespace DWZ_Scada.Pages
         private void uiPanel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void uiButton2_Click(object sender, EventArgs e)
+        {
+            ExcleHelper.DataGridViewToCSV(dgv);
         }
     }
 }

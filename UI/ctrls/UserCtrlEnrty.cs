@@ -81,13 +81,16 @@ namespace DIPTest.Ctrl
             uiLabel4.BackColor = Color.Green;
             lbl_Input.Text = sn;
         }
-        public void Fail(string msg)
+        public void Fail(string  sn ,string msg)
         {
             if (InvokeRequired)
             {
-                Invoke(new Action<string>(Fail));
+                Invoke(new Action(()=>{
+                    Fail(sn,msg);
+                }));
                 return;
             }
+            lbl_Input.Text = sn;
             uiLabel4.Text = msg;
             uiLabel4.BackColor = Color.Red;
             //lbl_Input.Text = sn;

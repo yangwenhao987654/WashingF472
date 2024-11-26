@@ -55,7 +55,7 @@ namespace DWZ_Scada.UIUtil
             }
             else if (result == 2)
             {
-                ctrl.Fail(msg);
+                ctrl.Fail(sn,msg);
             }
             else
             {

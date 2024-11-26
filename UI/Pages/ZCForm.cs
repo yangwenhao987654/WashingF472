@@ -8,6 +8,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
+using UtilUIYwh.ControlWrapper;
 using Timer = System.Threading.Timer;
 
 namespace DWZ_Scada.Pages
@@ -212,8 +213,11 @@ namespace DWZ_Scada.Pages
             //LogMgr.Instance.Debug($"当前线程ID:{Thread.CurrentThread.ManagedThreadId.ToString()}");
             uiPanel1.Controls.Clear();
             ctrl.Dock = DockStyle.Fill;
-            uiPanel1.Controls.Add(ctrl);
+           /* ControlWrapper controlWrapper = new ControlWrapper(ctrl);
+            controlWrapper.Show();*/
             ctrl.Show();
+            uiPanel1.Controls.Add(ctrl);
+         
         }
 
         private static void OpenPageProperty()
