@@ -171,6 +171,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         public string ScanHandle()
         {
             LogMgr.Instance.Debug("开始触发扫码");
+            userCtrlEntry1.Start("");
             string res = "";
             for (int i = 0; i < 3; i++)
             {
@@ -180,7 +181,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                     break;
                 }
             }
-            userCtrlEntry1.Start(res);
             return res;
         }
 
@@ -361,6 +361,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                         else
                         {
                             Mylog.Instance.Info($"条码[{input}]: 校验成功");
+                            result.IsSuccess =true;
                         }
                     }
                     else

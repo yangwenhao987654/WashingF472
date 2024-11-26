@@ -66,7 +66,7 @@ namespace DIPTest.Ctrl
                 Invoke(new Action(() => Start(SN)));
                 return;
             }
-            uiLabel4.Text = "请求中...";
+            uiLabel4.Text = "扫码中";
             uiLabel4.BackColor = Color.Yellow;
             lbl_Input.Text = SN;
         }
@@ -74,7 +74,10 @@ namespace DIPTest.Ctrl
         {
             if (InvokeRequired)
             {
-                Invoke(new Action<string>(Pass));
+                Invoke(new Action(() =>
+                {
+                    Pass(sn);
+                }));
                 return;
             }
             uiLabel4.Text = "OK";
