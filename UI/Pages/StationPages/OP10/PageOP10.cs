@@ -59,7 +59,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private IBarcodeRecordBLL barcodeRecordBLL;
 
-        private CancellationTokenSource cts =new CancellationTokenSource();
+        private CancellationTokenSource cts = new CancellationTokenSource();
 
         SoundHelper soundHelper = new SoundHelper();
 
@@ -76,7 +76,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             LogMgr.Instance.Debug("打开扫码对比软件");
 
             //OP10MainFunc.Instance.StartAsync();
-            uiDatePicker1.Value =DateTime.Now;
+            uiDatePicker1.Value = DateTime.Now;
             myLogCtrl1.BindingControl = uiPanel1;
             Mylog.Instance.Init(myLogCtrl1);
 
@@ -91,8 +91,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             });
             uiComboBox1.DisplayMember = "ProductName";
             uiComboBox1.DataSource = list;
-          
-            
+
+
             if (SystemParams.Instance.ScannerComName == null)
             {
                 SystemParams.Instance.ScannerComName = "COM3";
@@ -104,12 +104,12 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             Thread t0 = new Thread(() => SerialPortMonitor(cts.Token));
             t0.Start();
 
-            Thread t = new Thread(()=>PLCMainWork(cts.Token));
+            Thread t = new Thread(() => PLCMainWork(cts.Token));
             t.Start();
 
         }
 
-     
+
 
         private void PageFormulaQuery_ProductFormulaChanged()
         {
@@ -121,10 +121,10 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             uiComboBox1.SelectedIndexChanged -= uiComboBox1_SelectedIndexChanged;
             uiComboBox1.DisplayMember = "ProductName";
             uiComboBox1.DataSource = list;
-            if (SelectProduct!=null)
+            if (SelectProduct != null)
             {
                 SelectProduct = list.FirstOrDefault(r => r.ID == SelectProduct.ID);
-                if (SelectProduct!=null)
+                if (SelectProduct != null)
                 {
                     uiComboBox1.SelectedItem = SelectProduct;
                 }
@@ -135,15 +135,15 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private void SerialPortMonitor(CancellationToken token)
         {
-           
+
             while (!token.IsCancellationRequested)
             {
                 //Thread.Sleep(2000);
-               
+
                 //port.PortName = SystemParams.Instance.ScannerComName;
                 try
                 {
-                 
+
                     if (scanner.IsOpen)
                     {
                         //Thread.Sleep(2000);
@@ -188,7 +188,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             return res;
         }
 
-        public  void PLCMainWork(CancellationToken token)
+        public void PLCMainWork(CancellationToken token)
         {
             int state = -1;
             //
@@ -252,16 +252,16 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private string TriggerScanner()
         {
-           scanner.Trigger();
-           Thread.Sleep(200);
-            
-           return scanner.GetResult();
+            scanner.Trigger();
+            Thread.Sleep(200);
+
+            return scanner.GetResult();
         }
 
         private bool GetFinihSignal()
         {
             //完成信号 读0
-            modbusTcp.ReadBool("0",out bool isFinish);
+            modbusTcp.ReadBool("0", out bool isFinish);
             return isFinish;
         }
 
@@ -365,7 +365,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                         else
                         {
                             Mylog.Instance.Info($"条码[{input}]: 校验成功");
-                            result.IsSuccess =true;
+                            result.IsSuccess = true;
                         }
                     }
                     else
@@ -395,8 +395,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                     entity.ErrInfo = result.Err;
                     NGCount++;
                     UpdateText(lbl_NGCount, NGCount.ToString());
-                    userCtrlEntry1.Fail(input,result.Err);
-                   soundHelper.PlayErr();
+                    userCtrlEntry1.Fail(input, result.Err);
+                    soundHelper.PlayErr();
                 }
 
                 entity.Result = result.IsSuccess;
@@ -429,26 +429,26 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 }
                 catch (Exception exception)
                 {
-                   UIMessageBox.ShowError($"错误:{exception.Message}");
+                    UIMessageBox.ShowError($"错误:{exception.Message}");
                 }
-              
+
             });
 
         }
 
-        private void UpdateText(Control ctrl,string msg)
+        private void UpdateText(Control ctrl, string msg)
         {
             if (ctrl.InvokeRequired)
             {
-                ctrl.BeginInvoke(new MethodInvoker(()=>UpdateText(ctrl,msg)));
+                ctrl.BeginInvoke(new MethodInvoker(() => UpdateText(ctrl, msg)));
                 return;
             }
-            ctrl.Text =msg;
+            ctrl.Text = msg;
         }
 
         private async void uiButton3_Click(object sender, EventArgs e)
         {
-          
+
             //soundHelper.PlayErr();
             string res = "";
             for (int i = 0; i < 3; i++)
@@ -472,7 +472,10 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             tbx_Input.Text = res;
         }
 
-      
+        private void uiPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public enum PlcState
     {

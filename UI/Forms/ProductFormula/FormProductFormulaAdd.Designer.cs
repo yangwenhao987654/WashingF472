@@ -49,7 +49,7 @@
             uiButton1.FillColor = Color.White;
             uiButton1.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiButton1.ForeColor = Color.Black;
-            uiButton1.Location = new Point(222, 779);
+            uiButton1.Location = new Point(253, 657);
             uiButton1.MinimumSize = new Size(1, 1);
             uiButton1.Name = "uiButton1";
             uiButton1.Size = new Size(107, 48);
@@ -63,7 +63,7 @@
             uiButton2.FillColor = Color.White;
             uiButton2.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiButton2.ForeColor = Color.Black;
-            uiButton2.Location = new Point(608, 779);
+            uiButton2.Location = new Point(555, 657);
             uiButton2.MinimumSize = new Size(1, 1);
             uiButton2.Name = "uiButton2";
             uiButton2.RectHoverColor = Color.Red;
@@ -77,7 +77,7 @@
             // 
             uiLabel2.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel2.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel2.Location = new Point(303, 65);
+            uiLabel2.Location = new Point(275, 46);
             uiLabel2.Name = "uiLabel2";
             uiLabel2.Size = new Size(127, 38);
             uiLabel2.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             uiLabel3.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel3.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel3.Location = new Point(303, 121);
+            uiLabel3.Location = new Point(275, 102);
             uiLabel3.Name = "uiLabel3";
             uiLabel3.Size = new Size(127, 38);
             uiLabel3.TabIndex = 4;
@@ -97,7 +97,7 @@
             // 
             uiLabel4.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiLabel4.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel4.Location = new Point(303, 186);
+            uiLabel4.Location = new Point(275, 167);
             uiLabel4.Name = "uiLabel4";
             uiLabel4.Size = new Size(127, 38);
             uiLabel4.TabIndex = 5;
@@ -106,7 +106,7 @@
             // tbxName
             // 
             tbxName.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            tbxName.Location = new Point(437, 65);
+            tbxName.Location = new Point(409, 46);
             tbxName.Margin = new Padding(4, 5, 4, 5);
             tbxName.MinimumSize = new Size(1, 16);
             tbxName.Name = "tbxName";
@@ -120,7 +120,7 @@
             // tbx_Code
             // 
             tbx_Code.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            tbx_Code.Location = new Point(437, 121);
+            tbx_Code.Location = new Point(409, 102);
             tbx_Code.Margin = new Padding(4, 5, 4, 5);
             tbx_Code.MinimumSize = new Size(1, 16);
             tbx_Code.Name = "tbx_Code";
@@ -138,7 +138,7 @@
             uiComboBox1.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
             uiComboBox1.ItemHoverColor = Color.FromArgb(155, 200, 255);
             uiComboBox1.ItemSelectForeColor = Color.FromArgb(235, 243, 255);
-            uiComboBox1.Location = new Point(437, 185);
+            uiComboBox1.Location = new Point(409, 166);
             uiComboBox1.Margin = new Padding(4, 5, 4, 5);
             uiComboBox1.MinimumSize = new Size(63, 0);
             uiComboBox1.Name = "uiComboBox1";
@@ -157,11 +157,11 @@
             uiPanel1.Controls.Add(ctrlCode14);
             uiPanel1.Controls.Add(ctrlCode31);
             uiPanel1.Font = new Font("宋体", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            uiPanel1.Location = new Point(62, 240);
+            uiPanel1.Location = new Point(34, 221);
             uiPanel1.Margin = new Padding(4, 5, 4, 5);
             uiPanel1.MinimumSize = new Size(1, 1);
             uiPanel1.Name = "uiPanel1";
-            uiPanel1.Size = new Size(881, 510);
+            uiPanel1.Size = new Size(881, 428);
             uiPanel1.TabIndex = 12;
             uiPanel1.Text = null;
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
@@ -171,10 +171,9 @@
             ctrlCode40.BackColor = Color.Transparent;
             ctrlCode40.Location = new Point(201, 24);
             ctrlCode40.Name = "ctrlCode40";
-            ctrlCode40.Size = new Size(562, 411);
+            ctrlCode40.Size = new Size(562, 384);
             ctrlCode40.TabIndex = 13;
             ctrlCode40.Visible = false;
-            //ctrlCode40.Load += this.ctrlCode40_Load;
             // 
             // ctrlCode43
             // 
@@ -207,7 +206,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1086, 854);
+            ClientSize = new Size(965, 723);
             Controls.Add(uiPanel1);
             Controls.Add(uiComboBox1);
             Controls.Add(tbx_Code);
