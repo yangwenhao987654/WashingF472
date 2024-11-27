@@ -46,6 +46,7 @@
             uiLabel15 = new Sunny.UI.UILabel();
             tbx_PartNo = new Sunny.UI.UITextBox();
             uiLabel16 = new Sunny.UI.UILabel();
+            tbxAcq = new Sunny.UI.UITextBox();
             SuspendLayout();
             // 
             // tbx_Spy
@@ -236,11 +237,29 @@
             uiLabel16.TabIndex = 19;
             uiLabel16.Text = "（1位）";
             // 
+            // tbxAcq
+            // 
+            tbxAcq.DoubleValue = 114D;
+            tbxAcq.Font = new Font("微软雅黑", 18F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            tbxAcq.IntValue = 114;
+            tbxAcq.Location = new Point(170, 62);
+            tbxAcq.Margin = new Padding(4, 5, 4, 5);
+            tbxAcq.MinimumSize = new Size(1, 16);
+            tbxAcq.Name = "tbxAcq";
+            tbxAcq.Padding = new Padding(5);
+            tbxAcq.ShowText = false;
+            tbxAcq.Size = new Size(242, 44);
+            tbxAcq.TabIndex = 20;
+            tbxAcq.Text = "114";
+            tbxAcq.TextAlignment = ContentAlignment.MiddleLeft;
+            tbxAcq.Watermark = "";
+            // 
             // CtrlCode40
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
+            Controls.Add(tbxAcq);
             Controls.Add(uiLabel16);
             Controls.Add(tbx_PartNo);
             Controls.Add(uiLabel14);
@@ -283,5 +302,6 @@
         private Sunny.UI.UILabel uiLabel15;
         private Sunny.UI.UITextBox tbx_PartNo;
         private Sunny.UI.UILabel uiLabel16;
+        private Sunny.UI.UITextBox tbxAcq;
     }
 }

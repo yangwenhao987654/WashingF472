@@ -123,6 +123,12 @@ namespace UI.Validator
                 result.Err = "穴位号错误";
                 return result;
             }
+            int.TryParse(entity.AcupointNumber, out int targetAcuNum);
+            if (acqNum!= targetAcuNum)
+            {
+                result.Err = "穴位号错误";
+                return result;
+            }
             result.AcupointNumber = acqNum;
             result.IsSuccess =true;
             return result;
@@ -176,7 +182,11 @@ namespace UI.Validator
             }
 
             int acqNum = GetAcqNum(barcode, 21, 4);
-            if (acqNum == 0)
+            if (acqNum == 1 || acqNum == 2)
+            {
+
+            }
+            else
             {
                 result.Err = "穴位号错误";
                 return result;
@@ -215,7 +225,11 @@ namespace UI.Validator
                 return result;
             }
             int acqNum = GetAcqNum(barcode, 13, 2);
-            if (acqNum == 0)
+            if (acqNum == 1 || acqNum == 2)
+            {
+
+            }
+            else
             {
                 result.Err = "穴位号错误";
                 return result;
@@ -249,7 +263,11 @@ namespace UI.Validator
                 return result;
             }
             int acqNum = GetAcqNum(barcode, 2, 1);
-            if (acqNum == 0)
+            if (acqNum == 1 || acqNum == 2)
+            {
+               
+            }
+            else
             {
                 result.Err = "穴位号错误";
                 return result;

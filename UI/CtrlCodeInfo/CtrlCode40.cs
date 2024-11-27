@@ -24,12 +24,21 @@ namespace UI.CtrlCodeInfo
         {
             tbx_Spy.Text = result.SupplierCode;
             tbx_PartNo.Text = result.PartCode;
+
+            tbxAcq.Text = result.AcupointNumber;
+            if (string.IsNullOrEmpty(result.AcupointNumber))
+            {
+                tbxAcq.Text = "114";
+            }
         }
 
         public ProductFormulaEntity GetResult(ProductFormulaEntity result)
         {
             tbx_PartNo.CheckLength("零件号", 10);
             tbx_Spy.CheckLength("供应商号",10);
+            tbxAcq.CheckLength("穴位号", 3);
+
+            result.AcupointNumber = tbxAcq.Text;
             result.BarcodeType = CodeType.Code40;
             result.DateLength = 6;
             result.FixedValue1 = lbl_FixValue1.Text;
