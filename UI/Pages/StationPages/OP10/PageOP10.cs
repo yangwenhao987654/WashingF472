@@ -244,7 +244,8 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 }
                 catch (Exception ex)
                 {
-                    LogMgr.Instance.Error($"Exception in modbusTcp Work: {ex.Message}");
+                    LogMgr.Instance.Error($"Exception in modbusTcp Work: {ex.Message} {ex.StackTrace}");
+                    UIMessageBox.ShowError($"错误：{ex.StackTrace}");
                 }
                 Thread.Sleep(100);
             }
@@ -261,7 +262,21 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         private bool GetFinihSignal()
         {
             //完成信号 读0
-            modbusTcp.ReadBool("0", out bool isFinish);
+            //modbusTcp.ReadBool("0", out bool isFinish);
+            modbusTcp.ReadBool("0", out bool[] arr,8);
+            bool isFinish = false;
+            if (arr==null)
+            {
+                return false;
+            }
+            for (var i = 0; i < arr.Length; i++)
+            {
+                if (arr[i])
+                {
+                    isFinish = true;
+                    break;
+                }
+            }
             return isFinish;
         }
 

@@ -428,6 +428,29 @@ public class ModbusTCP : MyPlc
         return flag;
     }
 
+    public  bool ReadBool(string adr, out bool[] value, int length)
+    {
+        value = new bool[length];
+        var flag = true;
+        try
+        {
+            var operate = client.ReadBool(adr, (ushort)length);
+            value = operate.Content;
+            flag = operate.IsSuccess;
+            if (!flag)
+            {
+                LogMgr.Instance.Error($"读取ModbusTCP地址失败:{operate.Message}");
+            }
+        }
+        catch (Exception ex)
+        {
+            LogMgr.Instance.Error($"读取ModbusTCP地址错误:{ex.StackTrace} {ex.Message}");
+            flag = false;
+        }
+
+        return flag;
+    }
+
     public override bool ReadAlarm(string adr, out bool[] value, int length)
     {
         value = new bool[length];
