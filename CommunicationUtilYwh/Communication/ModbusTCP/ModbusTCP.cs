@@ -46,7 +46,6 @@ public class ModbusTCP : MyPlc
 
     public bool IsConnect;
 
-
     public void Close()
     {
         client?.ConnectClose();
@@ -66,6 +65,7 @@ public class ModbusTCP : MyPlc
         client.AddressStartWithZero = true;
         client.DataFormat = DataFormat.CDAB;
         client.IsStringReverse = false;
+        client.ReceiveTimeOut = 200;
         try
         {
             var connect = client.ConnectServer();

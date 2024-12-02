@@ -9,8 +9,6 @@ using ScanApp.DAL.DBContext;
 using ScanApp.DAL.Entity;
 using Sunny.UI;
 using System.IO.Ports;
-using System.Media;
-using TouchSocket.Core;
 using UI.BarcodeCheck;
 using UI.DAL.BLL;
 using UI.Validator;
@@ -200,7 +198,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                     if (modbusTcp.IsConnect)
                     {
                         PlcState = PlcState.Online;
-                        bool isFinish = GetFinihSignal();
+                        bool isFinish = GetFinishSignal();
                         if (isFinish)
                         {
                             LogMgr.Instance.Debug("接收到扫码完成信号");
@@ -259,7 +257,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             return scanner.GetResult();
         }
 
-        private bool GetFinihSignal()
+        private bool GetFinishSignal()
         {
             //完成信号 读0
             //modbusTcp.ReadBool("0", out bool isFinish);
