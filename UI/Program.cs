@@ -1,9 +1,7 @@
-using DWZ_Scada.Pages;
 using DWZ_Scada;
+using DWZ_Scada.Pages;
 using LogTool;
 using Microsoft.Extensions.DependencyInjection;
-using ScanApp.DAL.DBContext;
-using ScanApp.DAL.Entity;
 using System.Text;
 using UI.DAL.BLL;
 using UI.DAL.DAL;

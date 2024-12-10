@@ -21,74 +21,6 @@
     <Compile Update="AAAForm1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CtrlCodeInfo\CtrlCode43.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CtrlCodeInfo\CtrlCode14.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="CtrlCodeInfo\CtrlCode40.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ctrls\UserCtrlAgingSingle.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ctrls\UserCtrlEnrty.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ctrls\userCtrlInput.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ctrls\userCtrlProcessBar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ctrls\UserCtrlResult.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ctrls\userCtrlScanInput.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Forms\BarcodeRules\FormRulesSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\BarcodeRules\FormRulesAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\BarcodeRules\FormRulesUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\ProductFormula\FormProductFormulaSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\ProductFormula\FormProductFormulaAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\RuleParameters\FormRuleParamsSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Pages\BarcodeQuery\PageBarcodeQuery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Pages\PageProperty.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Pages\PageFormulaQuery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Pages\StationPages\OP10\PageOP10.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Pages\ZCForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="PopupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DAL\ExecuteSQL\" />
-    <Folder Include="Pages\PLCControl\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -112,28 +44,36 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommunicationUtilYwh\CommunicationUtilYwh.csproj" />
-    <ProjectReference Include="..\LogTool\LogTool.csproj" />
-    <ProjectReference Include="..\UtilUIYwh\UtilUIYwh.csproj" />
     <ProjectReference Include="..\UtilYwh\UtilYwh.csproj" />
+    <ProjectReference Include="..\VisionNet472\VisionNet472.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Pages\ZCForm.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <Reference Include="Cognex.VisionPro">
+      <HintPath>C:\Program Files (x86)\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Controls">
+      <HintPath>C:\Program Files (x86)\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Core">
+      <HintPath>C:\Program Files (x86)\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Display.Controls">
+      <HintPath>C:\Program Files (x86)\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Display.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ImageFile">
+      <HintPath>C:\Program Files (x86)\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.ImageFile.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ToolGroup">
+      <HintPath>C:\Program Files (x86)\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.ToolGroup.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ToolGroup.Controls">
+      <HintPath>C:\Program Files (x86)\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.ToolGroup.Controls.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Config\Log4Net.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="DB\ScanData.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Params\Params.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>

@@ -12,10 +12,6 @@
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Device\KeyenceAutoIDControler.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Communication\Scanner\" />
     <Folder Include="Printer\" />
   </ItemGroup>
   <ItemGroup>
@@ -34,16 +30,8 @@
     <PackageReference Include="TouchSocket.Http" Version="2.0.17" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LogTool\LogTool.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="HslCommunication">
       <HintPath>..\DWZ_Scada\bin\Debug\net8.0-windows\dll\HslCommunication.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="dll\HslCommunication.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 </Project>
