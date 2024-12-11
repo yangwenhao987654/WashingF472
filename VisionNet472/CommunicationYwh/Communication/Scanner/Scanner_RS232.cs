@@ -6,14 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunicationUtilYwh.Communication;
 using LogTool;
+using VisionNet472.CommunicationYwh.Device;
 
 namespace CommunicationUtilYwh.Device
 {
-    public class Scanner_RS232:SerialCommunication
+    public class Scanner_RS232: SerialCommunication, IScannerSuppoprt
     {
-        private string TriggerCmd = "LON";
+        public string TriggerCmd { get; set; } ="LON";
+        public string StopCmd { get; set; } = "LOFF";
 
-        private string StopCmd = "LOFF";
 
         public Scanner_RS232(SerialPort serialPort) :base(serialPort)
         {
@@ -43,5 +44,7 @@ namespace CommunicationUtilYwh.Device
             }
             return result;
         }
+
+
     }
 }

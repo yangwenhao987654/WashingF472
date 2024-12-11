@@ -1,16 +1,12 @@
 ﻿using CommonUtilYwh.Communication.ModbusTCP;
-using CommunicationUtilYwh.Device;
 using DWZ_Scada.ctrls.LogCtrl;
 using LogTool;
-using Microsoft.Extensions.DependencyInjection;
 using Sunny.UI;
 using System;
-using System.Collections.Generic;
 using System.IO.Ports;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using UtilYwh.VoicePrompt;
+using VisionNet472.CommunicationYwh.Device;
 
 namespace DWZ_Scada.Pages.StationPages.OP10
 {
@@ -20,7 +16,9 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private readonly Action _clearAlarmDelegate;
 
-        private Scanner_RS232 scanner;
+        private NewLandScanner_RS232 scanner;
+
+        private WeightController232 weightController;
 
         private ModbusTCP modbusTcp = new ModbusTCP();
 
@@ -52,8 +50,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private CancellationTokenSource cts = new CancellationTokenSource();
 
-        SoundHelper soundHelper = new SoundHelper();
-
         private PageOP10()
         {
             InitializeComponent();
@@ -82,15 +78,16 @@ namespace DWZ_Scada.Pages.StationPages.OP10
                 SystemParams.Instance.ScannerComName = "COM3";
             }
             SerialPort port = new SerialPort(SystemParams.Instance.ScannerComName);
-            scanner = new Scanner_RS232(port);
+            scanner = new NewLandScanner_RS232(port);
             scanner.Open();
+
+            weightController = new WeightController232();
             //modbusTcp.Connect();
             Thread t0 = new Thread(() => SerialPortMonitor(cts.Token));
             t0.Start();
 
             Thread t = new Thread(() => PLCMainWork(cts.Token));
             t.Start();
-
         }
 
         private void SerialPortMonitor(CancellationToken token)
@@ -100,18 +97,22 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             {
                 try
                 {
-
-                    if (scanner.IsOpen)
-                    {
-
-                    }
-                    else
+                    if (!scanner.IsOpen)
                     {
                         scanner.SetPort(new SerialPort(SystemParams.Instance.ScannerComName));
                         bool isOpen = scanner.Open();
                         if (!isOpen)
                         {
-                            LogMgr.Instance.Error($"串口打开失败：{SystemParams.Instance.ScannerComName}");
+                            LogMgr.Instance.Error($"扫码枪串口打开失败：{SystemParams.Instance.ScannerComName}");
+                        }
+                    }
+                  
+                    if (!weightController.IsConnect)
+                    {
+                        bool isOpen = weightController.Open(SystemParams.Instance.WeightComName);
+                        if (!isOpen)
+                        {
+                            LogMgr.Instance.Error($"称重器串口打开失败：{SystemParams.Instance.WeightComName}");
                         }
                     }
                 }
@@ -129,7 +130,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         public string ScanHandle()
         {
             LogMgr.Instance.Debug("开始触发扫码");
-            userCtrlEntry1.Start("");
+            //userCtrlEntry1.Start("");
             string res = "";
             for (int i = 0; i < 3; i++)
             {
@@ -145,7 +146,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         public void PLCMainWork(CancellationToken token)
         {
             int state = -1;
-            //
+            //TODO IO卡通讯
             Thread.Sleep(2000);
             while (!token.IsCancellationRequested)
             {
@@ -177,28 +178,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             return scanner.GetResult();
         }
 
-        private bool GetFinishSignal()
-        {
-            //完成信号 读0
-            //modbusTcp.ReadBool("0", out bool isFinish);
-            modbusTcp.ReadBool("0", out bool[] arr,8);
-            bool isFinish = false;
-            if (arr==null)
-            {
-                return false;
-            }
-            for (var i = 0; i < arr.Length; i++)
-            {
-                if (arr[i])
-                {
-                    isFinish = true;
-                    break;
-                }
-            }
-            return isFinish;
-        }
-
-
         private void uiLabel1_Click(object sender, EventArgs e)
         {
 
@@ -216,7 +195,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
 
         private async void uiButton3_Click(object sender, EventArgs e)
         {
-
             //soundHelper.PlayErr();
             string res = "";
             for (int i = 0; i < 3; i++)
@@ -236,6 +214,11 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             {
                 Mylog.Instance.Error("读取失败");
             }
+        }
+
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
     public enum PlcState

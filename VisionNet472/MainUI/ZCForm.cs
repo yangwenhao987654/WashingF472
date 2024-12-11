@@ -14,12 +14,11 @@ namespace DWZ_Scada.Pages
 {
     public partial class ZCForm : UIForm
     {
-        private Form mainForm;
         private static ZCForm _instance;
 
         private Timer timer;
 
-        private ZCForm()
+        public ZCForm()
         {
             InitializeComponent();
         }
@@ -144,10 +143,10 @@ namespace DWZ_Scada.Pages
                   
                     break;
                 case Keys.F4:
-                    //AddFormTopanel(DeviceControlPage.Instance);
+                    //AddFormToPanel(DeviceControlPage.Instance);
                     break;
                 case Keys.F5:
-                    //AddFormTopanel(Page_PLCAddress.Instance);
+                    //AddFormToPanel(Page_PLCAddress.Instance);
                     break;
                 case Keys.F11:
                     OpenPageProperty();
@@ -157,40 +156,7 @@ namespace DWZ_Scada.Pages
             }
         }
 
-        private void ZCForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F11)
-            {
-                uiButton6_Click(sender, e);
-            }
 
-            if (e.KeyCode == Keys.F5)
-            {
-            }
-        }
-
-        public void SetAutoSize()
-        {
-            Rectangle size1 = Screen.PrimaryScreen.Bounds;
-            Rectangle size2 = Screen.PrimaryScreen.WorkingArea;
-            MaximumSize = new Size(size2.Width, size2.Height);
-            WindowState = FormWindowState.Maximized;
-        }
-
-        private void SetMainPage(Form form)
-        {
-            if (mainForm != form)
-            {
-                mainForm?.Close();
-            }
-            uiPanel1.Controls.Clear();
-            form.Dock = DockStyle.Fill;
-            //PageOp20的Show方法 很慢才进来
-            form.Show();
-            uiPanel1.Controls.Add(form);
-            mainForm = form;
-            //this.Text = "数据采集系统-" + mainForm.Text;
-        }
 
         private void TimerElapsed(object state)
         {
@@ -206,7 +172,7 @@ namespace DWZ_Scada.Pages
             lblTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss ");
         }
 
-        public void AddFormTopanel(Control ctrl)
+        public void AddFormToPanel(Control ctrl)
         {
             //LogMgr.Instance.Debug($"当前线程ID:{Thread.CurrentThread.ManagedThreadId.ToString()}");
             uiPanel1.Controls.Clear();
@@ -239,29 +205,20 @@ namespace DWZ_Scada.Pages
             OpenPageProperty();
         }
 
-        private void uiButton7_Click(object sender, EventArgs e)
-        {
-           // AddFormTopanel(Page_PLCAddress.Instance);
-        }
-
-        private void uiButton5_Click(object sender, EventArgs e)
-        {
-            //AddFormTopanel(PageUserQuery.Instance);
-        }
 
         private void uiButton3_Click(object sender, EventArgs e)
         {
-            //AddFormTopanel(PageFormulaQuery.Instance);
+            //AddFormToPanel(PageFormulaQuery.Instance);
         }
 
         private void uiButton4_Click(object sender, EventArgs e)
         {
-            //AddFormTopanel(PageTabMenu_Debug.Instance);
+            AddFormToPanel(PageTabMenu_Debug.Instance);
         }
 
         private void uiButton1_Click(object sender, EventArgs e)
         {
-            //AddFormTopanel(PageBarcodeQuery.Instance);
+            //AddFormToPanel(PageBarcodeQuery.Instance);
         }
 
         private void uiButton2_Click(object sender, EventArgs e)
@@ -271,17 +228,12 @@ namespace DWZ_Scada.Pages
 
         private void SetAutoStart()
         {
-            AddFormTopanel(PageOP10.Instance);
+            AddFormToPanel(PageOP10.Instance);
         }
 
         private void uiButton8_Click(object sender, EventArgs e)
         {
             this.OnFormClosing(new FormClosingEventArgs(CloseReason.UserClosing, true));
-        }
-
-
-        private void uiLight1_Click(object sender, EventArgs e)
-        {
         }
 
         private void InitializeLogo()

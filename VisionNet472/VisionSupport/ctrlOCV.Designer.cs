@@ -30,17 +30,20 @@ namespace AutoTF.UserCtrls
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.uiButton1 = new System.Windows.Forms.Button();
             this.uiButton3 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cogDisplayControl1 = new AutoTF.UserCtrls.CogDisplayControl();
             this.uiButton5 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.uiButton2 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.rtbx_Msg = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cogDisplayControl1 = new AutoTF.UserCtrls.CogDisplayControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -49,6 +52,7 @@ namespace AutoTF.UserCtrls
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiButton1
@@ -57,7 +61,7 @@ namespace AutoTF.UserCtrls
             this.uiButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiButton1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton1.Location = new System.Drawing.Point(202, 2);
-            this.uiButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uiButton1.Margin = new System.Windows.Forms.Padding(2);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.Size = new System.Drawing.Size(96, 59);
@@ -71,26 +75,13 @@ namespace AutoTF.UserCtrls
             this.uiButton3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiButton3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton3.Location = new System.Drawing.Point(302, 2);
-            this.uiButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uiButton3.Margin = new System.Windows.Forms.Padding(2);
             this.uiButton3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton3.Name = "uiButton3";
             this.uiButton3.Size = new System.Drawing.Size(96, 59);
             this.uiButton3.TabIndex = 2;
             this.uiButton3.Text = "关闭实时";
             this.uiButton3.Click += new System.EventHandler(this.uiButton3_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Items.AddRange(new object[] {
-            "测试结果"});
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(400, 89);
-            this.listBox1.TabIndex = 5;
             // 
             // panel1
             // 
@@ -104,25 +95,13 @@ namespace AutoTF.UserCtrls
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
             // 
-            // cogDisplayControl1
-            // 
-            this.cogDisplayControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cogDisplayControl1.ExecutionTime = 0D;
-            this.cogDisplayControl1.Location = new System.Drawing.Point(0, 0);
-            this.cogDisplayControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.cogDisplayControl1.Name = "cogDisplayControl1";
-            this.cogDisplayControl1.Size = new System.Drawing.Size(400, 225);
-            this.cogDisplayControl1.TabIndex = 4;
-            this.cogDisplayControl1.Load += new System.EventHandler(this.cogDisplayControl1_Load);
-            this.cogDisplayControl1.DoubleClick += new System.EventHandler(this.cogDisplayControl1_DoubleClick);
-            // 
             // uiButton5
             // 
             this.uiButton5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiButton5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton5.Location = new System.Drawing.Point(2, 2);
-            this.uiButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uiButton5.Margin = new System.Windows.Forms.Padding(2);
             this.uiButton5.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton5.Name = "uiButton5";
             this.uiButton5.Size = new System.Drawing.Size(96, 59);
@@ -182,7 +161,7 @@ namespace AutoTF.UserCtrls
             this.uiButton2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiButton2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton2.Location = new System.Drawing.Point(102, 2);
-            this.uiButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uiButton2.Margin = new System.Windows.Forms.Padding(2);
             this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton2.Name = "uiButton2";
             this.uiButton2.Size = new System.Drawing.Size(96, 59);
@@ -204,16 +183,52 @@ namespace AutoTF.UserCtrls
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.listBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.rtbx_Msg);
             this.splitContainer1.Size = new System.Drawing.Size(400, 317);
             this.splitContainer1.SplitterDistance = 225;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 1;
             // 
+            // rtbx_Msg
+            // 
+            this.rtbx_Msg.ContextMenuStrip = this.contextMenuStrip1;
+            this.rtbx_Msg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbx_Msg.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rtbx_Msg.Location = new System.Drawing.Point(0, 0);
+            this.rtbx_Msg.Name = "rtbx_Msg";
+            this.rtbx_Msg.Size = new System.Drawing.Size(400, 89);
+            this.rtbx_Msg.TabIndex = 1;
+            this.rtbx_Msg.Text = "";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.复制ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            this.复制ToolStripMenuItem.Click += new System.EventHandler(this.复制ToolStripMenuItem_Click);
+            // 
+            // cogDisplayControl1
+            // 
+            this.cogDisplayControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cogDisplayControl1.ExecutionTime = 0D;
+            this.cogDisplayControl1.Location = new System.Drawing.Point(0, 0);
+            this.cogDisplayControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.cogDisplayControl1.Name = "cogDisplayControl1";
+            this.cogDisplayControl1.Size = new System.Drawing.Size(400, 225);
+            this.cogDisplayControl1.TabIndex = 4;
+            this.cogDisplayControl1.Load += new System.EventHandler(this.cogDisplayControl1_Load);
+            this.cogDisplayControl1.DoubleClick += new System.EventHandler(this.cogDisplayControl1_DoubleClick);
+            // 
             // ctrlOCV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ctrlOCV";
@@ -228,6 +243,7 @@ namespace AutoTF.UserCtrls
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -237,7 +253,6 @@ namespace AutoTF.UserCtrls
         private Button uiButton1;
         private Button uiButton3;
         private CogDisplayControl cogDisplayControl1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Panel panel1;
         private Button uiButton5;
         private System.Windows.Forms.Panel panel2;
@@ -245,5 +260,8 @@ namespace AutoTF.UserCtrls
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Button uiButton2;
+        private RichTextBox rtbx_Msg;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem 复制ToolStripMenuItem;
     }
 }

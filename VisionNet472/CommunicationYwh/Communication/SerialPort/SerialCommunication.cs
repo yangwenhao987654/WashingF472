@@ -179,9 +179,43 @@ namespace CommunicationUtilYwh.Communication
                     data += "\r";
 
                 }
+                //serialPort.Write();
                 //写入之前是否需要清空缓存区
                 serialPort.Write(data);
                 LogMgr.Instance.Debug($@"发送指令:{data}");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 发送数据的方法
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool SendData(byte[] dataToSend)
+        {
+            if (serialPort.IsOpen)
+            {
+                //是否需要添加回车换行
+                if (this.NeedCR)
+                {
+            
+                    byte[] crlf = Encoding.ASCII.GetBytes("\r\n");
+                    byte[] fullData = new byte[dataToSend.Length + crlf.Length];
+
+                    // 合并数组
+                    Buffer.BlockCopy(dataToSend, 0, fullData, 0, dataToSend.Length);
+                    Buffer.BlockCopy(crlf, 0, fullData, dataToSend.Length, crlf.Length);
+                    dataToSend =fullData;
+                }
+                //serialPort.Write();
+                //写入之前是否需要清空缓存区
+                serialPort.Write(dataToSend, 0, dataToSend.Length);
+                LogMgr.Instance.Debug($@"发送指令:{BitConverter.ToString(dataToSend)}");
                 return true;
             }
             else

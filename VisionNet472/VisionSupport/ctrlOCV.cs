@@ -15,13 +15,6 @@ using LogTool;
 
 namespace AutoTF.UserCtrls
 {
-    public struct StructDisplay
-    {
-        public int index;
-        public bool result;
-        public int inspect;
-        public bool issaveimage;
-    }
 
     public partial class ctrlOCV : UserControl
     {
@@ -31,18 +24,11 @@ namespace AutoTF.UserCtrls
         Stopwatch s1 = new Stopwatch();
 
         Stopwatch s2 = new Stopwatch();
-
-        Stopwatch s3 = new Stopwatch();
-        Stopwatch s4 = new Stopwatch();
         Stopwatch s5 = new Stopwatch();
 
         public object mylock = new object();
-        public bool testFirst = true;
 
         public CogToolBlock TB;
-        List<string> reslist = new List<string>();
-
-        public CogRecordDisplay RecordDisplay;
 
         /// <summary>
         /// VPP初始化完成
@@ -90,10 +76,10 @@ namespace AutoTF.UserCtrls
                 IsVppInitFinish = true;
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 IsVppInitFinish = false;
-                return false;
+                throw new Exception($"初始化VPP失败:  错误信息：{e.Message} \n 路径:{vppPath}");
             }
         }
 
@@ -237,10 +223,10 @@ namespace AutoTF.UserCtrls
                 record.Fit(true);
                 record.AutoFit = true;
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("实时取像出现错误，请打开视觉设置查看相机配置是否正确！");
-                LogMgr.Instance.Error("实时取像出现错误，请打开视觉设置查看相机配置是否正确！");
+                MessageBox.Show($"实时取像出现错误，请打开视觉设置查看相机配置是否正确！\n异常信息:{e.Message}");
+                LogMgr.Instance.Error($"实时取像出现错误，请打开视觉设置查看相机配置是否正确！\n异常信息:{e.Message}");
             }
         }
 
@@ -331,10 +317,10 @@ namespace AutoTF.UserCtrls
 
         public void UpdateResult(string msg)
         {
-            listBox1.Invoke(new Action(() =>
+            rtbx_Msg.Invoke(new Action(() =>
             {
                 //listBox1.Items.Add($" NG 耗时:{stopwatch.Elapsed}");
-                listBox1.Items.Add(msg);
+                rtbx_Msg.Text =msg;
                 //listBox1.Items.Add(DateTime.Now.ToString() + "视觉NG");
             }));
         }
@@ -342,10 +328,7 @@ namespace AutoTF.UserCtrls
         public bool TriggerVisionHandle()
         {
             LogMgr.Instance.Info("开始视觉处理");
-            listBox1.Invoke(new Action(() =>
-            {
-                listBox1.Items.Clear();
-            }));
+            UpdateResult("开始拍照");
             bool result = false;
             stopwatch.Restart();
 
@@ -375,10 +358,9 @@ namespace AutoTF.UserCtrls
     
             stopwatch.Stop();
             string res = result ? "OK" : "NG";
-            listBox1.Invoke(new Action(() =>
-            {
-                listBox1.Items.Add($"{res}:[{stopwatch.Elapsed.TotalSeconds}] {errMsg}");
-            }));
+           
+            UpdateResult($"{res}:[{stopwatch.Elapsed.TotalSeconds}] {errMsg}");
+            
             if (!result)
             {
                 LogMgr.Instance.Error("OCR识别失败" + errMsg);
@@ -389,6 +371,19 @@ namespace AutoTF.UserCtrls
             }
             LogMgr.Instance.Info($"视觉处理完成 VPP总耗时:[{s1.Elapsed.TotalMilliseconds}]ms  TB.RUN耗时:[{s2.Elapsed.TotalMilliseconds}]ms  OCR识别:[{s5.Elapsed.TotalMilliseconds}]ms");
             return result;
+        }
+
+        private void 复制ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 检查是否有选中的文本
+            if (!string.IsNullOrEmpty(rtbx_Msg.SelectedText))
+            {
+                Clipboard.SetText(rtbx_Msg.SelectedText); // 将选中内容复制到剪贴板
+            }
+            else
+            {
+                
+            }
         }
     }
 }

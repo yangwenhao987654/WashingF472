@@ -33,18 +33,16 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.uiLabel1 = new Sunny.UI.UILabel();
-            this.lbl_EntrySN = new Sunny.UI.UILabel();
-            this.lbl_EntryResult = new Sunny.UI.UILabel();
-            this.uiPanel3 = new Sunny.UI.UIPanel();
-            this.lbl_NGCount = new Sunny.UI.UILabel();
-            this.lbl_OKCount = new Sunny.UI.UILabel();
-            this.uiLabel11 = new Sunny.UI.UILabel();
-            this.uiLabel10 = new Sunny.UI.UILabel();
-            this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiButton3 = new Sunny.UI.UIButton();
+            this.uiPanel2 = new Sunny.UI.UIPanel();
             this.ctrlOCV1 = new AutoTF.UserCtrls.ctrlOCV();
-            this.uiPanel3.SuspendLayout();
+            this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.myLogCtrl1 = new DWZ_Scada.ctrls.MyLogCtrl();
+            this.uiButton1 = new Sunny.UI.UIButton();
+            this.uiPanel2.SuspendLayout();
+            this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiLabel1
@@ -54,151 +52,118 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             this.uiLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.uiLabel1.Location = new System.Drawing.Point(0, 0);
             this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(1400, 59);
+            this.uiLabel1.Size = new System.Drawing.Size(1280, 59);
             this.uiLabel1.TabIndex = 1;
             this.uiLabel1.Text = "称重检测系统";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_EntrySN
-            // 
-            this.lbl_EntrySN.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_EntrySN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.lbl_EntrySN.Location = new System.Drawing.Point(176, 287);
-            this.lbl_EntrySN.Name = "lbl_EntrySN";
-            this.lbl_EntrySN.Size = new System.Drawing.Size(220, 42);
-            this.lbl_EntrySN.TabIndex = 11;
-            // 
-            // lbl_EntryResult
-            // 
-            this.lbl_EntryResult.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_EntryResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.lbl_EntryResult.Location = new System.Drawing.Point(176, 339);
-            this.lbl_EntryResult.Name = "lbl_EntryResult";
-            this.lbl_EntryResult.Size = new System.Drawing.Size(220, 42);
-            this.lbl_EntryResult.TabIndex = 30;
-            // 
-            // uiPanel3
-            // 
-            this.uiPanel3.Controls.Add(this.lbl_NGCount);
-            this.uiPanel3.Controls.Add(this.lbl_OKCount);
-            this.uiPanel3.Controls.Add(this.uiLabel11);
-            this.uiPanel3.Controls.Add(this.uiLabel10);
-            this.uiPanel3.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiPanel3.Location = new System.Drawing.Point(934, 83);
-            this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel3.Name = "uiPanel3";
-            this.uiPanel3.Size = new System.Drawing.Size(361, 163);
-            this.uiPanel3.TabIndex = 37;
-            this.uiPanel3.Text = null;
-            this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lbl_NGCount
-            // 
-            this.lbl_NGCount.Font = new System.Drawing.Font("微软雅黑", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_NGCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lbl_NGCount.Location = new System.Drawing.Point(147, 85);
-            this.lbl_NGCount.Name = "lbl_NGCount";
-            this.lbl_NGCount.Size = new System.Drawing.Size(192, 72);
-            this.lbl_NGCount.TabIndex = 3;
-            this.lbl_NGCount.Text = "0";
-            // 
-            // lbl_OKCount
-            // 
-            this.lbl_OKCount.Font = new System.Drawing.Font("微软雅黑", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_OKCount.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lbl_OKCount.Location = new System.Drawing.Point(147, 13);
-            this.lbl_OKCount.Name = "lbl_OKCount";
-            this.lbl_OKCount.Size = new System.Drawing.Size(192, 65);
-            this.lbl_OKCount.TabIndex = 2;
-            this.lbl_OKCount.Text = "0";
-            // 
-            // uiLabel11
-            // 
-            this.uiLabel11.Font = new System.Drawing.Font("微软雅黑", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.uiLabel11.Location = new System.Drawing.Point(7, 93);
-            this.uiLabel11.Name = "uiLabel11";
-            this.uiLabel11.Size = new System.Drawing.Size(110, 54);
-            this.uiLabel11.TabIndex = 1;
-            this.uiLabel11.Text = "NG:";
-            // 
-            // uiLabel10
-            // 
-            this.uiLabel10.Font = new System.Drawing.Font("微软雅黑", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel10.ForeColor = System.Drawing.Color.LimeGreen;
-            this.uiLabel10.Location = new System.Drawing.Point(11, 18);
-            this.uiLabel10.Name = "uiLabel10";
-            this.uiLabel10.Size = new System.Drawing.Size(100, 60);
-            this.uiLabel10.TabIndex = 0;
-            this.uiLabel10.Text = "OK:";
-            // 
-            // uiPanel1
-            // 
-            this.uiPanel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiPanel1.Location = new System.Drawing.Point(27, 573);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel1.MaximumSize = new System.Drawing.Size(2000, 300);
-            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1340, 300);
-            this.uiPanel1.TabIndex = 39;
-            this.uiPanel1.Text = null;
-            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiLabel1.Click += new System.EventHandler(this.uiLabel1_Click);
             // 
             // uiButton3
             // 
             this.uiButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton3.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton3.Location = new System.Drawing.Point(1216, 386);
+            this.uiButton3.Location = new System.Drawing.Point(576, 72);
             this.uiButton3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton3.Name = "uiButton3";
             this.uiButton3.Size = new System.Drawing.Size(110, 51);
             this.uiButton3.TabIndex = 43;
             this.uiButton3.Text = "测试扫码";
             this.uiButton3.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton3.Click += new System.EventHandler(this.uiButton3_Click);
+            // 
+            // uiPanel2
+            // 
+            this.uiPanel2.Controls.Add(this.ctrlOCV1);
+            this.uiPanel2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiPanel2.Location = new System.Drawing.Point(36, 131);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel2.Name = "uiPanel2";
+            this.uiPanel2.Size = new System.Drawing.Size(432, 311);
+            this.uiPanel2.TabIndex = 45;
+            this.uiPanel2.Text = "uiPanel2";
+            this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ctrlOCV1
             // 
-            this.ctrlOCV1.Location = new System.Drawing.Point(39, 69);
+            this.ctrlOCV1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlOCV1.Location = new System.Drawing.Point(0, 0);
             this.ctrlOCV1.Margin = new System.Windows.Forms.Padding(0);
             this.ctrlOCV1.Name = "ctrlOCV1";
-            this.ctrlOCV1.Size = new System.Drawing.Size(440, 466);
+            this.ctrlOCV1.Size = new System.Drawing.Size(432, 311);
             this.ctrlOCV1.TabIndex = 44;
+            // 
+            // uiPanel1
+            // 
+            this.uiPanel1.Controls.Add(this.myLogCtrl1);
+            this.uiPanel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiPanel1.Location = new System.Drawing.Point(10, 592);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.MaximumSize = new System.Drawing.Size(2000, 300);
+            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.Size = new System.Drawing.Size(1257, 152);
+            this.uiPanel1.TabIndex = 39;
+            this.uiPanel1.Text = null;
+            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // myLogCtrl1
+            // 
+            this.myLogCtrl1.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.myLogCtrl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myLogCtrl1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.myLogCtrl1.FullRowSelect = true;
+            this.myLogCtrl1.LabelWrap = false;
+            this.myLogCtrl1.Location = new System.Drawing.Point(0, 0);
+            this.myLogCtrl1.MultiSelect = false;
+            this.myLogCtrl1.Name = "myLogCtrl1";
+            this.myLogCtrl1.ShowGroups = false;
+            this.myLogCtrl1.Size = new System.Drawing.Size(1257, 152);
+            this.myLogCtrl1.TabIndex = 0;
+            this.myLogCtrl1.UseCompatibleStateImageBehavior = false;
+            this.myLogCtrl1.View = System.Windows.Forms.View.Details;
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton1.Location = new System.Drawing.Point(576, 144);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(110, 51);
+            this.uiButton1.TabIndex = 46;
+            this.uiButton1.Text = "测试称重";
+            this.uiButton1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // PageOP10
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1400, 1000);
-            this.Controls.Add(this.ctrlOCV1);
+            this.ClientSize = new System.Drawing.Size(1280, 750);
+            this.Controls.Add(this.uiButton1);
+            this.Controls.Add(this.uiPanel2);
             this.Controls.Add(this.uiButton3);
             this.Controls.Add(this.uiPanel1);
-            this.Controls.Add(this.uiPanel3);
-            this.Controls.Add(this.lbl_EntryResult);
-            this.Controls.Add(this.lbl_EntrySN);
             this.Controls.Add(this.uiLabel1);
             this.Font = new System.Drawing.Font("宋体", 8F);
             this.Name = "PageOP10";
             this.Text = "OP10";
             this.TitleFillColor = System.Drawing.Color.Transparent;
-            this.uiPanel3.ResumeLayout(false);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PageOP10_FormClosing);
+            this.Load += new System.EventHandler(this.Page_Load);
+            this.uiPanel2.ResumeLayout(false);
+            this.uiPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private Sunny.UI.UILabel uiLabel1;
-        private Sunny.UI.UILabel lbl_EntrySN;
-        private UILabel lbl_EntryResult;
-        private ctrls.MyLogCtrl myLogCtrl1;
-        private DIPTest.Ctrl.UserCtrlEntry userCtrlEntry1;
-        private UIPanel uiPanel3;
         private UIPanel uiPanel1;
         private UIButton uiButton3;
-        private UILabel uiLabel11;
-        private UILabel uiLabel10;
-        private UILabel lbl_NGCount;
-        private UILabel lbl_OKCount;
+        private ctrls.MyLogCtrl myLogCtrl1;
         private AutoTF.UserCtrls.ctrlOCV ctrlOCV1;
+        private UIPanel uiPanel2;
+        private UIButton uiButton1;
     }
 }

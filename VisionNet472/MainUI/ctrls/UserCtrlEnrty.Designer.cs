@@ -31,49 +31,45 @@ namespace DIPTest.Ctrl
         /// </summary>
         private void InitializeComponent()
         {
-            uiLabel4 = new Sunny.UI.UILabel();
-            lbl_Input = new Sunny.UI.UILabel();
-            SuspendLayout();
+            this.uiLabel4 = new Sunny.UI.UILabel();
+            this.lbl_Input = new Sunny.UI.UILabel();
+            this.SuspendLayout();
             // 
             // uiLabel4
             // 
-            uiLabel4.BackColor = Color.Gray;
-            uiLabel4.Dock = DockStyle.Fill;
-            uiLabel4.Font = new Font("微软雅黑", 50F);
-            uiLabel4.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel4.Location = new Point(0, 0);
-            uiLabel4.Margin = new Padding(4, 0, 4, 0);
-            uiLabel4.Name = "uiLabel4";
-            uiLabel4.Size = new Size(313, 168);
-            uiLabel4.TabIndex = 2;
-            uiLabel4.Text = "等待中";
-            uiLabel4.TextAlign = ContentAlignment.MiddleCenter;
-            uiLabel4.Click += uiLabel4_Click;
+            this.uiLabel4.BackColor = System.Drawing.Color.Gray;
+            this.uiLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 50F);
+            this.uiLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel4.Location = new System.Drawing.Point(0, 0);
+            this.uiLabel4.Name = "uiLabel4";
+            this.uiLabel4.Size = new System.Drawing.Size(268, 119);
+            this.uiLabel4.TabIndex = 2;
+            this.uiLabel4.Text = "等待中";
+            this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_Input
             // 
-            lbl_Input.BackColor = Color.PaleTurquoise;
-            lbl_Input.Dock = DockStyle.Top;
-            lbl_Input.Font = new Font("宋体", 20F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            lbl_Input.ForeColor = Color.FromArgb(48, 48, 48);
-            lbl_Input.Location = new Point(0, 0);
-            lbl_Input.Name = "lbl_Input";
-            lbl_Input.Size = new Size(313, 36);
-            lbl_Input.TabIndex = 3;
-            lbl_Input.Text = "SN";
-            lbl_Input.TextAlign = ContentAlignment.MiddleLeft;
+            this.lbl_Input.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.lbl_Input.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_Input.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_Input.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.lbl_Input.Location = new System.Drawing.Point(0, 0);
+            this.lbl_Input.Name = "lbl_Input";
+            this.lbl_Input.Size = new System.Drawing.Size(268, 25);
+            this.lbl_Input.TabIndex = 3;
+            this.lbl_Input.Text = "SN";
+            this.lbl_Input.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // UserCtrlEntry
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(lbl_Input);
-            Controls.Add(uiLabel4);
-            Margin = new Padding(4);
-            Name = "UserCtrlEntry";
-            Size = new Size(313, 168);
-            Resize += UserCtrlResult_Resize;
-            ResumeLayout(false);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.lbl_Input);
+            this.Controls.Add(this.uiLabel4);
+            this.Name = "UserCtrlEntry";
+            this.Size = new System.Drawing.Size(268, 119);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

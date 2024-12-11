@@ -40,7 +40,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>true</Prefer32Bit>
+    <Prefer32Bit>false</Prefer32Bit>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -52,6 +52,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ZCLogo_12.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cognex.VisionPro, Version=59.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
@@ -127,6 +133,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Dll\RestSharp.dll</HintPath>
     </Reference>
+    <Reference Include="SqlSugar, Version=5.1.4.171, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.1.4.171\lib\SqlSugar.dll</HintPath>
+    </Reference>
     <Reference Include="SunnyUI, Version=3.8.0.1, Culture=neutral, PublicKeyToken=27d7d2e821d97aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\SunnyUI.3.8.0.1\lib\net472\SunnyUI.dll</HintPath>
     </Reference>
@@ -137,6 +146,15 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.119.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.119.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System.Design" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
@@ -171,17 +189,30 @@
     <Compile Include="CommunicationYwh\Communication\PLC\MyPlc.cs" />
     <Compile Include="CommunicationYwh\Communication\PLC\OmornFins.cs" />
     <Compile Include="CommunicationYwh\Communication\PLC\SiemensPLC.cs" />
+    <Compile Include="CommunicationYwh\Communication\Scanner\IScannerSuppoprt.cs" />
+    <Compile Include="CommunicationYwh\Communication\Scanner\KeyenceAutoIDControler.cs" />
+    <Compile Include="CommunicationYwh\Communication\Scanner\NewLandScanner_RS232.cs" />
+    <Compile Include="CommunicationYwh\Communication\Scanner\Scanner_RS232.cs" />
+    <Compile Include="CommunicationYwh\Communication\Scanner\TcpScanner.cs" />
     <Compile Include="CommunicationYwh\Communication\SerialPort\PortServerTest.cs" />
     <Compile Include="CommunicationYwh\Communication\SerialPort\SerialCommunication.cs" />
     <Compile Include="CommunicationYwh\Communication\TCP\MyTCPServer.cs" />
     <Compile Include="CommunicationYwh\Communication\TCP\TcpClient.cs" />
     <Compile Include="CommunicationYwh\Communication\TCP\TcpServer.cs" />
     <Compile Include="CommunicationYwh\Device\ElecDeviceService.cs" />
-    <Compile Include="CommunicationYwh\Device\KeyenceAutoIDControler.cs" />
-    <Compile Include="CommunicationYwh\Device\Scanner_RS232.cs" />
     <Compile Include="CommunicationYwh\Device\TcpDevice1.cs" />
-    <Compile Include="CommunicationYwh\Device\TcpScanner.cs" />
     <Compile Include="CommunicationYwh\Device\TemperatureController485.cs" />
+    <Compile Include="CommunicationYwh\Device\WeightController232.cs" />
+    <Compile Include="DAL\Entity\OpUser.cs" />
+    <Compile Include="DAL\Repositories\IRepository.cs" />
+    <Compile Include="DAL\Repositories\Repository.cs" />
+    <Compile Include="DAL\Services\UserService.cs" />
+    <Compile Include="DAL\Utilities\MyDbContext.cs" />
+    <Compile Include="DAL\DBTool\DatabaseConfig .cs" />
+    <Compile Include="DAL\Entity\BarcodeRecordEntity.cs" />
+    <Compile Include="DAL\Entity\BarcodeRule.cs" />
+    <Compile Include="DAL\Entity\BarcodeRuleParameter.cs" />
+    <Compile Include="DAL\Entity\ProductFormulaEntity.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,22 +361,22 @@
     <Compile Include="UtilYwh\VoicePrompt\SpeckTool.cs" />
     <Compile Include="UtilYwh\WinUtil\Win10Key.cs" />
     <Compile Include="UtilYwh\WinUtil\WinHelper.cs" />
-    <Compile Include="VisionExtion\CogDisplayControl.cs">
+    <Compile Include="VisionSupport\CogDisplayControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="VisionExtion\CogDisplayControl.Designer.cs">
+    <Compile Include="VisionSupport\CogDisplayControl.Designer.cs">
       <DependentUpon>CogDisplayControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisionExtion\ctrlOCV.cs">
+    <Compile Include="VisionSupport\ctrlOCV.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="VisionExtion\ctrlOCV.Designer.cs">
+    <Compile Include="VisionSupport\ctrlOCV.Designer.cs">
       <DependentUpon>ctrlOCV.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisionExtion\FormEditVPP.cs">
+    <Compile Include="VisionSupport\FormEditVPP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisionExtion\FormEditVPP.Designer.cs">
+    <Compile Include="VisionSupport\FormEditVPP.Designer.cs">
       <DependentUpon>FormEditVPP.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
@@ -414,18 +445,20 @@
     <EmbeddedResource Include="UtilUIYwh\LogCtrl\MyLogCtrl.resx">
       <DependentUpon>MyLogCtrl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisionExtion\CogDisplayControl.resx">
+    <EmbeddedResource Include="VisionSupport\CogDisplayControl.resx">
       <DependentUpon>CogDisplayControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisionExtion\ctrlOCV.resx">
+    <EmbeddedResource Include="VisionSupport\ctrlOCV.resx">
       <DependentUpon>ctrlOCV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisionExtion\FormEditVPP.resx">
+    <EmbeddedResource Include="VisionSupport\FormEditVPP.resx">
       <DependentUpon>FormEditVPP.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="config\Log4Net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="DB\ScanData.db" />
+    <None Include="DB\WashingDB.sqlite" />
     <None Include="MainUI\DB\ScanData.db" />
     <None Include="MainUI\Params\Params-backup.json" />
     <None Include="MainUI\Params\Params.json" />
@@ -456,8 +489,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CommunicationYwh\Communication\Scanner\" />
     <Folder Include="CommunicationYwh\Printer\" />
+    <Folder Include="DAL\ExecuteSQL\" />
+    <Folder Include="DAL\Interceptor\" />
     <Folder Include="MainUI\Forms\ProductFormula\" />
     <Folder Include="MainUI\Pages\PLCControl\" />
     <Folder Include="MainUI\Utils\" />
@@ -467,6 +501,7 @@
     <Content Include="Dll\Keyence.AutoID.SDK.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ZCLogo_12.ico" />
     <None Include="Dll\System.Text.Json.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -486,6 +521,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>

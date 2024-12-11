@@ -118,6 +118,10 @@ namespace DWZ_Scada
         public string ScannerComName{ get; set; }
 
         [Permission(3), ReadOnly(false)]
+        [DisplayName("2.称重器串口名称"), Category("1.通讯配置"), Description("称重器的Com口")]
+        public string WeightComName { get; set; }
+
+        [Permission(3), ReadOnly(false)]
         [DisplayName("1.ModbusTCP_IO IP地址"), Category("1.通讯配置"), Description("ModbusIO卡的IP地址")]
         public string ModbusIP { get; set; }
         [Permission(3), ReadOnly(false)]

@@ -2,11 +2,19 @@
 using DWZ_Scada.Pages;
 using LogTool;
 using Microsoft.Extensions.DependencyInjection;
+using SqlSugar;
+using Sunny.UI.Win32;
 using System;
 using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using ScanApp.DAL.DBContext;
+using VisionNet472.DAL.Entity;
+using System.Collections.Generic;
+using System.Web.UI.WebControls;
+using VisionNet472.DAL.Repositories;
+using VisionNet472.DAL.Services;
 
 namespace VisionNet472
 {
@@ -48,13 +56,15 @@ namespace VisionNet472
                         return;
                     }
 
-
+                    InitDB();
                     //假如更新数据库 就屏蔽下面的东西
 #if !UPDATE_DB
                     var serviceCollection = new ServiceCollection();
 
                     ConfigureServices(serviceCollection);
                     Global.ServiceProvider = serviceCollection.BuildServiceProvider();
+
+                    Global.ServiceProvider.GetRequiredService<UserService>().GetAllUsers();
                     ZCForm mainForm = ZCForm.Instance;
                     //mainForm.WindowState = FormWindowState.Maximized;
 
@@ -75,12 +85,41 @@ namespace VisionNet472
             }
         }
 
+        private static void InitDB()
+        {
+            var db = MyDbContext.Instance;
+
+            //判断表是否存在
+            if (!db.DbMaintenance.IsAnyTable("tbOpUser", false))
+            {
+                // 自动创建表
+                db.CodeFirst.InitTables<OpUser>();
+
+                // 插入初始数据
+
+                //var userService = new UserService();
+          
+                var userList = new List<OpUser>
+                {
+                    new OpUser { UserName = "Admin" ,UserType = 10,Password = "123123" ,UserCode = "001"},
+                    new OpUser { UserName = "操作员" ,UserType = 1 ,Password = "" ,UserCode = "002"},
+                };
+                      //userService.GetAllUsers(userList);
+                int i = db.Insertable(userList).ExecuteCommand();
+                
+            }
+/*
+            UserService userService = new UserService();
+            userService.GetAllUsers();*/
+        }
+
         private static void ConfigureServices(ServiceCollection services)
         {
 
             #region 注册数据库访问接口
+            services.AddSingleton(typeof(Repository<>));
 
-        
+            services.AddSingleton<UserService>();
             #endregion
 
         }
