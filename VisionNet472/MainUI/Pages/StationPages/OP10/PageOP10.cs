@@ -220,6 +220,16 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         {
 
         }
+
+        private void PageOP10_Initialize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public enum PlcState
     {

@@ -37,10 +37,11 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.uiButton3 = new Sunny.UI.UIButton();
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.ctrlOCV1 = new AutoTF.UserCtrls.ctrlOCV();
             this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.myLogCtrl1 = new DWZ_Scada.ctrls.MyLogCtrl();
             this.uiButton1 = new Sunny.UI.UIButton();
+            this.ctrlOCV1 = new AutoTF.UserCtrls.ctrlOCV();
+            this.myLogCtrl1 = new DWZ_Scada.ctrls.MyLogCtrl();
+            this.uiButton2 = new Sunny.UI.UIButton();
             this.uiPanel2.SuspendLayout();
             this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -84,15 +85,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             this.uiPanel2.Text = "uiPanel2";
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ctrlOCV1
-            // 
-            this.ctrlOCV1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlOCV1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlOCV1.Margin = new System.Windows.Forms.Padding(0);
-            this.ctrlOCV1.Name = "ctrlOCV1";
-            this.ctrlOCV1.Size = new System.Drawing.Size(432, 311);
-            this.ctrlOCV1.TabIndex = 44;
-            // 
             // uiPanel1
             // 
             this.uiPanel1.Controls.Add(this.myLogCtrl1);
@@ -106,6 +98,28 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             this.uiPanel1.TabIndex = 39;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton1.Location = new System.Drawing.Point(576, 144);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(110, 51);
+            this.uiButton1.TabIndex = 46;
+            this.uiButton1.Text = "测试称重";
+            this.uiButton1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
+            // 
+            // ctrlOCV1
+            // 
+            this.ctrlOCV1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlOCV1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlOCV1.Margin = new System.Windows.Forms.Padding(0);
+            this.ctrlOCV1.Name = "ctrlOCV1";
+            this.ctrlOCV1.Size = new System.Drawing.Size(432, 311);
+            this.ctrlOCV1.TabIndex = 44;
             // 
             // myLogCtrl1
             // 
@@ -123,23 +137,24 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             this.myLogCtrl1.UseCompatibleStateImageBehavior = false;
             this.myLogCtrl1.View = System.Windows.Forms.View.Details;
             // 
-            // uiButton1
+            // uiButton2
             // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton1.Location = new System.Drawing.Point(576, 144);
-            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(110, 51);
-            this.uiButton1.TabIndex = 46;
-            this.uiButton1.Text = "测试称重";
-            this.uiButton1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
+            this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton2.Location = new System.Drawing.Point(585, 350);
+            this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton2.Name = "uiButton2";
+            this.uiButton2.Size = new System.Drawing.Size(110, 51);
+            this.uiButton2.TabIndex = 47;
+            this.uiButton2.Text = "测试";
+            this.uiButton2.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton2.Click += new System.EventHandler(this.uiButton2_Click);
             // 
             // PageOP10
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1280, 750);
+            this.Controls.Add(this.uiButton2);
             this.Controls.Add(this.uiButton1);
             this.Controls.Add(this.uiPanel2);
             this.Controls.Add(this.uiButton3);
@@ -149,6 +164,7 @@ namespace DWZ_Scada.Pages.StationPages.OP10
             this.Name = "PageOP10";
             this.Text = "OP10";
             this.TitleFillColor = System.Drawing.Color.Transparent;
+            this.Initialize += new System.EventHandler(this.PageOP10_Initialize);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PageOP10_FormClosing);
             this.Load += new System.EventHandler(this.Page_Load);
             this.uiPanel2.ResumeLayout(false);
@@ -165,5 +181,6 @@ namespace DWZ_Scada.Pages.StationPages.OP10
         private AutoTF.UserCtrls.ctrlOCV ctrlOCV1;
         private UIPanel uiPanel2;
         private UIButton uiButton1;
+        private UIButton uiButton2;
     }
 }
